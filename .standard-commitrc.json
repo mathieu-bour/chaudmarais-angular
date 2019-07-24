@@ -1,0 +1,15 @@
+{
+  "types": [
+    "feat",
+    "fix",
+    "chore",
+    "build",
+    "ci",
+    "docs",
+    "perf",
+    "refactor",
+    "style"
+  ],
+  "promptScope": "suggest",
+  "scopes": "staged"
+}
