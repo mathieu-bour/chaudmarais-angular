@@ -4,18 +4,19 @@ steps:
     entrypoint: 'yarn'
     args: ['install']
 
-  - id: 'ng:browser'
+  - id: 'ng:build'
     name: 'node:11-alpine'
     waitFor: ['yarn:install']
     entrypoint: 'yarn'
     args: ['run', 'build']
 
   - id: 'docker:build'
-    waitFor: ['ng:browser', 'ng:server']
+    waitFor: ['ng:build']
     name: 'gcr.io/cloud-builders/docker'
     args: ['build',
            '-t', 'eu.gcr.io/$PROJECT_ID/chaud-marais-landing:$SHORT_SHA',
            '.']
+
   - id: 'docker:push'
     waitFor: ['docker:build']
     name: 'gcr.io/cloud-builders/docker'
