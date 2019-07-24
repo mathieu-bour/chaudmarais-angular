@@ -9,7 +9,7 @@
   display: flex;
 
   @include for-phone-only {
-    right: 10vw;
+    right: 5vw;
   }
 
   .logo-handler {
@@ -20,7 +20,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
     }
 
     img {
@@ -30,8 +29,9 @@
       max-height: 100%;
 
       @include for-phone-only {
+        width: auto;
         padding: 0;
-        width: 70px;
+        margin: 5vw;
       }
     }
   }
@@ -42,7 +42,7 @@
     flex-direction: column;
 
     @include for-phone-only {
-      flex: 4;
+      flex: 5;
     }
 
     .title-handler {
@@ -62,7 +62,7 @@
         line-height: 1.4;
 
         @include for-phone-only {
-          font-size: 20px;
+          font-size: 16px;
         }
       }
     }
@@ -84,7 +84,7 @@
       justify-content: center;
 
       @include for-phone-only {
-        flex: 1;
+        flex: 2;
       }
 
       app-newsletter-form {
@@ -110,6 +110,10 @@
 
         fa-icon {
           font-size: 40px;
+
+          @include for-phone-only {
+            font-size: 20px;
+          }
         }
       }
     }
