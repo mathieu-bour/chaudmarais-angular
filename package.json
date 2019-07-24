@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "yarn run build:browser && yarn run build:server",
     "build:browser": "ng build --prod",
-    "build:server": "tsc -p tsconfig.server.json"
+    "build:server": "webpack --config src/webpack.config.js"
   },
   "private": true,
   "dependencies": {
@@ -37,8 +37,11 @@
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
     "protractor": "~5.4.0",
+    "ts-loader": "^6.0.4",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.4.3"
+    "typescript": "~3.4.3",
+    "webpack": "^4.37.0",
+    "webpack-cli": "^3.3.6"
   }
 }
