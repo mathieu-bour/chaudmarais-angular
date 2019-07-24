@@ -17,7 +17,7 @@
 
     @include for-phone-only {
       flex: 2;
-      display: flex;
+      padding: 16px;
       flex-direction: column;
       align-items: center;
     }
@@ -30,8 +30,9 @@
 
       @include for-phone-only {
         width: auto;
+        height: auto;
         padding: 0;
-        margin: 5vw;
+        margin: 0;
       }
     }
   }
@@ -53,7 +54,7 @@
       justify-content: center;
 
       @include for-phone-only {
-        flex: 1;
+        flex: 2;
       }
 
       h1 {
@@ -71,7 +72,7 @@
       flex: 2;
 
       @include for-phone-only {
-        flex: 4;
+        flex: 6;
         font-size: 12px;
       }
     }
