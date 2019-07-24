@@ -1,0 +1,9 @@
+<label for="email">s'inscrire à la newsletter</label>
+<input
+  id="email"
+  type="email"
+  placeholder="vous@email.com"
+  [disabled]="disabled"
+  (keydown.enter)="onEnter()"
+  [(ngModel)]="email"
+>

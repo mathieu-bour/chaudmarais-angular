@@ -1,0 +1,38 @@
+@import "../../../../scss/mixins";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  border: solid 2px #ff0000;
+
+  label {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    color: #ffffff;
+    font-family: 'Sharp Grotesk', Helvetica, sans-serif;
+    font-size: 40px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+    background-color: #ff0000;
+
+    @include for-phone-only {
+      font-size: 16px;
+    }
+  }
+
+  input {
+    flex: 1;
+    border: 0;
+    font-size: 24px;
+    text-align: center;
+
+    @include for-phone-only {
+      font-size: 16px;
+    }
+  }
+}
