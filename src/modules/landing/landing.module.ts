@@ -5,6 +5,7 @@ import {CountdownComponent} from './components/countdown/countdown.component';
 import {NewsletterFormComponent} from './components/newsletter-form/newsletter-form.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {FormsModule} from '@angular/forms';
   imports: [
     CommonModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ]
 })
 export class LandingModule {

@@ -1,0 +1,34 @@
+steps:
+  - id: 'yarn:install'
+    name: 'node:11-alpine'
+    entrypoint: 'yarn'
+    args: ['install']
+
+  - id: 'ng:browser'
+    name: 'node:11-alpine'
+    waitFor: ['yarn:install']
+    entrypoint: 'yarn'
+    args: ['run', 'build']
+
+  - id: 'docker:build'
+    waitFor: ['ng:browser', 'ng:server']
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['build',
+           '-t', 'eu.gcr.io/$PROJECT_ID/chaud-marais-landing:$SHORT_SHA',
+           '.']
+  - id: 'docker:push'
+    waitFor: ['docker:build']
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'eu.gcr.io/$PROJECT_ID/chaud-marais-landing:$SHORT_SHA']
+
+  - id: 'cloud-run:deploy'
+    waitFor: ['docker:push']
+    name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud beta run deploy chaud-marais-landing \
+          --platform=managed \
+          --image eu.gcr.io/$PROJECT_ID/chaud-marais-landing:$SHORT_SHA \
+          --region europe-west1

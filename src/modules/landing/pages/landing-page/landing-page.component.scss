@@ -8,6 +8,10 @@
   right: 0;
   display: flex;
 
+  @include for-phone-only {
+    right: 10vw;
+  }
+
   .logo-handler {
     flex: 4;
 
@@ -86,6 +90,22 @@
 
         @include for-phone-only {
           width: 100%;
+        }
+      }
+    }
+
+    .social-handler {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      a {
+        color: #000000;
+        margin: 0 8px;
+
+        fa-icon {
+          font-size: 40px;
         }
       }
     }

@@ -1,9 +1,10 @@
+@import "../../../../scss/variables";
 @import "../../../../scss/mixins";
 
 :host {
   display: flex;
   flex-direction: column;
-  border: solid 2px #ff0000;
+  border: solid 2px $red;
 
   label {
     flex: 1;
@@ -18,7 +19,7 @@
     font-weight: 700;
     line-height: 100%;
     text-align: center;
-    background-color: #ff0000;
+    background-color: $red;
 
     @include for-phone-only {
       font-size: 16px;

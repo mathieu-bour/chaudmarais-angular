@@ -19,9 +19,9 @@ export class NewsletterFormComponent implements OnInit {
   }
 
   onEnter() {
-    console.log(this.email);
     this.http.get(`${this.ZAPIER_HOOK}?email=${this.email}`).subscribe(response => {
-      this.email = 'Merci beaucoup !';
+      // this.email = 'Merci, on vous prépare des mails bien chauds...';
+      this.email = 'Merci !';
       this.disabled = true;
     });
   }
