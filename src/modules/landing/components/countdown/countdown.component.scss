@@ -58,6 +58,11 @@
       margin-top: 20px;
       font-size: 24px;
       font-weight: 900;
+
+      @include for-phone-only {
+        margin-top: 5px;
+        font-size: 12px;
+      }
     }
   }
 }
