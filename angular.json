@@ -28,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/fonts/sharpgrotesk/sharpgrotesk.scss",
+              "src/scss/sharpgrotesk.scss",
               "src/styles.scss"
             ],
             "scripts": []
