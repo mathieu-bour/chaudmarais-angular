@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "yarn run build:browser && yarn run build:server",
     "build:browser": "ng build --prod",
-    "build:server": "webpack --config src/webpack.config.js"
+    "build:server": "webpack --config src/webpack.config.js",
+    "serve::sr": "node dist/server.js"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +25,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@types/express": "^4.17.0",
     "express": "^4.17.1",
+    "express-http-to-https": "^1.1.4",
     "normalize.scss": "^0.1.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
