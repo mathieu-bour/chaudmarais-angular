@@ -1,0 +1,13 @@
+<img src="https://cdn.chaudmarais.fr/img/logo-w150.png" alt="Logo Chaudmarais">
+
+<button class="btn-red" (click)="onClick()">menu</button>
+
+<nav *ngIf="expanded">
+  <ul>
+    <li><a routerLink="/e-shop">e-shop</a></li>
+    <li><a routerLink="/campagne">campagne</a></li>
+    <li><a routerLink="/histoire">histoire</a></li>
+    <li><a routerLink="/panier">panier</a></li>
+    <li><a routerLink="/compte">compte</a></li>
+  </ul>
+</nav>

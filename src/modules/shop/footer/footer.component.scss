@@ -1,0 +1,30 @@
+@import "../../../scss/variables";
+
+:host {
+  display: block;
+  padding: 32px 32px 32px $sidebar-width;
+  background-color: $red;
+}
+
+h4 {
+  margin: 0 0 16px 0;
+  color: #ffffff;
+  font-style: italic;
+  font-weight: 900;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  line-height: 1.6;
+}
+
+a {
+  color: #ffffff;
+  font-weight: 400;
+  text-decoration: none;
+}

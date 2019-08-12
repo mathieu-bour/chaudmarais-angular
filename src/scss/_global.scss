@@ -1,3 +1,19 @@
+@import 'variables';
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,900i&display=swap');
+
 body {
-  font-family: 'Sharp Grotesk', Helvetica, sans-serif;
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+.btn-red {
+  padding: 0.2em 0.5em;
+  color: #ffffff;
+  font-style: italic;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: $red;
+  border: 0;
+  box-shadow: none;
 }
