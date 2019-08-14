@@ -6,6 +6,14 @@ body {
   font-size: 18px;
 }
 
+p {
+  margin-top: 0;
+}
+
+.red {
+  color: $red;
+}
+
 .btn-red {
   padding: 0.2em 0.5em;
   color: #ffffff;
@@ -20,8 +28,10 @@ body {
 
 .title-red {
   display: block;
+  margin: 0 0 32px 0;
   padding: 8px 32px;
   color: #ffffff;
+  font-size: 16px;
   font-style: italic;
   font-weight: 900;
   text-align: left;
@@ -29,10 +39,5 @@ body {
   background-color: $red;
   border: 0;
   box-shadow: none;
-  font-size: 16px;
-}
-
-.red {
-  color: $red;
 }
 

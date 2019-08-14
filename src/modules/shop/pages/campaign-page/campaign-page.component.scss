@@ -5,30 +5,31 @@ section {
   flex-direction: row;
 }
 
-.billion {
+img {
+  display: block;
+  width: 50%;
+  margin-right: 16px;
+}
+
+.stat {
   display: flex;
   flex-direction: row;
-}
+  margin-bottom: 16px;
 
-.number {
-  font-weight: 900;
-  font-style: italic;
-  color: $red;
-  font-size: 2em;
-  margin: 0 8px;
-  min-width: 1.4em;
-  text-align: center;
-}
+  .stat-number {
+    min-width: 50px;
+    margin-right: 16px;
+    color: $red;
+    font-size: 40px;
+    font-style: italic;
+    font-weight: 900;
+    line-height: 40px;
+    text-align: left;
+  }
 
-.accroche {
-  flex-grow: 1;
-  text-align: justify;
-  margin: 0 0 8px 0;
-}
-
-.text-side {
-  margin: 8px 0 0 8px;
-}
-img {
-  width: 50%;
+  .stat-text {
+    flex-grow: 1;
+    line-height: 20px;
+    text-align: justify;
+  }
 }

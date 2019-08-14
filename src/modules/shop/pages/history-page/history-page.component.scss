@@ -1,21 +1,14 @@
 @import '../../../../scss/_variables.scss';
 
-section {
-  width: 55%;
+aside, section {
+  width: 40%;
 }
 
-.product-wrapper {
-  display: flex;
-  flex-direction: row;
-}
-
-.elem {
-  flex-grow: 1;
-  padding-left: 32px;
+aside {
+  margin-right: 16px;
 }
 
 p {
-  margin: 0 0 16px 0;
   text-align: justify;
-  line-height: 1.6em;
+  line-height: 1.6;
 }

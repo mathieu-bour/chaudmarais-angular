@@ -6,6 +6,7 @@ import {LandingModule} from '../landing/landing.module';
 import {RouterModule} from '@angular/router';
 import {routes} from './app.routes';
 import {ShopModule} from '../shop/shop.module';
+import {APIModule} from '../api/api.module';
 
 @NgModule({
   declarations: [

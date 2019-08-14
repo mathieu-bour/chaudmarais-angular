@@ -28,6 +28,7 @@ app-footer {
 }
 
 .wrapper {
+  display: flex;
   padding: 32px 32px 32px 0;
   margin-left: $sidebar-width;
 }
