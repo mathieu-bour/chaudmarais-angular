@@ -15,5 +15,4 @@ export class SidebarComponent implements OnInit {
   onClick() {
     this.expanded = !this.expanded;
   }
-
 }

@@ -1,0 +1,23 @@
+section {
+  width: 55%;
+}
+
+.product-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.elem {
+  flex-grow: 1;
+  padding-left: 32px;
+}
+
+h1 {
+  margin-bottom: 16px;
+}
+
+p {
+  margin: 0 0 32px 0;
+  text-align: justify;
+  line-height: 1.6em;
+}

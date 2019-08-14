@@ -1,0 +1,34 @@
+@import '../../../../scss/variables';
+
+section {
+  display: flex;
+  flex-direction: row;
+}
+
+.billion {
+  display: flex;
+  flex-direction: row;
+}
+
+.number {
+  font-weight: 900;
+  font-style: italic;
+  color: $red;
+  font-size: 2em;
+  margin: 0 8px;
+  min-width: 1.4em;
+  text-align: center;
+}
+
+.accroche {
+  flex-grow: 1;
+  text-align: justify;
+  margin: 0 0 8px 0;
+}
+
+.text-side {
+  margin: 8px 0 0 8px;
+}
+img {
+  width: 50%;
+}

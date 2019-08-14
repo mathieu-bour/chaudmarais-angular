@@ -7,11 +7,16 @@ import { BannerComponent } from './components/banner/banner.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import {RouterModule} from '@angular/router';
 import { LegalPageComponent } from './pages/legal-page/legal-page.component';
+import { ThanksPageComponent } from './pages/thanks-page/thanks-page.component';
+import { ReturnPolicyPageComponent } from './pages/return-policy-page/return-policy-page.component';
+import { HistoryPageComponent } from './pages/history-page/history-page.component';
+import { CampaignPageComponent } from './pages/campaign-page/campaign-page.component';
+import { ProductViewPageComponent } from './pages/product-view-page/product-view-page.component';
 
 
 
 @NgModule({
-  declarations: [DefaultLayoutComponent, SidebarComponent, FooterComponent, BannerComponent, HomePageComponent, LegalPageComponent],
+  declarations: [DefaultLayoutComponent, SidebarComponent, FooterComponent, BannerComponent, HomePageComponent, LegalPageComponent, ThanksPageComponent, ReturnPolicyPageComponent, HistoryPageComponent, CampaignPageComponent, ProductViewPageComponent],
   imports: [
     CommonModule,
     RouterModule

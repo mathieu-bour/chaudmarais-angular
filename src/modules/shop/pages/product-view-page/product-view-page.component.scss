@@ -1,0 +1,78 @@
+@import '../../../../scss/variables';
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+sup {
+  font-size: 0.5em;
+}
+
+article {
+  padding-right: 16px;
+}
+
+.product {
+  display: flex;
+  flex-direction: row;
+}
+
+.container {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.taille {
+  border-width: 2px;
+  border-color: $red;
+  padding: 0.2em 0.5em;
+  color: $red;
+  font-style: italic;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: white;
+  box-shadow: none;
+  width: 8em;
+}
+
+.btn-red {
+  min-width: 8em;
+  margin-right: 16px;
+}
+
+.description {
+  margin-bottom: 8px;
+  margin-top: 16px;
+}
+
+.description>p {
+  margin: 0;
+}
+
+.price {
+  margin: 0;
+  padding: 0;
+  font-size: 3em;
+  font-style: italic;
+  color: red;
+}
+
+.product-name {
+  font-size: 2em;
+  margin: 0;
+  font-weight: 900;
+}
+
+.models {
+  padding: 16px 0;
+}
