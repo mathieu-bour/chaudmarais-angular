@@ -1,6 +1,5 @@
-<swiper [config]="{slidesPerView: 3.5, lazy: true, spaceBetween: 16}">
-  <div><img src="https://placehold.it/300x300" alt=""></div>
-  <div><img src="https://placehold.it/300x300" alt=""></div>
-  <div><img src="https://placehold.it/300x300" alt=""></div>
-  <div><img src="https://placehold.it/300x300" alt=""></div>
+<swiper [config]="{slidesPerView: 4.5, lazy: true, spaceBetween: 8}">
+  <div *ngFor="let image of images; let i = index">
+    <img [src]="image | thumb:500" alt="" (click)="onClick(i)">
+  </div>
 </swiper>

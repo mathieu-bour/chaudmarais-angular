@@ -24,25 +24,25 @@ export abstract class BaseClient<T> {
   }
 
   index(page: number = 0, perPage: number = 100) {
-    return this.http.get<PaginationResponse<T[]>>(`${environment.api}/${this.base}?page=${page}&perPage=${perPage}`)
+    return this.http.get<PaginationResponse<T[]>>(`${environment.api}${this.base}?page=${page}&perPage=${perPage}`)
       .toPromise()
       .then(response => this.unserialize<PaginationResponse<T[]>>(response));
   }
 
   post(data: T) {
-    return this.http.get<SuccessResponse<T>>(`${environment.api}/${this.base}`)
+    return this.http.get<SuccessResponse<T>>(`${environment.api}${this.base}`)
       .toPromise()
       .then(response => this.unserialize<SuccessResponse<T>>(response));
   }
 
   get(id: number | string) {
-    return this.http.get<SuccessResponse<T>>(`${environment.api}/${this.base}/${id}`)
+    return this.http.get<SuccessResponse<T>>(`${environment.api}${this.base}/${id}`)
       .toPromise()
       .then(response => this.unserialize<SuccessResponse<T>>(response));
   }
 
   patch(id: number | string, data: T) {
-    return this.http.patch<SuccessResponse<T>>(`${environment.api}/${this.base}/${id}`, data)
+    return this.http.patch<SuccessResponse<T>>(`${environment.api}${this.base}/${id}`, data)
       .toPromise()
       .then(response => this.unserialize<SuccessResponse<T>>(response));
   }

@@ -1,13 +1,22 @@
 @import '../../../../scss/variables';
 
+$preview-width: 400px;
+
+section {
+  display: flex;
+  margin-bottom: 8px;
+}
+
 .preview {
+  width: $preview-width;
+  margin-right: 16px;
+
   ngx-image-zoom {
     display: block;
-    margin-bottom: 32px;
   }
 
   ngx-image-zoom ::ng-deep .ngxImageZoomContainer > img {
-    width: 500px !important;
+    width: $preview-width !important;
   }
 }
 
@@ -16,8 +25,6 @@
   flex-direction: column;
   justify-content: flex-end;
   box-sizing: border-box;
-  height: 100%;
-  padding-bottom: 128px;
 
   .product {
     margin-bottom: 16px;

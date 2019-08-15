@@ -10,13 +10,11 @@ import {PaginationResponse} from '../../responses/pagination.response';
   providedIn: 'root'
 })
 export class ProductsClient extends BaseClient<Product> {
-
   constructor(protected http: HttpClient) {
     super(http, '/products');
   }
 
   getStocks(id: number) {
-    return this.http.get<PaginationResponse<Stock[]>>(`${environment.api}/products/${id}/stocks`)
-      .toPromise();
+    return this.http.get<PaginationResponse<Stock[]>>(`${environment.api}/products/${id}/stocks`).toPromise();
   }
 }

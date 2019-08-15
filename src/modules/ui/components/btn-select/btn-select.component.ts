@@ -35,6 +35,7 @@ export class BtnSelectComponent implements OnInit, AfterViewInit {
     this.ngModelInternal = newNgModel;
     this.ngModelChange.emit(this.ngModelInternal);
     this.setLabel();
+    this.open = false;
   }
 
   setLabel() {

@@ -1,9 +1,9 @@
-<app-default-layout>
-  <aside>
-    <img src="http://placehold.it/400x800" alt="Histoire">
-  </aside>
+<app-two-layout [width]="50" [leftWidth]="'300px'" [title]="'Histoire'">
+  <ng-container left>
+    <img src="https://cdn.chaudmarais.fr/img/anicet.jpg" alt="Histoire">
+  </ng-container>
 
-  <section>
+  <ng-container right>
     <p>
       Imaginée en 2019 par Anicet Pham, styliste formée à Paris, la marque Chaud Marais prend le sexe à pleines
       mains pour en faire un sujet jouissif.
@@ -20,5 +20,5 @@
     </p>
 
     <p class="red">Chez Chaud on ose, on aguiche, on provoque, on joue, on jouit.</p>
-  </section>
-</app-default-layout>
+  </ng-container>
+</app-two-layout>

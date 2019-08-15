@@ -6,6 +6,7 @@ import {ReturnPolicyPageComponent} from '../shop/pages/return-policy-page/return
 import {HistoryPageComponent} from '../shop/pages/history-page/history-page.component';
 import {CampaignPageComponent} from '../shop/pages/campaign-page/campaign-page.component';
 import {ProductViewPageComponent} from '../shop/pages/product-view-page/product-view-page.component';
+import {CartPageComponent} from '../shop/pages/cart-page/cart-page.component';
 
 export const routes: Routes = [
   {
@@ -33,7 +34,11 @@ export const routes: Routes = [
     component: CampaignPageComponent
   },
   {
-    path: 'product',
+    path: 'panier',
+    component: CartPageComponent
+  },
+  {
+    path: 'produits/:slugId',
     component: ProductViewPageComponent
   },
   {

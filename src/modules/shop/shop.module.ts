@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {DefaultLayoutComponent} from './layouts/default-layout/default-layout.component';
 import {SidebarComponent} from './components/sidebar/sidebar.component';
-import {FooterComponent} from './footer/footer.component';
+import {FooterComponent} from './components/footer/footer.component';
 import {BannerComponent} from './components/banner/banner.component';
 import {HomePageComponent} from './pages/home-page/home-page.component';
 import {RouterModule} from '@angular/router';
@@ -20,6 +20,8 @@ import {UiModule} from '../ui/ui.module';
 import {NgxImageZoomModule} from 'ngx-image-zoom';
 import {SwiperModule} from 'ngx-swiper-wrapper';
 import { ProductThumbnailsSwiperComponent } from './components/product-thumbnails-swiper/product-thumbnails-swiper.component';
+import { ProductPreviewComponent } from './components/product-preview/product-preview.component';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { ProductThumbnailsSwiperComponent } from './components/product-thumbnail
     ProductViewPageComponent,
     TwoLayoutComponent,
     SingleLayoutComponent,
-    ProductThumbnailsSwiperComponent
+    ProductThumbnailsSwiperComponent,
+    ProductPreviewComponent,
+    CartPageComponent
   ],
   imports: [
     CommonModule,

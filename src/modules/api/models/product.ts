@@ -4,5 +4,9 @@ export interface Product {
   name: string;
   slug: string;
   description: string;
+  image_first: string;
+  images: string[];
   order: number;
+  images_first: string[];
+  price: number;
 }

@@ -1,3 +1,9 @@
-<app-default-layout>
+<app-single-layout [width]="100">
   <app-banner></app-banner>
-</app-default-layout>
+
+  <section class="product-grid">
+    <app-product-preview
+      *ngFor="let product of products$ | async" [productId]="product.id">
+    </app-product-preview>
+  </section>
+</app-single-layout>

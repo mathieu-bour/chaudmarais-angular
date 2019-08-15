@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-product-thumbnails-swiper',
@@ -6,7 +6,8 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./product-thumbnails-swiper.component.scss']
 })
 export class ProductThumbnailsSwiperComponent implements OnInit {
-  @Input() productId: number;
+  @Input() images: string[];
+  @Output() imageIndex = new EventEmitter<number>();
 
   constructor() {
   }
@@ -14,4 +15,7 @@ export class ProductThumbnailsSwiperComponent implements OnInit {
   ngOnInit() {
   }
 
+  onClick(imageIndex: number) {
+    this.imageIndex.emit(imageIndex);
+  }
 }

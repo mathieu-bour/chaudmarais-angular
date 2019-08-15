@@ -1,0 +1,24 @@
+:host {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+swiper ::ng-deep {
+  img {
+    max-width: 100%;
+    cursor: pointer;
+  }
+
+  .swiper-button-prev, .swiper-button-next {
+    opacity: 0;
+    transition: all .2s ease;
+  }
+
+  &:hover {
+    .swiper-button-prev, .swiper-button-next {
+      opacity: 1;
+    }
+  }
+}
