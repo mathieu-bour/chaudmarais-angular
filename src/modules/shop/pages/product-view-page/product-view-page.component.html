@@ -1,50 +1,37 @@
-<app-default-layout>
-  <section class="product">
-    <article>
-      <img src="https://placehold.it/400x800" alt="Temp">
-    </article>
-    <article class="container">
-      <div class="product-description">
-        <p class="product-name">
-          Product Name
-        </p>
-        <p>
-          Product Type
-        </p>
-        <p class="price">
-          49.<sup>69</sup>€
-        </p>
-        <div class="description">
-          <p>
-            100 % coton bio
-          </p>
-          <p>
-            Conçu, dessinés et brodés en France
-          </p>
-          <p>
-            Coupe unisexe
-          </p>
-          <p class="models">Rime et Axel portent une taille M</p>
-        </div>
-      </div>
-      <div class="button-container">
-        <button class="btn-red" (click)="onClick()">taille</button>
+<app-two-layout [width]="70" [leftWidth]="'500px'">
+  <div left class="preview">
+    <ngx-image-zoom
+      [thumbImage]="'https://placehold.it/800x800'"
+      [fullImage]="'https://placehold.it/1200x1200'"
+      [zoomMode]="'hover'"
+      [enableLens]="true"
+      [circularLens]="true"
+      [isInsideStaticContainer]="true"
+    ></ngx-image-zoom>
 
-        <nav *ngIf="expanded">
-          <ul>
-            <li>
-              <button class="taille" (click)="changeSize('s')">taille s</button>
-            </li>
-            <li>
-              <button class="taille" (click)="changeSize('m')">taille m</button>
-            </li>
-            <li>
-              <button class="taille" (click)="changeSize('l')">taille l</button>
-            </li>
-          </ul>
-        </nav>
-        <button class="btn-red" (click)="addToCart()">Ajouter au panier</button>
+    <app-product-thumbnails-swiper></app-product-thumbnails-swiper>
+  </div>
+
+  <section right class="product-wrapper">
+    <div class="product">
+      <h1>{{ product.name }}</h1>
+      <h2>T-shirt</h2>
+      <div class="product-price">
+        {{ euros }}.<span>{{ cents }}</span>€
       </div>
-    </article>
+      <p [innerHTML]="product.description | replace | safe:'html' ">
+      </p>
+    </div>
+
+    <div class="cart-wrapper">
+      <app-btn-select
+        [placeholder]="'Taille'"
+        [prefix]="'Taille'"
+        [values]="stocksValues"
+        [(ngModel)]="currentStock">
+      </app-btn-select>
+
+      <button class="btn-red" (click)="addToCart()">Ajouter au panier</button>
+    </div>
   </section>
-</app-default-layout>
+</app-two-layout>

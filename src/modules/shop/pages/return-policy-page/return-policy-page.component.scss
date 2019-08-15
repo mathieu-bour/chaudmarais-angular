@@ -1,21 +1,22 @@
 @import '../../../../scss/variables';
 
-section {
-  width: 70%;
-}
-
-address {
-  display: inline-block;
-  padding: 16px;
-  border: 2px solid $red;
-  font-style: normal;
-  font-weight: 400;
-}
 
 p {
   text-align: justify;
 
   &:last-of-type {
     margin-bottom: 32px;
+  }
+}
+
+address {
+  display: block;
+
+  p {
+    display: inline-block;
+    padding: 16px;
+    border: 2px solid $red;
+    font-style: normal;
+    font-weight: 400;
   }
 }

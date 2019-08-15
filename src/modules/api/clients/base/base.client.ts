@@ -37,12 +37,14 @@ export abstract class BaseClient<T> {
 
   get(id: number | string) {
     return this.http.get<SuccessResponse<T>>(`${environment.api}/${this.base}/${id}`)
-      .pipe(map(response => this.unserialize<SuccessResponse<T>>(response)));
+      .toPromise()
+      .then(response => this.unserialize<SuccessResponse<T>>(response));
   }
 
   patch(id: number | string, data: T) {
     return this.http.patch<SuccessResponse<T>>(`${environment.api}/${this.base}/${id}`, data)
-      .pipe(map(response => this.unserialize<SuccessResponse<T>>(response)));
+      .toPromise()
+      .then(response => this.unserialize<SuccessResponse<T>>(response));
   }
 
 }

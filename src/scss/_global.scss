@@ -1,5 +1,5 @@
 @import 'variables';
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,900,900i&display=swap');
 
 body {
   font-family: 'Montserrat', Helvetica, sans-serif;
@@ -8,6 +8,7 @@ body {
 
 p {
   margin-top: 0;
+  margin-bottom: 8px;
 }
 
 .red {
@@ -22,11 +23,28 @@ p {
   text-align: center;
   text-transform: uppercase;
   background-color: $red;
-  border: 0;
+  border: solid 2px $red;
   box-shadow: none;
+
+  &:hover {
+    transition: all .2s;
+    @extend .btn-red-inv;
+  }
+}
+
+.btn-red-inv {
+  @extend .btn-red;
+  color: $red;
+  background-color: #fff;
+
+  &:hover {
+    color: #ffffff;
+    background-color: $red;
+  }
 }
 
 .title-red {
+  box-sizing: border-box;
   display: block;
   margin: 0 0 32px 0;
   padding: 8px 32px;

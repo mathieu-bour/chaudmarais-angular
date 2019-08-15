@@ -7,6 +7,7 @@ import {RouterModule} from '@angular/router';
 import {routes} from './app.routes';
 import {ShopModule} from '../shop/shop.module';
 import {APIModule} from '../api/api.module';
+import {NgxImageZoomModule} from 'ngx-image-zoom';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {APIModule} from '../api/api.module';
     BrowserModule,
     RouterModule.forRoot(routes),
     // LandingModule
-    ShopModule
+    ShopModule,
+    NgxImageZoomModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <button class="btn-red trigger" (click)="toggle()">
+    {{ prefix }}
+    {{ label }}
+    <span [ngStyle]="open ? {opacity: 1} : {}">v</span>
+  </button>
+
+  <div class="dropdown" [ngClass]="{open: open}">
+    <button
+      [ngClass]="value.value === ngModel ? 'btn-red' : 'btn-red-inv'"
+      *ngFor="let value of values"
+      (click)="ngModel = value.value"
+    >
+      {{ prefix }}
+      {{ value.label }}
+    </button>
+  </div>
+</div>

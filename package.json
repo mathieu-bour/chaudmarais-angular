@@ -26,8 +26,11 @@
     "@types/express": "^4.17.0",
     "express": "^4.17.1",
     "express-http-to-https": "^1.1.4",
+    "ngx-image-zoom": "^0.4.1",
+    "ngx-swiper-wrapper": "^8.0.2",
     "normalize.scss": "^0.1.0",
     "rxjs": "~6.4.0",
+    "safe-pipe": "^0.3.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },

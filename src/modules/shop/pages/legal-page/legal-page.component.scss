@@ -1,19 +1,15 @@
-section {
-  flex-direction: column;
+h2 {
+  margin: 0 0 8px 0;
+  color: red;
+  font-style: italic;
+  text-align: center;
 }
 
-h1 {
-  display: block;
-  font-size: 16px;
-  padding: 8px 32px;
-  text-align: left;
-}
-
-p {
-  padding: 0;
-  margin: 0;
-  text-align: justify;
-  line-height: 1.6;
+h3 {
+  margin: 0 0 32px 0;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
 }
 
 b {
@@ -21,14 +17,8 @@ b {
   margin: 32px 0 16px 0;
 }
 
-.centered {
-  text-align: center;
-  margin: 0 0 32px 0;
-}
-
-.conditions {
-  text-align: center;
-  font-style: italic;
-  color: red;
-  margin: 32px 0 0 0;
+p {
+  padding: 0;
+  text-align: justify;
+  line-height: 1.6;
 }

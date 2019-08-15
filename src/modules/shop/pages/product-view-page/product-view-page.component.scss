@@ -1,78 +1,66 @@
 @import '../../../../scss/variables';
 
-p {
-  margin: 0;
+.preview {
+  ngx-image-zoom {
+    display: block;
+    margin-bottom: 32px;
+  }
+
+  ngx-image-zoom ::ng-deep .ngxImageZoomContainer > img {
+    width: 500px !important;
+  }
 }
 
-ul {
-  margin: 0;
-  padding: 0;
+.product-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  height: 100%;
+  padding-bottom: 128px;
+
+  .product {
+    margin-bottom: 16px;
+
+    h1 {
+      font-size: 40px;
+      margin: 0;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    h2 {
+      margin: 0 0 32px;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .product-price {
+      margin-bottom: 32px;
+      color: $red;
+      font-size: 60px;
+      font-style: italic;
+      font-weight: 900;
+      line-height: 1;
+
+      span {
+        font-size: 0.6em;
+        line-height: 1;
+        vertical-align: top;
+      }
+    }
+
+    p {
+      line-height: 1.6;
+    }
+  }
 }
 
-li {
-  list-style: none;
-}
-
-sup {
-  font-size: 0.5em;
-}
-
-article {
-  padding-right: 16px;
-}
-
-.product {
+.cart-wrapper {
   display: flex;
   flex-direction: row;
-}
 
-.container {
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column;
-}
-.taille {
-  border-width: 2px;
-  border-color: $red;
-  padding: 0.2em 0.5em;
-  color: $red;
-  font-style: italic;
-  font-weight: 900;
-  text-align: center;
-  text-transform: uppercase;
-  background-color: white;
-  box-shadow: none;
-  width: 8em;
-}
-
-.btn-red {
-  min-width: 8em;
-  margin-right: 16px;
-}
-
-.description {
-  margin-bottom: 8px;
-  margin-top: 16px;
-}
-
-.description>p {
-  margin: 0;
-}
-
-.price {
-  margin: 0;
-  padding: 0;
-  font-size: 3em;
-  font-style: italic;
-  color: red;
-}
-
-.product-name {
-  font-size: 2em;
-  margin: 0;
-  font-weight: 900;
-}
-
-.models {
-  padding: 16px 0;
+  > * {
+    margin-right: 8px;
+  }
 }

@@ -13,8 +13,13 @@ import {HistoryPageComponent} from './pages/history-page/history-page.component'
 import {CampaignPageComponent} from './pages/campaign-page/campaign-page.component';
 import {ProductViewPageComponent} from './pages/product-view-page/product-view-page.component';
 import {APIModule} from '../api/api.module';
-import { TwoLayoutComponent } from './layouts/two-layout/two-layout.component';
-import { SingleLayoutComponent } from './layouts/single-layout/single-layout.component';
+import {TwoLayoutComponent} from './layouts/two-layout/two-layout.component';
+import {SingleLayoutComponent} from './layouts/single-layout/single-layout.component';
+import {UtilsModule} from '../utils/utils.module';
+import {UiModule} from '../ui/ui.module';
+import {NgxImageZoomModule} from 'ngx-image-zoom';
+import {SwiperModule} from 'ngx-swiper-wrapper';
+import { ProductThumbnailsSwiperComponent } from './components/product-thumbnails-swiper/product-thumbnails-swiper.component';
 
 
 @NgModule({
@@ -31,12 +36,17 @@ import { SingleLayoutComponent } from './layouts/single-layout/single-layout.com
     CampaignPageComponent,
     ProductViewPageComponent,
     TwoLayoutComponent,
-    SingleLayoutComponent
+    SingleLayoutComponent,
+    ProductThumbnailsSwiperComponent
   ],
   imports: [
     CommonModule,
     APIModule,
-    RouterModule
+    RouterModule,
+    UtilsModule,
+    UiModule,
+    NgxImageZoomModule,
+    SwiperModule
   ]
 })
 export class ShopModule {

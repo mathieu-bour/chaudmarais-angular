@@ -1,1 +1,7 @@
-<p>single-layout works!</p>
+<app-default-layout>
+  <h1 class="title-red" *ngIf="title" [ngStyle]="{width: width}">{{ title}}</h1>
+
+  <div class="wrapper" [ngStyle]="{width: width}">
+    <ng-content></ng-content>
+  </div>
+</app-default-layout>

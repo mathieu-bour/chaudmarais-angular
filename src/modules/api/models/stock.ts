@@ -1,6 +1,7 @@
 export interface Stock {
   id: number;
   price: number;
+  size: string;
   inventory: number;
   available_inventory: number;
   product_id: number;
