@@ -5,6 +5,7 @@ import {SafePipe, SafePipeModule} from 'safe-pipe';
 import { EurosPipe } from './pipes/euros/euros.pipe';
 import { CentsPipe } from './pipes/cents/cents.pipe';
 import { ThumbPipe } from './pipes/thumb/thumb.pipe';
+import { PricePipe } from './pipes/price/price.pipe';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { ThumbPipe } from './pipes/thumb/thumb.pipe';
     ReplacePipe,
     EurosPipe,
     CentsPipe,
-    ThumbPipe
+    ThumbPipe,
+    PricePipe
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { ThumbPipe } from './pipes/thumb/thumb.pipe';
     SafePipe,
     CentsPipe,
     EurosPipe,
-    ThumbPipe
+    ThumbPipe,
+    PricePipe
   ]
 })
 export class UtilsModule {

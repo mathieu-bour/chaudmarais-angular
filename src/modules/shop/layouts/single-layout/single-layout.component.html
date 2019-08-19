@@ -1,5 +1,8 @@
 <app-default-layout>
-  <h1 class="title-red" *ngIf="title" [ngStyle]="{width: width}">{{ title}}</h1>
+  <div class="title-red" *ngIf="image || title" [ngStyle]="{width: width}">
+    <img *ngIf="image" src="{{image}}" alt="Title icon">
+    <h1 *ngIf="title">{{ title}}</h1>
+  </div>
 
   <div class="wrapper" [ngStyle]="{width: width}">
     <ng-content></ng-content>

@@ -6,6 +6,8 @@ import {
   GetProducts,
   GetProductStocks,
   GetStock,
+  RemoveFromCart,
+  SetCartQuantity,
   SetCurrentProduct,
   SetCurrentProductId,
   SetCurrentStock,
@@ -15,7 +17,7 @@ import {ProductsClient} from '../../../api/clients/products/products.client';
 import {Product} from '../../../api/models/product';
 import {StocksClient} from '../../../api/clients/stocks/stocks.client';
 import {Stock} from '../../../api/models/stock';
-import {append, patch, updateItem} from '@ngxs/store/operators';
+import {append, patch, removeItem, updateItem} from '@ngxs/store/operators';
 
 type ShopStateContext = StateContext<ShopStateModel>;
 
@@ -27,49 +29,7 @@ type ShopStateContext = StateContext<ShopStateModel>;
     currentProduct: null,
     currentProductStocks: [],
     currentStock: null,
-    cart: [
-      {
-        quantity: 1,
-        stock: {
-          id: 1,
-          price: 4969,
-          size: 'S',
-          inventory: 10,
-          available_inventory: 10,
-          product_id: 1,
-          created_at: new Date('2019-08-15T22:42:11+00:00'),
-          updated_at: new Date('2019-08-15T22:42:11+00:00')
-        },
-        product: {
-          id: 1,
-          enabled: true,
-          name: '(Mind)Blowing',
-          slug: 'mindblowing',
-          description: '100 % coton bio\nConçu, dessinés et brodés en France\nCoupe unisexe\n\nRime et Axel portent une taille M',
-          image_first: 'https://cdn.chaudmarais.fr/img/products/normalized/1_male-top.jpg',
-          images: [
-            'https://cdn.chaudmarais.fr/img/products/normalized/1_male-front.jpg',
-            'https://cdn.chaudmarais.fr/img/products/normalized/1_female-top.jpg',
-            'https://cdn.chaudmarais.fr/img/products/normalized/1_male-3_4.jpg',
-            'https://cdn.chaudmarais.fr/img/products/normalized/1_female-3_4.jpg',
-            'https://cdn.chaudmarais.fr/img/products/normalized/common_male-back.jpg',
-            'https://cdn.chaudmarais.fr/img/products/normalized/common_female-back.jpg'
-          ],
-          order: 0,
-          created_at: new Date('2019-08-15T22:42:11+00:00'),
-          updated_at: new Date('2019-08-15T22:42:11+00:00'),
-          images_first: [
-            'https://cdn.chaudmarais.fr/img/products/normalized/1_male-top.jpg',
-            'https://cdn.chaudmarais.fr/img/products/normalized/1_female-top.jpg',
-            'https://cdn.chaudmarais.fr/img/products/normalized/1_male-3_4.jpg',
-            'https://cdn.chaudmarais.fr/img/products/normalized/1_female-3_4.jpg',
-            'https://cdn.chaudmarais.fr/img/products/normalized/common_male-back.jpg',
-            'https://cdn.chaudmarais.fr/img/products/normalized/common_female-back.jpg'
-          ],
-          price: 4969
-        }
-      }
-    ],
+    cart: [],
   }
 })
 export class ShopState {
@@ -181,29 +141,36 @@ export class ShopState {
     });
   }
 
+  @Action(SetCartQuantity)
+  setCartQuantity(ctx: ShopStateContext, {stock, product, quantity}: SetCartQuantity) {
+    const search = line => line.stock.id === stock.id;
+
+    if (quantity === 0) {
+      ctx.setState(patch({
+        cart: removeItem(search)
+      }));
+    } else if (ctx.getState().cart.findIndex(search) !== -1) {
+      ctx.setState(patch({
+        cart: updateItem(search, {quantity, stock, product})
+      }));
+    } else {
+      ctx.setState(patch({
+        cart: append([{quantity, stock, product}])
+      }));
+    }
+  }
+
   @Action(AddToCart)
   addToCart(ctx: ShopStateContext, {stock, product}: AddToCart) {
     const index = ctx.getState().cart.findIndex(line => line.stock.id === stock.id);
-    const newLine = {
-      quantity: index !== -1 ? ctx.getState().cart[index].quantity + 1 : 1,
-      stock,
-      product
-    };
+    const quantity = index !== -1 ? ctx.getState().cart[index].quantity + 1 : 1;
 
-    console.log(newLine, index);
+    return ctx.dispatch(new SetCartQuantity(stock, product, quantity));
+  }
 
-    if (index === -1) {
-      ctx.setState(
-        patch({
-          cart: append([newLine])
-        })
-      );
-    } else {
-      ctx.setState(
-        patch({
-          cart: updateItem(line => line.stock.id === stock.id, newLine)
-        })
-      );
-    }
+  @Action(RemoveFromCart)
+  removeFromCart(ctx: ShopStateContext, {stock}: RemoveFromCart) {
+    return ctx.dispatch(new SetCartQuantity(stock, null, 0));
+
   }
 }

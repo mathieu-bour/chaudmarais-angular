@@ -22,6 +22,7 @@ import {SwiperModule} from 'ngx-swiper-wrapper';
 import { ProductThumbnailsSwiperComponent } from './components/product-thumbnails-swiper/product-thumbnails-swiper.component';
 import { ProductPreviewComponent } from './components/product-preview/product-preview.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
+import { CartElementComponent } from './components/cart-element/cart-element.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { CartPageComponent } from './pages/cart-page/cart-page.component';
     SingleLayoutComponent,
     ProductThumbnailsSwiperComponent,
     ProductPreviewComponent,
-    CartPageComponent
+    CartPageComponent,
+    CartElementComponent
   ],
   imports: [
     CommonModule,

@@ -1,9 +1,20 @@
-<app-single-layout [width]="70" [title]="'Panier'">
-  <table>
-    <tr *ngFor="let item of cart$ | async">
-      <td>{{ item.product.name }}</td>
-      <td>{{ item.quantity }}</td>
-      <td>{{ item.stock.size }}</td>
-    </tr>
-  </table>
+<app-single-layout [width]="70" [image]="'https://cdn.chaudmarais.fr/img/icons/cart.svg'">
+  <div class="container">
+    <div class="cart">
+      <h1 class="title-red">panier</h1>
+      <div class="cart-list">
+        <div *ngIf="(cart$ | async).length === 0">Désolé, votre panier est vide !</div>
+        <app-cart-element *ngFor="let item of cart$ | async" [cartItem]="item"></app-cart-element>
+      </div>
+    </div>
+    <div class="total">
+      <h1 class="title-red">total</h1>
+      <div class="cart-list">
+        <div>Sous total: {{subtotal$ | async | price}}</div>
+        <div>Frais de port: {{shipping$ | async | price}}</div>
+        <div>Total: {{total$ | async | price}}</div>
+        <button (click)="toBePayed()"class="btn-red">Payer</button>
+      </div>
+    </div>
+  </div>
 </app-single-layout>

@@ -1,4 +1,16 @@
+@import "../../../../scss/variables";
+
 .wrapper {
   display: flex;
   flex-direction: column;
+}
+
+img {
+  margin-left: 0;
+  max-width: 30px;
+  background-color: $red;
+}
+
+.title-red {
+  padding-left: 16px;
 }
