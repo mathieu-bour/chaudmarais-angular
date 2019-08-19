@@ -1,1 +1,9 @@
-<app-single-layout [width]="70" [title]="'Panier'"></app-single-layout>
+<app-single-layout [width]="70" [title]="'Panier'">
+  <table>
+    <tr *ngFor="let item of cart$ | async">
+      <td>{{ item.product.name }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.stock.size }}</td>
+    </tr>
+  </table>
+</app-single-layout>

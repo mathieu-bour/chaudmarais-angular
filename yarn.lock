@@ -255,6 +255,13 @@
   dependencies:
     tslib "^1.9.0"
 
+"@ngxs/storage-plugin@^3.5.0":
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/@ngxs/storage-plugin/-/storage-plugin-3.5.0.tgz#2ee74378961b2cfb4860e49a7567e7161a23c70a"
+  integrity sha512-L89w0TqWeieTclomqf3kYSP/RDpNywaUACWAATUB6xG4O9RHZYj6Z+RFKnXF/KaodBu4ggk6n58SlujJxze4Xg==
+  dependencies:
+    tslib "^1.9.0"
+
 "@ngxs/store@^3.5.0":
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/@ngxs/store/-/store-3.5.0.tgz#d498a5b05e3a31f851adcbf379707564026ed0c6"

@@ -10,6 +10,7 @@ import {NgxsModule} from '@ngxs/store';
 import {ShopState} from '../shop/states/shop/shop.state';
 import {environment} from '../../environments/environment';
 import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
+import {NgxsStoragePluginModule} from '@ngxs/storage-plugin';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
     NgxsModule.forRoot([
       ShopState
     ], {developmentMode: !environment.production}),
-    NgxsReduxDevtoolsPluginModule.forRoot()
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsStoragePluginModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

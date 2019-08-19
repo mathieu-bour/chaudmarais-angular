@@ -7,6 +7,8 @@ export interface Product {
   image_first: string;
   images: string[];
   order: number;
+  created_at: Date;
+  updated_at: Date;
   images_first: string[];
   price: number;
 }

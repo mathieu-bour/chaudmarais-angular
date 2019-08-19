@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Select} from '@ngxs/store';
+import {Observable} from 'rxjs';
+import {Cart} from '../../states/shop/shop.state.model';
 
 @Component({
   selector: 'app-cart-page',
@@ -6,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-page.component.scss']
 })
 export class CartPageComponent implements OnInit {
+  @Select((store => store.shop.cart)) cart$: Observable<Cart>;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

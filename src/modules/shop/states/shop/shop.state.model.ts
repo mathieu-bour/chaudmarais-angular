@@ -1,6 +1,14 @@
 import {Stock} from '../../../api/models/stock';
 import {Product} from '../../../api/models/product';
 
+export interface CartItem {
+  quantity: number;
+  stock: Stock;
+  product: Product;
+}
+
+export type Cart = CartItem[];
+
 export interface ShopStateModel {
   // Cache
   products: Product[];
@@ -10,5 +18,5 @@ export interface ShopStateModel {
   currentProductStocks?: Stock[];
   currentStock?: Stock;
 
-  cart: { quantity: number, stock: Stock, product: Product }[];
+  cart: Cart;
 }

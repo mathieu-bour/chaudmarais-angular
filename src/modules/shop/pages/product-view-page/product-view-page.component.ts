@@ -54,17 +54,18 @@ export class ProductViewPageComponent implements OnInit {
     this.frozen = false;
   }
 
-  onAddToCart() {
+  async onAddToCart() {
     if (this.frozen) {
       return;
     }
 
-    this.store
+    await this.store
       .dispatch(new AddToCart(
         this.store.snapshot().shop.currentStock,
         this.store.snapshot().shop.currentProduct
       ))
-      .toPromise()
-      .then(() => this.frozen = true);
+      .toPromise();
+
+    this.frozen = true;
   }
 }
