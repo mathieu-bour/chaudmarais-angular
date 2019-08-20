@@ -7,6 +7,7 @@ import {HistoryPageComponent} from '../shop/pages/history-page/history-page.comp
 import {CampaignPageComponent} from '../shop/pages/campaign-page/campaign-page.component';
 import {ProductViewPageComponent} from '../shop/pages/product-view-page/product-view-page.component';
 import {CartPageComponent} from '../shop/pages/cart-page/cart-page.component';
+import {AddressesPageComponent} from '../account/pages/addresses-page/addresses-page.component';
 
 export const routes: Routes = [
   {
@@ -40,6 +41,10 @@ export const routes: Routes = [
   {
     path: 'produits/:slugId',
     component: ProductViewPageComponent
+  },
+  {
+    path: 'compte/adresses',
+    component: AddressesPageComponent
   },
   {
     path: '**',

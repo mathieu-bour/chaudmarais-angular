@@ -23,7 +23,6 @@ export class CartElementComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.cartItem);
     this.stocks$ = this.store.select(state => state.shop.stocks)
       .pipe(
         map((allStocks: Stock[]) => {

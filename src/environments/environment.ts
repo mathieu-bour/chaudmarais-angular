@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: 'https://api.chaudmarais.fr'
+  api: 'http://localhost:8080'
 };
 
 /*

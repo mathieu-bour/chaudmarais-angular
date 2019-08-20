@@ -1,0 +1,15 @@
+@import "../../../../scss/variables";
+
+:host {
+  flex-grow: 1;
+}
+
+.card-header ::ng-deep [card-title] {
+  width: 100%;
+  margin: 0 !important;
+}
+
+.card-content {
+  padding: 16px;
+  border: $red solid 2px;
+}

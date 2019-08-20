@@ -1,4 +1,5 @@
 <img [src]="cartItem.product.image_first | thumb: 100" alt="">
+
 <article>
   <div class="product-line">
     <h3>{{cartItem.product.name}}</h3>
@@ -7,7 +8,8 @@
     <img (click)="onQuantityChange(0)" src="https://cdn.chaudmarais.fr/img/icons/cancel.svg"
          alt="Supprimer cet article du panier">
   </div>
-  <div>
+
+  <div class="actions">
     <app-btn-select
       [placeholder]="'Taille'"
       [prefix]="'Taille'"
@@ -15,6 +17,7 @@
       [ngModel]="cartItem.stock"
       (ngModelChange)="onStockChange($event)"
     ></app-btn-select>
+
     <app-btn-select
       [placeholder]="'Qté'"
       [prefix]="'qté'"

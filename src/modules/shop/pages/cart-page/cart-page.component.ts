@@ -11,9 +11,9 @@ import {map} from 'rxjs/operators';
 })
 export class CartPageComponent implements OnInit {
   @Select(store => store.shop.cart) cart$: Observable<Cart>;
+
   @Select(store => store.shop.cart.reduce((sum, line) => sum + line.stock.price * line.quantity, 0))
   subtotal$: Observable<number>;
-
   shipping$ = of(630);
 
   total$ = combineLatest(this.subtotal$, this.shipping$)

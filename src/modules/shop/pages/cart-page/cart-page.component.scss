@@ -1,35 +1,17 @@
 @import '../../../../scss/variables';
 
-h1 {
-  margin-bottom: 0;
-  padding-left: 16px;
-  font-size: 1.2em;
-}
-
-app-cart-element {
-  margin-top: 0;
-  padding: 8px;
-}
-.cart {
-  width: 70%;
-  margin-right: 32px;
-}
-
-.cart-list {
-  border: $red solid 2px;
-  border-top-width: 0;
-  padding: 8px;
-}
-
 .container {
   display: flex;
   flex-direction: row;
 }
 
-.total {
-  flex-grow: 1;
+.cart {
+  width: 70%;
+  margin-right: 32px;
+}
 
-  div {
+.total ::ng-deep {
+  .line {
     margin-bottom: 32px;
     font-size: 20px;
   }

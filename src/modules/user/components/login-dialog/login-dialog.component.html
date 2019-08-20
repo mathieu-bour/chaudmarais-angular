@@ -1,0 +1,24 @@
+<div class="title-red">
+  <img class="title-red-icon" src="https://cdn.chaudmarais.fr/img/icons/user.svg" alt="">
+</div>
+
+<form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
+  <div *ngIf="error" class="form-error">
+    Identifiants incorrects, veuillez ré-essayer
+  </div>
+
+  <fieldset>
+    <label for="login-email">E-mail :</label>
+    <input type="email" id="login-email" formControlName="email">
+  </fieldset>
+
+  <fieldset>
+    <label for="login-password">Mot de passe :</label>
+    <input type="password" id="login-password" formControlName="password">
+    <small class="password-forgotten">mot de passe oublié</small>
+  </fieldset>
+
+  <button type="submit" class="btn-red">Connexion</button>
+  <button type="button" class="btn-red">Nouveau compte</button>
+</form>
+

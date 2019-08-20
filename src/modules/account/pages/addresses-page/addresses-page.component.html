@@ -1,0 +1,9 @@
+<app-two-layout [title]="'Adresses'">
+  <ng-container left>
+    <table>
+      <tr *ngFor="let address of addresses$ | async">
+        <td>{{ address.line1 }}</td>
+      </tr>
+    </table>
+  </ng-container>
+</app-two-layout>

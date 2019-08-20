@@ -1,14 +1,32 @@
 @import 'variables';
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900,900i&display=swap');
 
+
 body {
   font-family: 'Montserrat', Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: $base-font-size;
 }
 
 p {
   margin-top: 0;
   margin-bottom: 8px;
+}
+
+label {
+  display: block;
+  margin: 0 0 8px 0;
+  font-size: $base-font-size;
+}
+input[type=text], input[type=email], input[type=password] {
+  display: block;
+  padding: 0.4em 0.5em;
+  font-size: $base-font-size;
+  border: solid 2px $red;
+}
+fieldset {
+  margin: 0 0 16px;
+  padding: 0;
+  border: 0;
 }
 
 .red {
@@ -57,5 +75,9 @@ p {
   background-color: $red;
   border: 0;
   box-shadow: none;
+
+  .title-red-icon {
+    height: 1em;
+  }
 }
 
