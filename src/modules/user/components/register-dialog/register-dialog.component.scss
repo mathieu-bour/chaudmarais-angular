@@ -1,0 +1,31 @@
+.title-red {
+  font-size: 40px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+  margin-bottom: 16px;
+  padding: 0 32px;
+  align-items: center;
+
+  fieldset, input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .password-forgotten:hover {
+    text-decoration: underline;
+  }
+
+  .btn-red {
+    margin-bottom: 16px;
+    font-size: 24px;
+  }
+}
+
+.form-error {
+  width: 100%;
+  margin-bottom: 16px;
+}

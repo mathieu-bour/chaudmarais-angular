@@ -6,4 +6,29 @@
       </tr>
     </table>
   </ng-container>
+
+  <ng-container right>
+    <h3>Ajouter une adresse:</h3>
+    <form [formGroup]="newAddress" (ngSubmit)="addAddress()">
+      <label>Nom:
+        <input type="text" formControlName="name" placeholder="Votre nom">
+      </label>
+      <label>Rue:
+        <input type="text" formControlName="line1" placeholder="n°, rue">
+      </label>
+      <label>
+        <input type="text" formControlName="line2" placeholder="Complément d'adresse">
+      </label>
+      <label>Ville:
+        <input type="text" formControlName="city" placeholder="Ville">
+      </label>
+      <label>
+        <input type="text" formControlName="postCode" placeholder="Code Postal">
+      </label>
+      <label>
+        <input type="text" formControlName="country" placeholder="Pays">
+      </label>
+      <button type="submit" [disabled]="!newAddress.valid">Submit</button>
+    </form>
+  </ng-container>
 </app-two-layout>

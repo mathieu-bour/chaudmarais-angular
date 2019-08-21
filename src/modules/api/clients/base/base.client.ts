@@ -29,8 +29,8 @@ export abstract class BaseClient<T> {
       .then(response => this.unserialize<PaginationResponse<T[]>>(response));
   }
 
-  post(data: T) {
-    return this.http.get<SuccessResponse<T>>(`${environment.api}${this.base}`)
+  post(data: any) {
+    return this.http.post<SuccessResponse<T>>(`${environment.api}${this.base}`, data)
       .toPromise()
       .then(response => this.unserialize<SuccessResponse<T>>(response));
   }
@@ -41,7 +41,7 @@ export abstract class BaseClient<T> {
       .then(response => this.unserialize<SuccessResponse<T>>(response));
   }
 
-  patch(id: number | string, data: T) {
+  patch(id: number | string, data: any) {
     return this.http.patch<SuccessResponse<T>>(`${environment.api}${this.base}/${id}`, data)
       .toPromise()
       .then(response => this.unserialize<SuccessResponse<T>>(response));

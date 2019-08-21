@@ -1,7 +1,9 @@
 import {Action, Selector, State, Store} from '@ngxs/store';
 import {CacheStateContext, CacheStateModel} from './cache.state.model';
-import {GetUserAddresses} from './actions/addresses.actions';
+import {AddNewAddress, GetUserAddresses} from './actions/addresses.actions';
 import {UsersClient} from '../../clients/users/users.client';
+import {AddressesClient} from '../../clients/addresses/addresses.client';
+import {append, patch} from '@ngxs/store/operators';
 
 @State<CacheStateModel>({
   name: 'cache',
@@ -12,8 +14,15 @@ import {UsersClient} from '../../clients/users/users.client';
 export class CacheState {
   constructor(
     private store: Store,
-    private usersClient: UsersClient
+    private usersClient: UsersClient,
+    private addressesClient: AddressesClient
   ) {
+  }
+
+  @Action(AddNewAddress)
+  async addNewAddress(ctx: CacheStateContext, {userId, name, line1, line2, postalCode, city, country}: AddNewAddress) {
+    await this.addressesClient.post({user_id: userId, name, line1, line2, postal_code: postalCode, city, country});
+    return ctx.dispatch(new GetUserAddresses(userId));
   }
 
   @Action(GetUserAddresses)

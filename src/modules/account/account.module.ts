@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AddressesPageComponent } from './pages/addresses-page/addresses-page.component';
 import {UIModule} from '../ui/ui.module';
 import {APIModule} from '../api/api.module';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import {APIModule} from '../api/api.module';
   imports: [
     CommonModule,
     APIModule,
-    UIModule
+    UIModule,
+    ReactiveFormsModule
   ]
 })
 export class AccountModule { }

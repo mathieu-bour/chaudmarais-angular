@@ -1,6 +1,6 @@
 import {Action, Selector, State, StateContext} from '@ngxs/store';
 import {AuthStateModel} from './auth.state.model';
-import {GetLoggedUser, Login} from './auth.state.actions';
+import {GetLoggedUser, Login, Logout} from './auth.state.actions';
 import {AuthClient} from '../../clients/auth/auth.client';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {UsersClient} from '../../clients/users/users.client';
@@ -26,6 +26,11 @@ export class AuthState {
   }
 
   @Selector()
+  static isLogged(state: AuthStateModel) {
+    return state.token !== null;
+  }
+
+  @Selector()
   static loggedUser(state: AuthStateModel) {
     return state.user;
   }
@@ -42,6 +47,15 @@ export class AuthState {
     });
 
     return ctx.dispatch(new GetLoggedUser());
+  }
+
+  @Action(Logout)
+  async logout(ctx: AuthStateContext) {
+    ctx.patchState({
+      token: null,
+      token_payload: null,
+      user: null
+    });
   }
 
   @Action(GetLoggedUser)

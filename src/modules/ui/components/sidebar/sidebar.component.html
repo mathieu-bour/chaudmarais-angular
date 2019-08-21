@@ -9,5 +9,6 @@
     <li><a routerLink="/histoire">histoire</a></li>
     <li><a routerLink="/panier">panier</a></li>
     <li><a (click)="onAccountClick($event)">compte</a></li>
+    <li *ngIf="isLogged$ | async"><a (click)="logOut()">Log Out</a></li>
   </ul>
 </nav>
