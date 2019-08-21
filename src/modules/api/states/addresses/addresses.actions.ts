@@ -1,3 +1,12 @@
+import {Address} from '../../models/address';
+
+export class CacheAddresses {
+  static readonly type = '[Addresses API] CacheAddresses';
+
+  constructor(public addresses: Address[]) {
+  }
+}
+
 export class GetUserAddresses {
   static readonly type = '[Users API] GetUserAddresses';
 
@@ -5,8 +14,8 @@ export class GetUserAddresses {
   }
 }
 
-export class AddNewAddress {
-  static readonly type = '[Users API] AddNewAddress';
+export class PostAddress {
+  static readonly type = '[Addresses API] PostAddress';
 
   constructor(
     public userId: number,

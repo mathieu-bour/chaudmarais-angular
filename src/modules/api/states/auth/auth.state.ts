@@ -4,6 +4,8 @@ import {GetLoggedUser, Login, Logout} from './auth.state.actions';
 import {AuthClient} from '../../clients/auth/auth.client';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {UsersClient} from '../../clients/users/users.client';
+import {AddressesState} from '../addresses/addresses.state';
+import {Address} from '../../models/address';
 
 type AuthStateContext = StateContext<AuthStateModel>;
 
@@ -33,6 +35,11 @@ export class AuthState {
   @Selector()
   static loggedUser(state: AuthStateModel) {
     return state.user;
+  }
+
+  @Selector([AddressesState])
+  static addresses(state: AuthStateModel, addresses: Address[]) {
+    return addresses.filter(address => address.user_id === state.user.id);
   }
 
   @Action(Login)

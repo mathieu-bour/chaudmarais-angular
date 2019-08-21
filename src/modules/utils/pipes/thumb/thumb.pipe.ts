@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
   name: 'thumb'
@@ -6,6 +6,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ThumbPipe implements PipeTransform {
 
   transform(imageUrl: string, size: number): string {
+    if (!imageUrl) {
+      return '';
+    }
+
     return imageUrl
       .replace('/normalized/', '/thumbs/')
       .replace('.jpg', `-x${size}.jpg`);

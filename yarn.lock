@@ -427,6 +427,11 @@
   resolved "https://registry.yarnpkg.com/@types/source-list-map/-/source-list-map-0.1.2.tgz#0078836063ffaf17412349bba364087e0ac02ec9"
   integrity sha512-K5K+yml8LTo9bWJI/rECfIPrGgxdpeNbj+d53lwN4QjW1MCwlkhUms+gtdzigTeUyBr09+u8BwOIY3MXvHdcsA==
 
+"@types/stripe-v3@^3.1.6":
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/@types/stripe-v3/-/stripe-v3-3.1.6.tgz#68de88cfc89f5fb6ca5ae88c084c0e4fab66fb17"
+  integrity sha512-HdTIKbdFMYhJ9PA1UtWjm620JXNchjCTuya8TAKeVdCbmlumd86RldbgMHGxptLPy++xsB7lEDrhK/dO7JP9Pg==
+
 "@types/webpack-sources@^0.1.5":
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/@types/webpack-sources/-/webpack-sources-0.1.5.tgz#be47c10f783d3d6efe1471ff7f042611bd464a92"

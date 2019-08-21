@@ -1,0 +1,32 @@
+<table>
+  <thead>
+  <tr>
+    <th>Produit</th>
+    <th>Désignation</th>
+    <th>Quantité</th>
+    <th class="text-right">Prix unitaire</th>
+    <th class="text-right">Prix total</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let cartItem of cart$ | async">
+    <td>{{ cartItem.product.name}}</td>
+    <td>{{ cartItem.stock.size}}</td>
+    <td>{{ cartItem.quantity}}</td>
+    <td class="text-right">{{ cartItem.stock.price | price}}</td>
+    <td class="text-right">{{ cartItem.stock.price * cartItem.quantity | price}}</td>
+  </tr>
+  <tr>
+    <td colspan="4" class="text-right">Sous-total</td>
+    <td class="text-right">{{ subtotal$ | async | price }}</td>
+  </tr>
+  <tr *ngIf="(shipping$ | async) as shipping">
+    <td colspan="4" class="text-right">{{ shipping.name }}</td>
+    <td class="text-right">{{ shipping.price | price }}</td>
+  </tr>
+  <tr>
+    <td colspan="4" class="text-right">Total</td>
+    <td class="text-right">{{ total$ | async | price }}</td>
+  </tr>
+  </tbody>
+</table>

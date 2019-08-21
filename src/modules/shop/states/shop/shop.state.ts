@@ -1,97 +1,36 @@
-import {Action, State, StateContext} from '@ngxs/store';
-import {ShopStateModel} from './shop.state.model';
+import {Action, Selector, State, StateContext, Store} from '@ngxs/store';
+import {ShopStateContext, ShopStateModel} from './shop.state.model';
 import {
-  AddToCart,
-  GetProduct,
-  GetProducts,
-  GetProductStocks,
-  GetStock,
-  RemoveFromCart,
-  SetCartQuantity,
   SetCurrentProduct,
   SetCurrentProductId,
   SetCurrentStock,
   SetCurrentStockId
 } from './shop.actions';
-import {ProductsClient} from '../../../api/clients/products/products.client';
 import {Product} from '../../../api/models/product';
-import {StocksClient} from '../../../api/clients/stocks/stocks.client';
 import {Stock} from '../../../api/models/stock';
-import {append, patch, removeItem, updateItem} from '@ngxs/store/operators';
-
-type ShopStateContext = StateContext<ShopStateModel>;
+import {GetProduct, GetProductStocks} from '../../../api/states/products/products.actions';
+import {GetStock} from '../../../api/states/stocks/stocks.actions';
 
 @State<ShopStateModel>({
   name: 'shop',
   defaults: {
-    products: [],
-    stocks: [],
     currentProduct: null,
     currentProductStocks: [],
-    currentStock: null,
-    cart: [],
+    currentStock: null
   }
 })
 export class ShopState {
-  constructor(
-    private productsClient: ProductsClient,
-    private stocksClient: StocksClient,
-  ) {
+  constructor(private store: Store) {
   }
 
   findInCache<T = any>(ctx: ShopStateContext, cacheKey: string, value: any, primaryKey: string = 'id'): T {
-    const state = ctx.getState();
-    if (!state[cacheKey]) {
+    const store = this.store.snapshot();
+    if (!store[cacheKey]) {
       throw new Error(`Cache ${cacheKey} key does not exists in ShopState`);
     }
 
-    const cache: T[] = state[cacheKey];
+    const cache: T[] = store[cacheKey];
     return cache.find(item => item[primaryKey] === value);
-  }
-
-
-  @Action(GetProducts)
-  async getProducts(ctx: ShopStateContext, {page, perPage}: GetProducts) {
-    const freshProducts = (await this.productsClient.index(page, perPage)).data;
-    const cachedProducts = ctx.getState().products.filter(p => {
-      return freshProducts.findIndex(product => p.id === product.id) === -1;
-    });
-
-    ctx.patchState({
-      products: [...cachedProducts, ...freshProducts]
-    });
-  }
-
-  @Action(GetProduct)
-  async getProductById(ctx: ShopStateContext, {productId}: GetProduct) {
-    if (this.findInCache<Product>(ctx, 'products', productId)) {
-      return;
-    }
-
-    const product = (await this.productsClient.get(productId)).data;
-
-    ctx.patchState({
-      products: [
-        ...ctx.getState().products,
-        product
-      ]
-    });
-  }
-
-  @Action(GetProductStocks)
-  async getProductStocks(ctx: ShopStateContext, {productId}: GetProductStocks) {
-    const state = ctx.getState();
-    const stocks = (await this.productsClient.getStocks(productId)).data
-      .filter((stock) => {
-        return state.stocks.findIndex(s => s.id === stock.id) === -1;
-      });
-
-    ctx.patchState({
-      stocks: [
-        ...state.stocks,
-        ...stocks
-      ]
-    });
   }
 
   @Action(SetCurrentProductId)
@@ -99,7 +38,7 @@ export class ShopState {
     let product = this.findInCache<Product>(ctx, 'products', productId);
 
     if (!product) {
-      await ctx.dispatch(new GetProduct(productId)).toPromise();
+      await this.store.dispatch(new GetProduct(productId)).toPromise();
       product = this.findInCache<Product>(ctx, 'products', productId);
     }
 
@@ -108,11 +47,11 @@ export class ShopState {
 
   @Action(SetCurrentProduct)
   async setCurrentProduct(ctx: ShopStateContext, {product}: SetCurrentProduct) {
-    let productStocks = ctx.getState().stocks.filter(s => s.product_id === product.id);
+    let productStocks = this.store.snapshot().stocks.filter(s => s.product_id === product.id);
 
     if (productStocks.length === 0) {
-      await ctx.dispatch(new GetProductStocks(product.id));
-      productStocks = ctx.getState().stocks.filter(s => s.product_id === product.id);
+      await this.store.dispatch(new GetProductStocks(product.id));
+      productStocks = this.store.snapshot().stocks.filter(s => s.product_id === product.id);
     }
 
     ctx.patchState({
@@ -127,7 +66,7 @@ export class ShopState {
     let stock = this.findInCache<Stock>(ctx, 'stocks', stockId);
 
     if (!stock) {
-      await ctx.dispatch(new GetStock(stockId)).toPromise();
+      await this.store.dispatch(new GetStock(stockId)).toPromise();
       stock = this.findInCache<Stock>(ctx, 'stocks', stockId);
     }
 
@@ -139,38 +78,5 @@ export class ShopState {
     ctx.patchState({
       currentStock: stock
     });
-  }
-
-  @Action(SetCartQuantity)
-  setCartQuantity(ctx: ShopStateContext, {stock, product, quantity}: SetCartQuantity) {
-    const search = line => line.stock.id === stock.id;
-
-    if (quantity === 0) {
-      ctx.setState(patch({
-        cart: removeItem(search)
-      }));
-    } else if (ctx.getState().cart.findIndex(search) !== -1) {
-      ctx.setState(patch({
-        cart: updateItem(search, {quantity, stock, product})
-      }));
-    } else {
-      ctx.setState(patch({
-        cart: append([{quantity, stock, product}])
-      }));
-    }
-  }
-
-  @Action(AddToCart)
-  addToCart(ctx: ShopStateContext, {stock, product}: AddToCart) {
-    const index = ctx.getState().cart.findIndex(line => line.stock.id === stock.id);
-    const quantity = index !== -1 ? ctx.getState().cart[index].quantity + 1 : 1;
-
-    return ctx.dispatch(new SetCartQuantity(stock, product, quantity));
-  }
-
-  @Action(RemoveFromCart)
-  removeFromCart(ctx: ShopStateContext, {stock}: RemoveFromCart) {
-    return ctx.dispatch(new SetCartQuantity(stock, null, 0));
-
   }
 }

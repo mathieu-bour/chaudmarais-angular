@@ -34,8 +34,8 @@
           [placeholder]="'Taille'"
           [prefix]="'Taille'"
           [values]="stockValues"
-          [ngModel]="stock$ | async"
-          (ngModelChange)="onSizeChange($event)"
+          [value]="stock$ | async"
+          (valueChange)="onSizeChange($event)"
         >
         </app-btn-select>
 

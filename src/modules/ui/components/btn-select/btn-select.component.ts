@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, Renderer2} from '@angular/core';
+import {ControlValueAccessor} from '@angular/forms';
 
 @Component({
   selector: 'app-btn-select',
@@ -9,12 +10,12 @@ export class BtnSelectComponent implements OnInit, AfterViewInit {
   @Input() placeholder: string;
   @Input() prefix: string;
   @Input() values: [{ label: string, value: any }];
-  @Output() ngModelChange = new EventEmitter<any>();
+  @Output() valueChange = new EventEmitter<any>();
 
   open = false;
   private label;
 
-  private ngModelInternal: any;
+  private valueInternal: any;
 
   constructor(private renderer2: Renderer2, private elementRef: ElementRef<HTMLElement>) {
   }
@@ -27,20 +28,20 @@ export class BtnSelectComponent implements OnInit, AfterViewInit {
   }
 
   @Input()
-  get ngModel() {
-    return this.ngModelInternal;
+  get value() {
+    return this.valueInternal;
   }
 
-  set ngModel(newNgModel) {
-    this.ngModelInternal = newNgModel;
-    this.ngModelChange.emit(this.ngModelInternal);
+  set value(newNgModel) {
+    this.valueInternal = newNgModel;
+    this.valueChange.emit(this.valueInternal);
     this.setLabel();
     this.open = false;
   }
 
   setLabel() {
     this.label = this.values
-      .find(v => JSON.stringify(v.value) === JSON.stringify(this.ngModelInternal))
+      .find(v => JSON.stringify(v.value) === JSON.stringify(this.valueInternal))
       .label;
   }
 

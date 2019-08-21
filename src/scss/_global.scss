@@ -17,16 +17,41 @@ label {
   margin: 0 0 8px 0;
   font-size: $base-font-size;
 }
+
 input[type=text], input[type=email], input[type=password] {
   display: block;
   padding: 0.4em 0.5em;
   font-size: $base-font-size;
   border: solid 2px $red;
 }
+
 fieldset {
   margin: 0 0 16px;
   padding: 0;
   border: 0;
+}
+
+table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+
+  thead {
+    th {
+      vertical-align: bottom;
+      padding: 0.5em 0.7em;
+      border-bottom: 2px solid #dee2e6;
+      text-align: left;
+    }
+  }
+  tbody {
+    td {
+      vertical-align: bottom;
+      padding: 0.5em 0.7em;
+      border-bottom: 1px solid #dee2e6;
+    }
+  }
 }
 
 .red {

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Select, Store} from '@ngxs/store';
-import {GetProducts} from '../../states/shop/shop.actions';
 import {Observable} from 'rxjs';
 import {Product} from '../../../api/models/product';
+import {IndexProducts} from '../../../api/states/products/products.actions';
 
 @Component({
   selector: 'app-home-page',
@@ -10,11 +10,10 @@ import {Product} from '../../../api/models/product';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-  @Select(state => state.shop.products) products$: Observable<Product[]>;
+  @Select(state => state.products) products$: Observable<Product[]>;
   constructor(private store: Store) { }
 
   ngOnInit() {
-    this.store.dispatch(new GetProducts(0, 100));
+    this.store.dispatch(new IndexProducts(0, 100));
   }
-
 }

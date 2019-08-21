@@ -12,9 +12,11 @@
       <h1 class="title-red" card-title>total</h1>
       <ng-container card-content>
         <div class="line">Sous total: {{subtotal$ | async | price}}</div>
-        <div class="line">Frais de port: {{shipping$ | async | price}}</div>
+        <div class="line" *ngIf="shipping$ | async as shipping">
+          {{shipping.name}}: {{shipping.price | price}}
+        </div>
         <div class="line">Total: {{total$ | async | price}}</div>
-        <button (click)="toBePayed()" class="btn-red">Payer</button>
+        <button routerLink="/paiement" class="btn-red">Payer</button>
       </ng-container>
     </app-card>
   </div>

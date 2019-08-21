@@ -14,16 +14,16 @@
       [placeholder]="'Taille'"
       [prefix]="'Taille'"
       [values]="values"
-      [ngModel]="cartItem.stock"
-      (ngModelChange)="onStockChange($event)"
+      [value]="cartItem.stock"
+      (valueChange)="onStockChange($event)"
     ></app-btn-select>
 
     <app-btn-select
       [placeholder]="'Qté'"
       [prefix]="'qté'"
       [values]="quantities"
-      [ngModel]="cartItem.quantity"
-      (ngModelChange)="onQuantityChange($event)"
+      [value]="cartItem.quantity"
+      (valueChange)="onQuantityChange($event)"
     ></app-btn-select>
   </div>
 </article>

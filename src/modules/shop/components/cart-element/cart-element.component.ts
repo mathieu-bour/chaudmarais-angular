@@ -1,11 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CartItem} from '../../states/shop/shop.state.model';
 import {Store} from '@ngxs/store';
 import {map} from 'rxjs/operators';
 import {Stock} from '../../../api/models/stock';
 import {Observable} from 'rxjs';
-import {AddToCart, GetProductStocks, RemoveFromCart, SetCartQuantity} from '../../states/shop/shop.actions';
-import {faProductHunt} from '@fortawesome/free-brands-svg-icons/faProductHunt';
+import {CartItem} from '../../states/cart/cart.state.model';
+import {GetProductStocks} from '../../../api/states/products/products.actions';
+import {AddToCart, RemoveFromCart, SetCartQuantity} from '../../states/cart/cart.actions';
 
 @Component({
   selector: 'app-cart-element',
@@ -23,7 +23,7 @@ export class CartElementComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.stocks$ = this.store.select(state => state.shop.stocks)
+    this.stocks$ = this.store.selectOnce(state => state.stocks)
       .pipe(
         map((allStocks: Stock[]) => {
             return allStocks.filter(s => s.product_id === this.cartItem.product.id);

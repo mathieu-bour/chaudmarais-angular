@@ -1,8 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {DefaultLayoutComponent} from '../ui/layouts/default-layout/default-layout.component';
-import {SidebarComponent} from '../ui/components/sidebar/sidebar.component';
-import {FooterComponent} from '../ui/components/footer/footer.component';
 import {BannerComponent} from './components/banner/banner.component';
 import {HomePageComponent} from './pages/home-page/home-page.component';
 import {RouterModule} from '@angular/router';
@@ -13,19 +10,22 @@ import {HistoryPageComponent} from './pages/history-page/history-page.component'
 import {CampaignPageComponent} from './pages/campaign-page/campaign-page.component';
 import {ProductViewPageComponent} from './pages/product-view-page/product-view-page.component';
 import {APIModule} from '../api/api.module';
-import {TwoLayoutComponent} from '../ui/layouts/two-layout/two-layout.component';
-import {SingleLayoutComponent} from '../ui/layouts/single-layout/single-layout.component';
 import {UtilsModule} from '../utils/utils.module';
 import {UIModule} from '../ui/ui.module';
 import {NgxImageZoomModule} from 'ngx-image-zoom';
 import {SwiperModule} from 'ngx-swiper-wrapper';
-import { ProductThumbnailsSwiperComponent } from './components/product-thumbnails-swiper/product-thumbnails-swiper.component';
-import { ProductPreviewComponent } from './components/product-preview/product-preview.component';
-import { CartPageComponent } from './pages/cart-page/cart-page.component';
-import { CartElementComponent } from './components/cart-element/cart-element.component';
-import {MatCardModule, MatDialogModule} from '@angular/material';
-import {LoginDialogComponent} from '../user/components/login-dialog/login-dialog.component';
+import {ProductThumbnailsSwiperComponent} from './components/product-thumbnails-swiper/product-thumbnails-swiper.component';
+import {ProductPreviewComponent} from './components/product-preview/product-preview.component';
+import {CartPageComponent} from './pages/cart-page/cart-page.component';
+import {CartElementComponent} from './components/cart-element/cart-element.component';
+import {MatDialogModule, MatStepperModule} from '@angular/material';
 import {UserModule} from '../user/user.module';
+import {CheckoutPageComponent} from './pages/checkout-page/checkout-page.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {CartTableComponent} from './components/cart-table/cart-table.component';
+import {NgxsModule} from '@ngxs/store';
+import {CartState} from './states/cart/cart.state';
+import {ShopState} from './states/shop/shop.state';
 
 
 @NgModule({
@@ -41,17 +41,26 @@ import {UserModule} from '../user/user.module';
     ProductThumbnailsSwiperComponent,
     ProductPreviewComponent,
     CartPageComponent,
-    CartElementComponent
+    CartElementComponent,
+    CheckoutPageComponent,
+    CartTableComponent
   ],
   imports: [
     // Angular
     CommonModule,
     RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
     // Vendors
+    NgxsModule.forFeature([
+      CartState,
+      ShopState
+    ]),
     NgxImageZoomModule,
     SwiperModule,
     // Material
     MatDialogModule,
+    MatStepperModule,
     // Local
     APIModule,
     UtilsModule,

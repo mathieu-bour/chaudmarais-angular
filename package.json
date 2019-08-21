@@ -46,6 +46,7 @@
     "@angular/language-service": "~8.2.0",
     "@ngxs/devtools-plugin": "^3.5.0",
     "@types/node": "~8.9.4",
+    "@types/stripe-v3": "^3.1.6",
     "codelyzer": "^5.0.0",
     "protractor": "~5.4.0",
     "ts-loader": "^6.0.4",

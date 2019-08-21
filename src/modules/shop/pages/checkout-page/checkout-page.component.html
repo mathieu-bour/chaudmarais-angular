@@ -1,0 +1,38 @@
+<app-single-layout [title]="'Commande'">
+  <mat-vertical-stepper [linear]="true" #stepper>
+    <mat-step>
+      <ng-template matStepLabel>Confirmation du panier</ng-template>
+
+      <app-cart-table></app-cart-table>
+
+      <button matStepperNext class="btn-red">Suivant</button>
+    </mat-step>
+    <mat-step [stepControl]="addressFormGroup">
+      <ng-template matStepLabel>Choix de l'adresse de livraison</ng-template>
+
+      <form [formGroup]="addressFormGroup">
+        <label *ngFor="let address of addresses$ | async">
+          <input type="radio" formControlName="addressId" [value]="address.id">
+          {{ address.line1 }}
+        </label>
+      </form>
+
+      <button matStepperNext class="btn-red">Suivant</button>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Paiement</ng-template>
+
+      <fieldset>
+        <label for="checkout-card-name">Nom sur la carte</label>
+        <input type="text" id="checkout-card-name" placeholder="Jean Dupont">
+      </fieldset>
+
+      <fieldset>
+        <label for="checkout-card">Informations de la carte</label>
+        <div #cardElement id="checkout-card"></div>
+      </fieldset>
+
+      <button class="btn-red" (click)="handleForm()">Payer</button>
+    </mat-step>
+  </mat-vertical-stepper>
+</app-single-layout>

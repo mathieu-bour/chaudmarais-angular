@@ -15,7 +15,7 @@ export class ProductPreviewComponent implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit() {
-    this.product$ = this.store.selectOnce((state => state.shop.products.find(p => p.id === this.productId)));
+    this.product$ = this.store.selectOnce((state => state.products.find(p => p.id === this.productId)));
   }
 
 }

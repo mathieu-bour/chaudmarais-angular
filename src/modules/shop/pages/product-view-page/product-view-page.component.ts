@@ -2,10 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from '../../../api/models/product';
 import {Stock} from '../../../api/models/stock';
 import {Select, Store} from '@ngxs/store';
-import {AddToCart, GetProductStocks, SetCurrentProductId, SetCurrentStockId} from '../../states/shop/shop.actions';
 import {Observable} from 'rxjs';
 import {first} from 'rxjs/operators';
 import {ActivatedRoute} from '@angular/router';
+import {GetProductStocks} from '../../../api/states/products/products.actions';
+import {SetCurrentProductId, SetCurrentStockId} from '../../states/shop/shop.actions';
+import {AddToCart} from '../../states/cart/cart.actions';
 
 @Component({
   selector: 'app-product-view-page',

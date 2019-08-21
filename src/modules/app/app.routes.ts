@@ -8,6 +8,7 @@ import {CampaignPageComponent} from '../shop/pages/campaign-page/campaign-page.c
 import {ProductViewPageComponent} from '../shop/pages/product-view-page/product-view-page.component';
 import {CartPageComponent} from '../shop/pages/cart-page/cart-page.component';
 import {AddressesPageComponent} from '../account/pages/addresses-page/addresses-page.component';
+import {CheckoutPageComponent} from '../shop/pages/checkout-page/checkout-page.component';
 
 export const routes: Routes = [
   {
@@ -35,12 +36,16 @@ export const routes: Routes = [
     component: CampaignPageComponent
   },
   {
+    path: 'produits/:slugId',
+    component: ProductViewPageComponent
+  },
+  {
     path: 'panier',
     component: CartPageComponent
   },
   {
-    path: 'produits/:slugId',
-    component: ProductViewPageComponent
+    path: 'paiement',
+    component: CheckoutPageComponent
   },
   {
     path: 'compte/adresses',

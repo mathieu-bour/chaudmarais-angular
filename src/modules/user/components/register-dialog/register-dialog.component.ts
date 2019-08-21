@@ -4,7 +4,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Login} from '../../../api/states/auth/auth.state.actions';
 import {MatDialog} from '@angular/material';
 import {Store} from '@ngxs/store';
-import {PostUser} from '../../../api/states/cache/actions/user.actions';
+import {PostUser} from '../../../api/states/users/users.actions';
 
 @Component({
   selector: 'app-register-dialog',
@@ -31,12 +31,7 @@ export class RegisterDialogComponent implements OnInit {
 
   async onRegister() {
     try {
-      await this.store.dispatch(
-        new PostUser(
-          this.registerForm.value.name,
-          this.registerForm.value.email,
-          this.registerForm.value.password
-        ));
+      await this.store.dispatch(new PostUser(this.registerForm.value));
       await this.store.dispatch(new Login(this.registerForm.value.email, this.registerForm.value.password)).toPromise();
       this.dialog.closeAll();
     } catch (e) {

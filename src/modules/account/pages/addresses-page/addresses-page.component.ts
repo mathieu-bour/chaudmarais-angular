@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Select, Store} from '@ngxs/store';
-import {combineLatest, Observable} from 'rxjs';
-import {User} from '../../../api/models/user';
+import {Observable} from 'rxjs';
 import {Address} from '../../../api/models/address';
-import {first, map} from 'rxjs/operators';
-import {AddNewAddress, GetUserAddresses} from '../../../api/states/cache/actions/addresses.actions';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {first} from 'rxjs/operators';
+import {GetUserAddresses, PostAddress} from '../../../api/states/addresses/addresses.actions';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AuthState} from '../../../api/states/auth/auth.state';
 
 @Component({
   selector: 'app-addresses-page',
@@ -13,11 +13,8 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./addresses-page.component.scss']
 })
 export class AddressesPageComponent implements OnInit {
-  @Select(store => store.auth.user) user$: Observable<User>;
   @Select(store => store.auth.user.id) userId$: Observable<number>;
-  @Select(store => store.cache.addresses) allAddresses$: Observable<Address[]>;
-  addresses$ = combineLatest(this.user$, this.allAddresses$)
-    .pipe(map(([user, allAddresses]) => allAddresses.filter(a => a.user_id === user.id)));
+  @Select(AuthState.addresses) addresses$: Observable<Address[]>;
 
   newAddress = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -37,11 +34,9 @@ export class AddressesPageComponent implements OnInit {
   }
 
   async addAddress() {
-    console.log(this.newAddress.value);
     const userId = await this.userId$.pipe(first()).toPromise();
-    console.log(userId, this.newAddress.value.name);
     this.store.dispatch(
-      new AddNewAddress(
+      new PostAddress(
         userId,
         this.newAddress.value.name,
         this.newAddress.value.line1,

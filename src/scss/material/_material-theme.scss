@@ -14,6 +14,7 @@ $candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
 // Include the theme styles for only specified components.
 @include mat-core-theme($candy-app-theme);
 @include mat-dialog-theme($candy-app-theme);
+@include mat-stepper-theme($candy-app-theme);
 
 html {
   @import "dialog";
