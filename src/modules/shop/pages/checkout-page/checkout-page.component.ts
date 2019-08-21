@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {AddressesState} from '../../../api/states/addresses/addresses.state';
 import {Address} from '../../../api/models/address';
 import {GetLoggedUserAddresses} from '../../../api/states/users/users.actions';
+import {AuthState} from '../../../api/states/auth/auth.state';
 
 declare var Stripe: stripe.StripeStatic; // : stripe.StripeStatic;
 
@@ -15,7 +16,7 @@ declare var Stripe: stripe.StripeStatic; // : stripe.StripeStatic;
 })
 export class CheckoutPageComponent implements OnInit {
   @ViewChild('cardElement', {static: true}) cardElement: ElementRef;
-  @Select(AddressesState.userAddresses) addresses$: Observable<Address[]>;
+  @Select(AuthState.addresses) addresses$: Observable<Address[]>;
 
   addressFormGroup = this.formBuilder.group({
     addressId: [null, Validators.required]
