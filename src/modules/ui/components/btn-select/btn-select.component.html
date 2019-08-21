@@ -6,11 +6,11 @@
 
 <mat-menu #menu="matMenu">
   <button
-    *ngFor="let value of values"
-    [ngClass]="value.value === ngModel ? 'btn-red' : 'btn-red-inv'"
-    (click)="ngModel = value.value"
+    *ngFor="let v of values"
+    [ngClass]="v.value === value ? 'btn-red' : 'btn-red-inv'"
+    (click)="value = v.value"
   >
     {{ prefix }}
-    {{ value.label }}
+    {{ v.label }}
   </button>
 </mat-menu>

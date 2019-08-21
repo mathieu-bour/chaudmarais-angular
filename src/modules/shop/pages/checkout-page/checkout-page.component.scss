@@ -4,19 +4,21 @@ mat-vertical-stepper {
   fieldset {
     max-width: 400px;
   }
+
+  mat-radio-group {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+  }
 }
 
 .StripeElement {
   box-sizing: border-box;
-
   height: 40px;
-
   padding: 10px 12px;
-
   border: 2px solid $red;
   border-radius: 0;
   background-color: white;
-
   box-shadow: 0 1px 3px 0 #e6ebf1;
   -webkit-transition: box-shadow 150ms ease;
   transition: box-shadow 150ms ease;

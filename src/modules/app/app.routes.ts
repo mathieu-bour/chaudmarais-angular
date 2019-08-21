@@ -9,6 +9,7 @@ import {ProductViewPageComponent} from '../shop/pages/product-view-page/product-
 import {CartPageComponent} from '../shop/pages/cart-page/cart-page.component';
 import {AddressesPageComponent} from '../account/pages/addresses-page/addresses-page.component';
 import {CheckoutPageComponent} from '../shop/pages/checkout-page/checkout-page.component';
+import {OrderConfirmedPageComponent} from '../shop/pages/order-confirmed-page/order-confirmed-page.component';
 import {AccountPageComponent} from '../account/pages/account-page/account-page.component';
 
 export const routes: Routes = [
@@ -47,6 +48,10 @@ export const routes: Routes = [
   {
     path: 'paiement',
     component: CheckoutPageComponent
+  },
+  {
+    path: 'commande-confirmee',
+    component: OrderConfirmedPageComponent
   },
   {
     path: 'compte',

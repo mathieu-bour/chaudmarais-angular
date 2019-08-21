@@ -22,3 +22,7 @@ export class RemoveFromCart {
   constructor(public stock: Stock) {
   }
 }
+
+export class EmptyCart {
+  static readonly type = '[Cart] EmptyCart';
+}

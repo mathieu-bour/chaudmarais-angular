@@ -1,7 +1,7 @@
 import {Action, Selector, State} from '@ngxs/store';
 import {CartStateContext, CartStateModel} from './cart.state.model';
 import {append, patch, removeItem, updateItem} from '@ngxs/store/operators';
-import {AddToCart, RemoveFromCart, SetCartQuantity} from './cart.actions';
+import {AddToCart, EmptyCart, RemoveFromCart, SetCartQuantity} from './cart.actions';
 
 @State<CartStateModel>({
   name: 'cart',
@@ -54,6 +54,12 @@ export class CartState {
   @Action(RemoveFromCart)
   removeFromCart(ctx: CartStateContext, {stock}: RemoveFromCart) {
     return ctx.dispatch(new SetCartQuantity(stock, null, 0));
+  }
 
+  @Action(EmptyCart)
+  emptyCart(ctx: CartStateContext) {
+    return ctx.patchState({
+      items: []
+    });
   }
 }

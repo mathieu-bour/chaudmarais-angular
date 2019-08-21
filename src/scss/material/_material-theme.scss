@@ -7,15 +7,19 @@
 @include mat-core();
 
 // Define the theme.
-$candy-app-primary: mat-palette($mat-indigo);
-$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$candy-app-primary: mat-palette($mat-red);
+$candy-app-accent:  mat-palette($mat-red, A200, A100, A400);
 $candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
 
 // Include the theme styles for only specified components.
 @include mat-core-theme($candy-app-theme);
 @include mat-dialog-theme($candy-app-theme);
+@include mat-button-theme($candy-app-theme);
 @include mat-stepper-theme($candy-app-theme);
+@include mat-radio-theme($candy-app-theme);
 
 html {
   @import "dialog";
+  @import "button";
+  @import "forms";
 }

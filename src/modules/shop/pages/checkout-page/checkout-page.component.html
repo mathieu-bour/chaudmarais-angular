@@ -1,23 +1,35 @@
 <app-single-layout [title]="'Commande'">
-  <mat-vertical-stepper [linear]="true" #stepper>
+  <mat-vertical-stepper [linear]="true" (selectionChange)="onStepChange($event)" #stepper>
     <mat-step>
       <ng-template matStepLabel>Confirmation du panier</ng-template>
 
       <app-cart-table></app-cart-table>
 
-      <button matStepperNext class="btn-red">Suivant</button>
+      <button mat-flat-button color="primary" matStepperNext>Suivant</button>
     </mat-step>
-    <mat-step [stepControl]="addressFormGroup">
+    <mat-step>
       <ng-template matStepLabel>Choix de l'adresse de livraison</ng-template>
 
-      <form [formGroup]="addressFormGroup">
-        <label *ngFor="let address of addresses$ | async">
-          <input type="radio" formControlName="addressId" [value]="address.id">
-          {{ address.line1 }}
-        </label>
-      </form>
+      <app-address-selector
+        [addresses]="addresses$ | async"
+        [value]="shippingAddress$ | async"
+        (valueChange)="onShippingAddressChange($event)"
+      >
+      </app-address-selector>
 
-      <button matStepperNext class="btn-red">Suivant</button>
+      <div fxLayout="row" fxLayoutGap="16px">
+        <button
+          mat-flat-button
+          color="primary"
+          matStepperNext
+          [disabled]="!(shippingAddress$ | async) || (loading$ | async)"
+        >Suivant</button>
+
+        <button
+          mat-flat-button
+          color="primary"
+        >Ajouter une addresse</button>
+      </div>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Paiement</ng-template>
@@ -32,7 +44,15 @@
         <div #cardElement id="checkout-card"></div>
       </fieldset>
 
-      <button class="btn-red" (click)="handleForm()">Payer</button>
+      <button
+        mat-flat-button
+        color="primary"
+        matStepperNext
+        [disabled]="!(complete$ | async) || (loading$ | async)"
+        (click)="onPay()"
+      >
+        Valider le paiement
+      </button>
     </mat-step>
   </mat-vertical-stepper>
 </app-single-layout>
