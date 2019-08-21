@@ -1,3 +1,5 @@
+import {User} from '../../models/user';
+
 export class Login {
   static readonly type = '[Auth] Login';
 
@@ -16,5 +18,12 @@ export class GetLoggedUser {
   static readonly type = '[Auth] GetLoggedUser';
 
   constructor() {
+  }
+}
+
+export class SetLoggedUser {
+  static readonly type = '[Auth] SetLoggedUser';
+
+  constructor(public user: User) {
   }
 }

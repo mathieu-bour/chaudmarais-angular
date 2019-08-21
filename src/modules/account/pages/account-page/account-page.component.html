@@ -1,0 +1,19 @@
+<app-single-layout [image]="'https://cdn.chaudmarais.fr/img/icons/user.svg'" [title]="'Mes Informations'">
+  <div>
+    <form [formGroup]="userChanges" (ngSubmit)="updateAccountInformation()">
+      <label>Prénom :
+        <input type="text" formControlName="first_name">
+      </label>
+      <label>Nom :
+        <input type="text" formControlName="last_name">
+      </label>
+      <label>Adresse e-mail :
+        <input type="email" formControlName="email">
+      </label>
+      <label>Mot de passe :
+        <input type="password" formControlName="password">
+      </label>
+      <button type="submit" class="btn-red" [disabled]="!userChanges.valid">Sauvegarder</button>
+    </form>
+  </div>
+</app-single-layout>

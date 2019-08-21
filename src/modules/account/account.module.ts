@@ -4,10 +4,11 @@ import { AddressesPageComponent } from './pages/addresses-page/addresses-page.co
 import {UIModule} from '../ui/ui.module';
 import {APIModule} from '../api/api.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import { AccountPageComponent } from './pages/account-page/account-page.component';
 
 
 @NgModule({
-  declarations: [AddressesPageComponent],
+  declarations: [AddressesPageComponent, AccountPageComponent],
   imports: [
     CommonModule,
     APIModule,

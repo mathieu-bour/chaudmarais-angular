@@ -12,23 +12,27 @@ import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
 import {NgxsStoragePluginModule} from '@ngxs/storage-plugin';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AccountModule} from '../account/account.module';
+import { GrpdDialogComponent } from './components/grpd-dialog/grpd-dialog.component';
+import {AppState} from './state/app.state';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GrpdDialogComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     NgxImageZoomModule.forRoot(),
-    NgxsModule.forRoot([], {developmentMode: !environment.production}),
+    NgxsModule.forRoot([AppState], {developmentMode: !environment.production}),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsStoragePluginModule.forRoot(),
     // LandingModule
     ShopModule,
     AccountModule
   ],
+  entryComponents: [GrpdDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

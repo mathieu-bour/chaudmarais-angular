@@ -1,6 +1,6 @@
 import {Action, Selector, State, StateContext} from '@ngxs/store';
 import {AuthStateModel} from './auth.state.model';
-import {GetLoggedUser, Login, Logout} from './auth.state.actions';
+import {GetLoggedUser, Login, Logout, SetLoggedUser} from './auth.state.actions';
 import {AuthClient} from '../../clients/auth/auth.client';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {UsersClient} from '../../clients/users/users.client';
@@ -72,9 +72,14 @@ export class AuthState {
     if (state.token_payload) {
       const response = await this.usersClient.get(ctx.getState().token_payload.sub);
 
-      ctx.patchState({
-        user: response.data
-      });
+      ctx.dispatch(new SetLoggedUser(response.data));
     }
+  }
+
+  @Action(SetLoggedUser)
+  setLoggedUser(ctx: AuthStateContext, {user}: SetLoggedUser) {
+    ctx.patchState({
+      user
+    });
   }
 }
