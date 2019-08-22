@@ -11,6 +11,7 @@ import {AddressesPageComponent} from '../account/pages/addresses-page/addresses-
 import {CheckoutPageComponent} from '../shop/pages/checkout-page/checkout-page.component';
 import {OrderConfirmedPageComponent} from '../shop/pages/order-confirmed-page/order-confirmed-page.component';
 import {AccountPageComponent} from '../account/pages/account-page/account-page.component';
+import {AdminHomepageComponent} from '../admin/components/admin-homepage/admin-homepage.component';
 
 export const routes: Routes = [
   {
@@ -60,6 +61,10 @@ export const routes: Routes = [
   {
     path: 'compte/adresses',
     component: AddressesPageComponent
+  },
+  {
+    path: 'admin',
+    component: AdminHomepageComponent
   },
   {
     path: '**',

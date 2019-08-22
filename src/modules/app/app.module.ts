@@ -14,6 +14,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AccountModule} from '../account/account.module';
 import {GrpdDialogComponent} from './components/grpd-dialog/grpd-dialog.component';
 import {AppState} from './state/app.state';
+import {AdminModule} from '../admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {AppState} from './state/app.state';
     }),
     // LandingModule
     ShopModule,
-    AccountModule
+    AccountModule,
+    AdminModule
   ],
   entryComponents: [GrpdDialogComponent],
   providers: [],

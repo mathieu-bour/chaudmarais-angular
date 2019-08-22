@@ -1,0 +1,30 @@
+:host {
+  height: 100%;
+}
+
+mat-sidenav-container {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  mat-sidenav {
+    display: flex;
+    flex-direction: column;
+    margin-right: 32px;
+    padding-right: 32px;
+    border: solid grey 2px;
+    background-color: blue;
+  }
+}
+
+mat-sidenav-content {
+  display: flex;
+  flex-direction: row;
+  div {
+    margin-bottom: 16px;
+    flex-grow: 1;
+  }
+}

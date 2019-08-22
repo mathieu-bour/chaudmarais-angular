@@ -1,0 +1,20 @@
+<mat-sidenav-container>
+  <mat-sidenav [opened]="false" #navigationnav role="navigation" mode="push">
+    <div>Produits et Stocks</div>
+    <div>Commandes en cours</div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <table>
+      <tr *ngFor="let product of products$ | async">
+        <td>{{product.name}}</td>
+        <td>
+          <button mat-flat-button (click)="this.open = true">Edit</button>
+        </td>
+      </tr>
+    </table>
+    <div *ngIf="open">
+      <button mat-flat-button (click)="this.open = false">Close</button>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
