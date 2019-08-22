@@ -13,7 +13,8 @@ import {PostUser} from '../../../api/states/users/users.actions';
 })
 export class RegisterDialogComponent implements OnInit {
   registerForm = new FormGroup({
-    name: new FormControl('', Validators.required),
+    first_name: new FormControl('', Validators.required),
+    last_name: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   });

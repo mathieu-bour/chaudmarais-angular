@@ -22,7 +22,7 @@ export class UsersState extends BaseState {
 
   @Action(PostUser)
   async postUser(ctx: UsersStateContext, {data}: PostUser) {
-    await this.usersClient.post(data);
+    return await this.usersClient.post(data);
   }
 
   @Action(PatchUser)

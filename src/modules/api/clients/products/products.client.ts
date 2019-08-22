@@ -14,6 +14,13 @@ export class ProductsClient extends BaseClient<Product> {
     super(http, '/products');
   }
 
+  indexEnabled(page: number = 0, perPage: number = 100) {
+    type Response = PaginationResponse<Product[]>;
+    return this.http.get<Response>(`${environment.api}${this.base}/enabled?page=${page}&perPage=${perPage}`)
+      .toPromise()
+      .then(response => this.unserialize<Response>(response));
+  }
+
   getStocks(id: number) {
     return this.http.get<PaginationResponse<Stock[]>>(`${environment.api}/products/${id}/stocks`).toPromise();
   }

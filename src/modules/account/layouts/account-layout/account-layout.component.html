@@ -1,0 +1,14 @@
+<app-default-layout>
+  <div class="wrapper">
+    <div class="title-red" fxLayout="row" fxLayoutGap="16px">
+      <img src="https://cdn.chaudmarais.fr/img/icons/user.svg" alt="Title icon">
+
+      <nav fxLayoutGap="16px">
+        <a routerLink="/compte/adresses">Mes addresses</a>
+        <a routerLink="/compte/commandes">Mes commandes</a>
+      </nav>
+    </div>
+
+    <ng-content></ng-content>
+  </div>
+</app-default-layout>

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Select, Store} from '@ngxs/store';
 import {Observable} from 'rxjs';
 import {Product} from '../../../api/models/product';
-import {IndexProducts} from '../../../api/states/products/products.actions';
+import {IndexEnabledProducts} from '../../../api/states/products/products.actions';
 
 @Component({
   selector: 'app-home-page',
@@ -11,9 +11,11 @@ import {IndexProducts} from '../../../api/states/products/products.actions';
 })
 export class HomePageComponent implements OnInit {
   @Select(state => state.products) products$: Observable<Product[]>;
-  constructor(private store: Store) { }
+
+  constructor(private store: Store) {
+  }
 
   ngOnInit() {
-    this.store.dispatch(new IndexProducts(0, 100));
+    this.store.dispatch(new IndexEnabledProducts(0, 100));
   }
 }

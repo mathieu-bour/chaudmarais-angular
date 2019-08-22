@@ -2,7 +2,7 @@ import {Action, State, StateContext, Store} from '@ngxs/store';
 import {ProductsClient} from '../../clients/products/products.client';
 import {CacheStocks} from '../stocks/stocks.actions';
 import {BaseState} from '../base/base.state';
-import {GetProduct, GetProductStocks, IndexProducts} from './products.actions';
+import {GetProduct, GetProductStocks, IndexEnabledProducts, IndexProducts} from './products.actions';
 import {Product} from '../../models/product';
 
 export type ProductsStateContext = StateContext<Product[]>;
@@ -21,8 +21,14 @@ export class ProductsState extends BaseState {
 
 
   @Action(IndexProducts)
-  async getProducts(ctx: ProductsStateContext, {page, perPage}: IndexProducts) {
+  async indexProducts(ctx: ProductsStateContext, {page, perPage}: IndexProducts) {
     const freshProducts = (await this.productsClient.index(page, perPage)).data;
+    this.cache(ctx, freshProducts);
+  }
+
+  @Action(IndexEnabledProducts)
+  async indexEnabledProducts(ctx: ProductsStateContext, {page, perPage}: IndexProducts) {
+    const freshProducts = (await this.productsClient.indexEnabled(page, perPage)).data;
     this.cache(ctx, freshProducts);
   }
 

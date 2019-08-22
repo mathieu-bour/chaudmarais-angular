@@ -14,6 +14,13 @@ export class IndexProducts {
   }
 }
 
+export class IndexEnabledProducts {
+  static readonly type = '[Products API] IndexEnabledProducts';
+
+  constructor(public page: number, public perPage: number) {
+  }
+}
+
 export class GetProduct {
   static readonly type = '[Products API] GetProduct';
 
@@ -27,4 +34,3 @@ export class GetProductStocks {
   constructor(public productId: number) {
   }
 }
-
