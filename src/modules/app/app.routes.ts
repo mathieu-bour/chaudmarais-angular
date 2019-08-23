@@ -58,7 +58,7 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminHomepageComponent
+    loadChildren: () => import('../admin/admin.module').then(mod => mod.AdminModule)
   },
   {
     path: '**',

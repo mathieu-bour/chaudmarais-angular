@@ -4,7 +4,7 @@
       <ng-container *ngIf="(product$ | async) as product">
         <ngx-image-zoom
           [thumbImage]="product.images[imageIndex] | thumb:500"
-          [fullImage]="product.images[imageIndex] | thumb: 1000"
+          [fullImage]="product.images[imageIndex] | thumb: 1500"
           [zoomMode]="'hover'"
           [enableLens]="true"
           [circularLens]="true"

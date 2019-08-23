@@ -24,7 +24,8 @@
   }
 }
 
-.total ::ng-deep {
+.total {
+  margin-bottom: 32px;
   .line {
     display: flex;
     flex-direction: row;

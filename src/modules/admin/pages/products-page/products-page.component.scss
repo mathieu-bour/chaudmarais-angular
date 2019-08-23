@@ -1,0 +1,14 @@
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+
+  app-products-table {
+    flex-grow: 1;
+    margin-right: 32px;
+  }
+
+  app-product-form {
+    max-width: 50%;
+  }
+}

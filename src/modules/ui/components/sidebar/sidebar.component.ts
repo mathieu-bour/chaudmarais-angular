@@ -28,10 +28,4 @@ export class SidebarComponent implements OnInit {
   openLoginDialog() {
     this.dialog.open(LoginDialogComponent);
   }
-
-  logOut() {
-    this.store.dispatch(new Logout());
-    this.router.navigate(['']);
-  }
-
 }
