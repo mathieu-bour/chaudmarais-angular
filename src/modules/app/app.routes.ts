@@ -13,7 +13,7 @@ import {AdminHomepageComponent} from '../admin/components/admin-homepage/admin-h
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'e-shop',
     component: HomePageComponent
   },
   {
@@ -62,6 +62,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: 'e-shop'
   }
 ];

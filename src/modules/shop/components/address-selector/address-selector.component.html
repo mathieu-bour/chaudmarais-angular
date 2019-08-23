@@ -2,11 +2,16 @@
   fxLayout="column"
   aria-labelledby="example-radio-group-label"
   class="example-radio-group"
-  [ngModel]="addressInternal"
+  [ngModel]="value"
   (ngModelChange)="value = $event"
 >
 
   <mat-radio-button *ngFor="let address of addresses" [value]="address">
-    {{ address.line1 }}
+    <div class="address">
+      {{ address.line1 }}<br>
+      <ng-container *ngIf="address.line2">{{ address.line2 }}<br></ng-container>
+      {{ address.postal_code }} {{ address.city }}<br>
+      {{ address.country }}
+    </div>
   </mat-radio-button>
 </mat-radio-group>

@@ -24,5 +24,9 @@
   width: 100%;
   max-width: 100vw;
   padding: 0 16px;
+
+  @include gt-xs {
+    padding: 0;
+  }
 }
 

@@ -28,7 +28,7 @@ import {AdminModule} from '../admin/admin.module';
     NgxsModule.forRoot([AppState], {developmentMode: !environment.production}),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsStoragePluginModule.forRoot({
-      // key: ['app', 'auth', 'cart']
+      key: ['app', 'auth', 'cart']
     }),
     // LandingModule
     ShopModule,

@@ -25,18 +25,8 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick() {
-    this.expanded = !this.expanded;
-  }
-
-  onAccountClick($event: MouseEvent) {
-    const logged = this.store.snapshot().auth.token !== null;
-
-    if (!logged) {
-      this.dialog.open(LoginDialogComponent);
-    } else {
-      this.router.navigate(['compte', 'informations']);
-    }
+  openLoginDialog() {
+    this.dialog.open(LoginDialogComponent);
   }
 
   logOut() {

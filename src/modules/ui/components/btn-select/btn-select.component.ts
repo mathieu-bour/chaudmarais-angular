@@ -13,7 +13,7 @@ export class BtnSelectComponent implements OnInit, AfterViewInit {
   @Output() valueChange = new EventEmitter<any>();
 
   open = false;
-  private label;
+  label: string;
 
   private valueInternal: any;
 

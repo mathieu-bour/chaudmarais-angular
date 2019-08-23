@@ -1,14 +1,14 @@
 @import '../../../../scss/variables';
-$menu-width: 120px;
+$menu-width: 140px;
 
 :host {
   text-align: center;
 }
 
-img {
+.logo {
   display: block;
   margin: 32px auto;
-  width: calc(#{$menu-width} - 10px);
+  width: calc(#{$menu-width} - 20px);
 }
 
 button {
@@ -16,27 +16,21 @@ button {
   width: $menu-width;
 }
 
-nav {
-  background-color: $red;
-  margin: 0 auto;
-  padding: 16px 0;
-  width: $menu-width;
-  box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.6);
+::ng-deep {
+  .mat-menu-panel {
+    border-radius: 0 !important;
+  }
+  .mat-menu-content:not(:empty) {
+    padding: 0 !important;
+    background-color: $red;
+  }
 }
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  padding: 8px 0;
-}
 
 a {
   display: block;
-  padding: 8px 0;
+  width: $menu-width;
+  padding: 16px;
   color: #ed8290;
   cursor: pointer;
   font-weight: 900;
@@ -44,4 +38,19 @@ a {
   font-size: 18px;
   text-transform: uppercase;
   text-decoration: none;
+
+  &.current {
+    color: #ffffff;
+  }
+}
+
+.links-icons {
+  display: flex;
+  flex-direction: row;
+  width: $menu-width;
+  max-width: $menu-width;
+
+  & > a > img {
+    max-width: 40px;
+  }
 }

@@ -1,14 +1,27 @@
-<img src="https://cdn.chaudmarais.fr/img/logo-w150.png" alt="Logo Chaudmarais" routerLink="/">
+<img routerLink="/" class="logo" src="https://cdn.chaudmarais.fr/img/logo-w150.png" alt="Logo Chaudmarais">
 
-<button class="btn-red" (click)="onClick()">menu</button>
+<button class="btn-red trigger" [matMenuTriggerFor]="menu">menu</button>
 
-<nav *ngIf="expanded">
-  <ul>
-    <li><a routerLink="/e-shop">e-shop</a></li>
-    <li><a routerLink="/campagne">campagne</a></li>
-    <li><a routerLink="/histoire">histoire</a></li>
-    <li><a routerLink="/panier">panier</a></li>
-    <li><a (click)="onAccountClick($event)">compte</a></li>
-    <li *ngIf="isLogged$ | async"><a (click)="logOut()">Log Out</a></li>
-  </ul>
-</nav>
+<mat-menu #menu="matMenu">
+  <div class="links">
+    <a routerLink="/e-shop" routerLinkActive="current">e-shop</a>
+    <a routerLink="/campagne" routerLinkActive="current">campagne</a>
+    <a routerLink="/histoire" routerLinkActive="current">histoire</a>
+    <div class="links-icons">
+      <a routerLink="/panier">
+        <img src="https://cdn.chaudmarais.fr/img/icons/cart.svg" alt="">
+      </a>
+
+      <ng-container *ngIf="isLogged$ | async; else notLogged">
+        <a routerLink="/compte/informations">
+          <img src="https://cdn.chaudmarais.fr/img/icons/user.svg" alt="">
+        </a>
+      </ng-container>
+      <ng-template #notLogged>
+        <a (click)="openLoginDialog()">
+          <img src="https://cdn.chaudmarais.fr/img/icons/user.svg" alt="">
+        </a>
+      </ng-template>
+    </div>
+  </div>
+</mat-menu>
