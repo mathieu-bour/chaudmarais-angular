@@ -1,10 +1,19 @@
-@import 'variables';
+@import "variables";
+@import "mixins";
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900,900i&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+body, * {
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Montserrat', Helvetica, sans-serif;
   font-size: $base-font-size;
+
+  @include xs {
+    font-size: $base-font-size-xs;
+  }
 }
 
 p {
@@ -16,6 +25,10 @@ label {
   display: block;
   margin: 0 0 8px 0;
   font-size: $base-font-size;
+
+  @include xs {
+    font-size: $base-font-size-xs;
+  }
 }
 
 input[type=text], input[type=email], input[type=password] {
@@ -25,6 +38,10 @@ input[type=text], input[type=email], input[type=password] {
   padding: 0.4em 0.5em;
   font-size: $base-font-size;
   border: solid 2px $red;
+
+  @include xs {
+    font-size: $base-font-size-xs;
+  }
 }
 
 fieldset {
@@ -55,56 +72,3 @@ table {
     }
   }
 }
-
-.red {
-  color: $red;
-}
-
-.btn-red {
-  padding: 0.2em 0.5em;
-  color: #ffffff;
-  font-style: italic;
-  font-weight: 900;
-  text-align: center;
-  text-transform: uppercase;
-  background-color: $red;
-  border: solid 2px $red;
-  box-shadow: none;
-
-  &:hover {
-    transition: all .2s;
-    @extend .btn-red-inv;
-  }
-}
-
-.btn-red-inv {
-  @extend .btn-red;
-  color: $red;
-  background-color: #fff;
-
-  &:hover {
-    color: #ffffff;
-    background-color: $red;
-  }
-}
-
-.title-red {
-  box-sizing: border-box;
-  display: block;
-  margin: 0 0 32px 0;
-  padding: 8px 32px;
-  color: #ffffff;
-  font-size: 16px;
-  font-style: italic;
-  font-weight: 900;
-  text-align: left;
-  text-transform: uppercase;
-  background-color: $red;
-  border: 0;
-  box-shadow: none;
-
-  .title-red-icon {
-    height: 1em;
-  }
-}
-

@@ -1,0 +1,32 @@
+@import "../../../../scss/variables";
+
+:host {
+  display: flex;
+  background-color: $red;
+  width: 100%;
+  padding: 16px;
+  justify-content: space-between;
+
+  .logo {
+    width: 150px;
+  }
+
+  .actions {
+    .menu-icon {
+      background-color: blue;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+
+      div {
+        margin: 7px 5px;
+        background-color: #fff;
+        height: 4px;
+      }
+    }
+
+    img {
+      height: 40px;
+    }
+  }
+}

@@ -1,11 +1,13 @@
 <app-single-layout [title]="'Commande'">
-  <mat-vertical-stepper [linear]="true" (selectionChange)="onStepChange($event)" #stepper>
+  <mat-vertical-stepper [linear]="true" (selectionChange)="onStepChange($event)">
     <mat-step>
       <ng-template matStepLabel>Confirmation du panier</ng-template>
 
       <app-cart-table></app-cart-table>
 
-      <button mat-flat-button color="primary" matStepperNext>Suivant</button>
+      <div class="step-actions">
+        <button mat-flat-button color="primary" matStepperNext>Suivant</button>
+      </div>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Choix de l'adresse de livraison</ng-template>
@@ -17,22 +19,26 @@
       >
       </app-address-selector>
 
-      <div fxLayout="row" fxLayoutGap="16px">
+      <div class="step-actions">
         <button
           mat-flat-button
           color="primary"
           matStepperNext
-          [disabled]="!(shippingAddress$ | async) || (loading$ | async)"
-        >Suivant</button>
+          [disabled]="!(shippingAddress$ | async) || (loading$ | async)">
+          Suivant
+        </button>
 
         <button
           mat-flat-button
-          color="primary"
-        >Ajouter une addresse</button>
+          color="primary">
+          Ajouter une addresse
+        </button>
+
+        <mat-spinner *ngIf="loading$ | async" [diameter]="40"></mat-spinner>
       </div>
     </mat-step>
     <mat-step>
-      <ng-template matStepLabel>Paiement</ng-template>
+      <ng-template matStepLabel>Paiement sécurisé</ng-template>
 
       <fieldset>
         <label for="checkout-card-name">Nom sur la carte</label>
@@ -40,19 +46,27 @@
       </fieldset>
 
       <fieldset>
-        <label for="checkout-card">Informations de la carte</label>
-        <div #cardElement id="checkout-card"></div>
+        <label for="checkout-card-number">Informations de la carte</label>
+        <div #cardNumber id="checkout-card-number"></div>
+
+        <div class="card-cvc-expiration">
+          <div #cardCvc class="checkout-card-cvc"></div>
+          <div #cardExpiry class="checkout-card-expiry"></div>
+        </div>
       </fieldset>
 
-      <button
-        mat-flat-button
-        color="primary"
-        matStepperNext
-        [disabled]="!(complete$ | async) || (loading$ | async)"
-        (click)="onPay()"
-      >
-        Valider le paiement
-      </button>
+      <div class="step-actions">
+        <button
+          mat-flat-button
+          color="primary"
+          matStepperNext
+          (click)="onPay()"
+          [disabled]="!(complete$ | async) || (loading$ | async)">
+          Valider le paiement
+        </button>
+
+        <mat-spinner *ngIf="loading$ | async" [diameter]="40"></mat-spinner>
+      </div>
     </mat-step>
   </mat-vertical-stepper>
 </app-single-layout>

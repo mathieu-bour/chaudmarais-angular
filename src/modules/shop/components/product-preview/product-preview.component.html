@@ -5,7 +5,8 @@
     </div>
   </swiper>
 
-  <div class="product-meta">
-    <h2>{{ product.name }}</h2>
+  <div class="product-infos">
+    <h2 class="product-name">{{ product.name }}</h2>
+    <div class="product-price">{{ product.price | price }}</div>
   </div>
 </ng-container>

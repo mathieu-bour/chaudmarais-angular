@@ -1,1 +1,14 @@
 @import "../variables";
+@import "../mixins";
+
+.mat-radio-button {
+  font-family: 'Montserrat', Helvetica, sans-serif;
+
+  label {
+    font-size: $base-font-size-xs;
+
+    @include gt-xs {
+      font-size: $base-font-size;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 <app-account-layout>
-  <div>
-    <form [formGroup]="userChanges" (ngSubmit)="updateAccountInformation()">
+  <app-card>
+    <form card-content [formGroup]="userChanges" (ngSubmit)="updateAccountInformation()">
       <label>Prénom :
         <input type="text" formControlName="first_name">
       </label>
@@ -15,5 +15,5 @@
       </label>
       <button type="submit" class="btn-red" [disabled]="!userChanges.valid">Sauvegarder</button>
     </form>
-  </div>
+  </app-card>
 </app-account-layout>

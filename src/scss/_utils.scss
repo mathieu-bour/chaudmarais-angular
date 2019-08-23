@@ -1,3 +1,5 @@
+@import "mixins";
+
 .text-left {
   text-align: left;
 }
@@ -6,4 +8,24 @@
 }
 .text-center {
   text-align: center;
+}
+
+@include xs {
+  .xs-hide {
+    display: none;
+  }
+}
+@include gt-xs {
+  .gt-xs-hide {
+    display: none;
+  }
+}
+
+.fx-row {
+  display: flex;
+  flex-direction: row;
+}
+.fx-column {
+  display: flex;
+  flex-direction: column;
 }

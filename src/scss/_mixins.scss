@@ -1,29 +1,77 @@
-@mixin for-phone-only {
-  @media (max-width: 599px) {
+@mixin xs {
+  @media (screen and max-width: 599px) {
     @content;
   }
 }
 
-@mixin for-tablet-portrait-up {
-  @media (min-width: 600px) {
+@mixin sm {
+  @media (screen and (min-width: 600px) and (max-width: 959px)) {
     @content;
   }
 }
 
-@mixin for-tablet-landscape-up {
-  @media (min-width: 900px) {
+@mixin md {
+  @media (screen and (min-width: 960px) and (max-width: 1279px)) {
     @content;
   }
 }
 
-@mixin for-desktop-up {
-  @media (min-width: 1200px) {
+@mixin lg {
+  @media (screen and (min-width: 1280px) and (max-width: 1919px)) {
     @content;
   }
 }
 
-@mixin for-big-desktop-up {
-  @media (min-width: 1800px) {
+@mixin xl {
+  @media (screen and (min-width: 1920px) and (max-width: 5000px)) {
+    @content;
+  }
+}
+
+@mixin lt-sm {
+  @media (screen and max-width: 599px) {
+    @content;
+  }
+}
+
+@mixin lt-md {
+  @media (screen and max-width: 959px) {
+    @content;
+  }
+}
+
+@mixin lt-lg {
+  @media (screen and max-width: 1279px) {
+    @content;
+  }
+}
+
+@mixin lt-xl {
+  @media (screen and max-width: 1919px) {
+    @content;
+  }
+}
+
+@mixin gt-xs {
+  @media (screen and min-width: 600px) {
+    @content;
+  }
+}
+
+@mixin gt-sm {
+  @media (screen and min-width: 960px) {
+    @content;
+  }
+}
+
+@mixin gt-md {
+  @media (screen and min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin gt-lg {
+  @media (screen and min-width: 1920px) {
     @content;
   }
 }

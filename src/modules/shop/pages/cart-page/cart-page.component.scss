@@ -1,23 +1,48 @@
 @import '../../../../scss/variables';
+@import '../../../../scss/mixins';
 
 .container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+
+  @include gt-xs {
+    flex-direction: row;
+  }
 }
 
 .cart {
-  width: 70%;
-  margin-right: 32px;
+  width: 100%;
+  margin: 0 0 32px;
+
+  @include gt-xs {
+    width: 70%;
+    margin-right: 32px;
+  }
+
+  app-cart-element:last-child {
+    margin: 0;
+  }
 }
 
 .total ::ng-deep {
   .line {
-    margin-bottom: 32px;
-    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    font-size: $base-font-size-xs;
+
+    @include gt-xs {
+      font-size: $base-font-size;
+    }
   }
 
   button {
     display: block;
-    margin: 200px auto 0;
+
+    @include gt-xs {
+      margin: 200px auto 0;
+    }
   }
 }

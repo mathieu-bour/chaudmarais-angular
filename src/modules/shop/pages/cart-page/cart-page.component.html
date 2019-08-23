@@ -10,12 +10,23 @@
 
     <app-card class="total">
       <h1 class="title-red" card-title>total</h1>
+
       <ng-container card-content>
-        <div class="line">Sous total: {{subtotal$ | async | price}}</div>
-        <div class="line" *ngIf="shipping$ | async as shipping">
-          {{shipping.name}}: {{shipping.price | price}}
+        <div class="line">
+          <span>Sous total:</span>
+          <span>{{subtotal$ | async | price}}</span>
         </div>
-        <div class="line">Total: {{total$ | async | price}}</div>
+
+        <div class="line" *ngIf="shipping$ | async as shipping">
+          <span>{{shipping.name}}:</span>
+          <span>{{shipping.price | price}}</span>
+        </div>
+
+        <div class="line">
+          <span>Total:</span>
+          <span>{{total$ | async | price}}</span>
+        </div>
+
         <button routerLink="/paiement" class="btn-red">Payer</button>
       </ng-container>
     </app-card>

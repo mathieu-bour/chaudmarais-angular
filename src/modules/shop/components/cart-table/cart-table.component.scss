@@ -1,0 +1,10 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/mixins";
+
+:host {
+  font-size: 11px;
+
+  @include gt-xs {
+    font-size: $base-font-size;
+  }
+}

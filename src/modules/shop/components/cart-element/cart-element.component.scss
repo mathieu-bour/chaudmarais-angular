@@ -1,3 +1,6 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/mixins";
+
 :host {
   display: flex;
   flex-direction: row;
@@ -11,39 +14,69 @@ article {
   justify-content: space-between;
 }
 
-img {
+.cart-product-image {
   margin-right: 8px;
 }
 
-app-btn-select {
-  margin-top: 8px;
-}
-
-h3 {
-  margin: 0;
-  text-transform: uppercase;
-  font-style: normal;
-  font-weight: 700;
-}
-
-.product-line {
+.cart-product-infos {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: 20px;
+  flex-direction: column;
+  justify-content: space-between;
 
-  img {
-    margin-left: 8px;
-    width: 20px;
+  @include gt-xs {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .cart-product-name-wrapper {
+    flex-direction: column;
+    font-size: $base-font-size-xs;
+
+    @include gt-md {
+      flex-direction: row;
+    }
+
+    .cart-product-name {
+      margin: 0 0 8px;
+      font-style: normal;
+      font-weight: 700;
+      text-transform: uppercase;
+
+      @include xs {
+        margin-bottom: 4px;
+      }
+    }
+
+    .cart-product-type {
+      @include gt-md {
+        flex-grow: 1;
+        text-align: right;
+        margin-right: 8px;
+
+        &:before {
+          content: ', ';
+        }
+      }
+    }
+  }
+
+  .cart-product-price-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .cart-product-price {
+      margin-right: 8px;
+    }
+
+    img {
+      height: 20px;
+    }
   }
 }
 
-.price {
-  flex-grow: 1;
-  text-align: right;
-  margin-right: 8px;
-}
-
-.btn-red {
-  font-style: normal;
+.cart-product-actions {
+  app-btn-select {
+    margin-right: 8px;
+  }
 }

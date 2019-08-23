@@ -1,6 +1,13 @@
-import {Action, State, StateContext, Store} from '@ngxs/store';
+import {Action, Selector, State, StateContext, Store} from '@ngxs/store';
 import {CheckoutStateModel} from './checkout.state.model';
-import {CreatePaymentIntent, Pay, ResetCheckout, SetComplete, SetPaymentIntent, SetShippingAddress} from './checkout.state.actions';
+import {
+  CreatePaymentIntent,
+  OnStripeElementChange,
+  Pay,
+  ResetCheckout,
+  SetPaymentIntent,
+  SetShippingAddress
+} from './checkout.state.actions';
 import {CartClient} from '../../../api/clients/cart/cart.client';
 import {CartItem} from '../cart/cart.state.model';
 
@@ -12,8 +19,12 @@ type CheckoutStateContext = StateContext<CheckoutStateModel>;
     shippingAddress: null,
     billingAddress: null,
     paymentIntent: null,
-    complete: false,
-    loading: false
+    loading: false,
+    complete: {
+      cardNumber: false,
+      cardCvc: false,
+      cardExpiry: false
+    }
   }
 })
 export class CheckoutState {
@@ -21,6 +32,11 @@ export class CheckoutState {
     private store: Store,
     private checkoutClient: CartClient
   ) {
+  }
+
+  @Selector()
+  static complete(state: CheckoutStateModel): boolean {
+    return state.complete.cardNumber && state.complete.cardCvc && state.complete.cardExpiry;
   }
 
   @Action(CreatePaymentIntent)
@@ -75,10 +91,16 @@ export class CheckoutState {
     });
   }
 
-  @Action(SetComplete)
-  setComplete(ctx: CheckoutStateContext, {complete}: SetComplete) {
+  @Action(OnStripeElementChange)
+  setComplete(ctx: CheckoutStateContext, {event}: OnStripeElementChange) {
+    const newCompleted = {};
+    newCompleted[event.elementType] = event.complete;
+
     ctx.patchState({
-      complete
+      complete: {
+        ...ctx.getState().complete,
+        ...newCompleted
+      }
     });
   }
 
@@ -102,8 +124,12 @@ export class CheckoutState {
       shippingAddress: null,
       billingAddress: null,
       paymentIntent: null,
-      complete: false,
-      loading: false
+      loading: false,
+      complete: {
+        cardNumber: false,
+        cardCvc: false,
+        cardExpiry: false
+      }
     });
   }
 }

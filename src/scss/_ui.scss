@@ -1,0 +1,53 @@
+@import 'variables';
+
+.red {
+  color: $red;
+}
+
+.btn-red {
+  padding: 0.2em 0.5em;
+  color: #ffffff;
+  font-style: italic;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: $red;
+  border: solid 2px $red;
+  box-shadow: none;
+
+  &:hover {
+    transition: all .2s;
+    @extend .btn-red-inv;
+  }
+}
+
+.btn-red-inv {
+  @extend .btn-red;
+  color: $red;
+  background-color: #fff;
+
+  &:hover {
+    color: #ffffff;
+    background-color: $red;
+  }
+}
+
+.title-red {
+  box-sizing: border-box;
+  display: block;
+  margin: 0 0 32px 0;
+  padding: 8px 32px;
+  color: #ffffff;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 900;
+  text-align: left;
+  text-transform: uppercase;
+  background-color: $red;
+  border: 0;
+  box-shadow: none;
+
+  .title-red-icon {
+    height: 1em;
+  }
+}

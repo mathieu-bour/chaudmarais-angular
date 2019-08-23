@@ -23,7 +23,7 @@ import {
   MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule,
+  MatInputModule, MatProgressSpinnerModule,
   MatRadioModule,
   MatStepperModule
 } from '@angular/material';
@@ -88,7 +88,8 @@ import { OrderConfirmedPageComponent } from './pages/order-confirmed-page/order-
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatRadioModule
+    MatRadioModule,
+    MatProgressSpinnerModule
   ]
 })
 export class ShopModule {

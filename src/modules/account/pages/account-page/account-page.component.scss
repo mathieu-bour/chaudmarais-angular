@@ -1,0 +1,8 @@
+@import "../../../../scss/mixins";
+
+app-card {
+  display: block;
+  @include gt-xs {
+    width: 70%;
+  }
+}

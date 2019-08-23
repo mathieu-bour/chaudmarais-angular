@@ -6,6 +6,8 @@ import {JwtHelperService} from '@auth0/angular-jwt';
 import {UsersClient} from '../../clients/users/users.client';
 import {AddressesState} from '../addresses/addresses.state';
 import {Address} from '../../models/address';
+import {OrdersState} from '../orders/orders.state';
+import {Order} from '../../models/order';
 
 type AuthStateContext = StateContext<AuthStateModel>;
 
@@ -40,6 +42,11 @@ export class AuthState {
   @Selector([AddressesState])
   static addresses(state: AuthStateModel, addresses: Address[]) {
     return addresses.filter(address => address.user_id === state.user.id);
+  }
+
+  @Selector([OrdersState])
+  static orders(state: AuthStateModel, orders: Order[]) {
+    return orders.filter(order => order.user_id === state.user.id);
   }
 
   @Action(Login)

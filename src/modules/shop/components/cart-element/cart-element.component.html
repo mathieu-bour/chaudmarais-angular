@@ -1,15 +1,24 @@
-<img [src]="cartItem.product.image_first | thumb: 100" alt="">
+<img class="cart-product-image"
+     [src]="cartItem.product.image_first | thumb: 100"
+     alt="">
 
 <article>
-  <div class="product-line">
-    <h3>{{cartItem.product.name}}</h3>
-    <div>, T-shirt</div>
-    <div class="price">{{cartItem.stock.price | price}}</div>
-    <img (click)="onQuantityChange(0)" src="https://cdn.chaudmarais.fr/img/icons/cancel.svg"
-         alt="Supprimer cet article du panier">
+  <div class="cart-product-infos">
+    <div class="cart-product-name-wrapper">
+      <h3 class="cart-product-name">{{cartItem.product.name}}</h3>
+      <div class="cart-product-type">T-shirt</div>
+    </div>
+
+    <div class="cart-product-price-wrapper">
+      <div class="cart-product-price">{{cartItem.stock.price | price}}</div>
+      <img class="cart-product-delete"
+           src="https://cdn.chaudmarais.fr/img/icons/cancel.svg"
+           alt="Supprimer cet article du panier"
+           (click)="onQuantityChange(0)">
+    </div>
   </div>
 
-  <div class="actions">
+  <div class="cart-product-actions">
     <app-btn-select
       [placeholder]="'Taille'"
       [prefix]="'Taille'"

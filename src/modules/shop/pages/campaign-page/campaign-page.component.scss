@@ -1,4 +1,14 @@
 @import '../../../../scss/variables';
+@import '../../../../scss/mixins';
+
+app-banner {
+  display: block;
+  margin: 0 -16px 16px;
+
+  @include gt-xs {
+    margin: 0 0 32px 0;
+  }
+}
 
 section {
   display: flex;

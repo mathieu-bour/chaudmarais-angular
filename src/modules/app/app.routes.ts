@@ -7,10 +7,8 @@ import {HistoryPageComponent} from '../shop/pages/history-page/history-page.comp
 import {CampaignPageComponent} from '../shop/pages/campaign-page/campaign-page.component';
 import {ProductViewPageComponent} from '../shop/pages/product-view-page/product-view-page.component';
 import {CartPageComponent} from '../shop/pages/cart-page/cart-page.component';
-import {AddressesPageComponent} from '../account/pages/addresses-page/addresses-page.component';
 import {CheckoutPageComponent} from '../shop/pages/checkout-page/checkout-page.component';
 import {OrderConfirmedPageComponent} from '../shop/pages/order-confirmed-page/order-confirmed-page.component';
-import {AccountPageComponent} from '../account/pages/account-page/account-page.component';
 import {AdminHomepageComponent} from '../admin/components/admin-homepage/admin-homepage.component';
 
 export const routes: Routes = [
@@ -56,11 +54,7 @@ export const routes: Routes = [
   },
   {
     path: 'compte',
-    component: AccountPageComponent
-  },
-  {
-    path: 'compte/adresses',
-    component: AddressesPageComponent
+    loadChildren: () => import('../account/account.module').then(mod => mod.AccountModule)
   },
   {
     path: 'admin',

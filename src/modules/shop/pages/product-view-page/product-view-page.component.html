@@ -1,6 +1,6 @@
 <app-single-layout [width]="70">
-  <section>
-    <div class="preview">
+  <section class="product-wrapper">
+    <div class="product-preview">
       <ng-container *ngIf="(product$ | async) as product">
         <ngx-image-zoom
           [thumbImage]="product.images[imageIndex] | thumb:500"
@@ -15,7 +15,7 @@
       </ng-container>
     </div>
 
-    <div class="product-wrapper">
+    <div class="product-infos">
       <div *ngIf="(product$ | async) as product" class="product">
         <h1>{{ product.name }}</h1>
         <h2>T-shirt</h2>
@@ -46,9 +46,9 @@
     </div>
   </section>
 
-  <section>
+  <section fxHide.xs>
     <app-product-thumbnails-swiper
-      class="preview"
+      class="product-preview"
       *ngIf="product$ | async as product"
       [images]="product.images"
       (imageIndex)="imageIndex = $event"

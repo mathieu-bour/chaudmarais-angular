@@ -1,7 +1,12 @@
 @import "../../../../scss/variables";
 
+
+.addresses {
+  min-width: 300px;
+  margin-right: 16px;
+}
+
 .address {
   padding: 16px;
   border: solid 2px $red;
-  min-width: 300px;
 }

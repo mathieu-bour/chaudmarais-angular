@@ -4,6 +4,10 @@ export interface CheckoutStateModel {
   shippingAddress: Address;
   billingAddress: Address;
   paymentIntent: stripe.paymentIntents.PaymentIntent;
-  complete: boolean;
   loading: boolean;
+  complete: {
+    cardNumber: boolean,
+    cardCvc: boolean,
+    cardExpiry: boolean
+  };
 }

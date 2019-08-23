@@ -1,9 +1,21 @@
+@import "../../../../scss/mixins";
+
+app-banner {
+  margin: 0 -16px 16px;
+
+  @include gt-xs {
+    margin: 0 0 32px 0;
+  }
+}
+
 .product-grid {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 
   app-product-preview {
     width: 50%;
+    margin-bottom: 16px;
 
     &:nth-child(2n) {
       padding-left: 16px;
@@ -11,6 +23,16 @@
 
     &:nth-child(2n + 1) {
       padding-right: 16px;
+    }
+
+    @include xs {
+      &:nth-child(2n) {
+        padding-left: 8px;
+      }
+
+      &:nth-child(2n + 1) {
+        padding-right: 8px;
+      }
     }
   }
 }

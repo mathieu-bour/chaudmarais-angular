@@ -35,7 +35,7 @@ export class SidebarComponent implements OnInit {
     if (!logged) {
       this.dialog.open(LoginDialogComponent);
     } else {
-      this.router.navigate(['compte', 'adresses']);
+      this.router.navigate(['compte', 'informations']);
     }
   }
 

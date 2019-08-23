@@ -9,6 +9,8 @@ import {FooterComponent} from './components/footer/footer.component';
 import {RouterModule} from '@angular/router';
 import { CardComponent } from './components/card/card.component';
 import {MatCardModule, MatMenuModule} from '@angular/material';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import { NavComponent } from './components/nav/nav.component';
 
 
 @NgModule({
@@ -19,13 +21,15 @@ import {MatCardModule, MatMenuModule} from '@angular/material';
     SingleLayoutComponent,
     TwoLayoutComponent,
     BtnSelectComponent,
-    CardComponent
+    CardComponent,
+    NavComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     // Material
-    MatMenuModule
+    MatMenuModule,
+    FlexLayoutModule
   ],
   exports: [
     DefaultLayoutComponent,

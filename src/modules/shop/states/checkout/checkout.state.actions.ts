@@ -7,13 +7,6 @@ export class SetShippingAddress {
   }
 }
 
-export class SetBillingAddress {
-  static readonly type = '[Checkout] SetBillingAddress';
-
-  constructor(public address: Address) {
-  }
-}
-
 export class CreatePaymentIntent {
   static readonly type = '[Checkout] CreatePaymentIntent';
 }
@@ -25,10 +18,17 @@ export class SetPaymentIntent {
   }
 }
 
-export class SetComplete {
+export class OnStripeElementChange {
+  static readonly type = '[Checkout] OnStripeElementChange';
+
+  constructor(public event: {elementType: string, complete: boolean}) {
+  }
+}
+
+export class SetWaiting {
   static readonly type = '[Checkout] SetComplete';
 
-  constructor(public complete: boolean) {
+  constructor(public waiting: boolean) {
   }
 }
 

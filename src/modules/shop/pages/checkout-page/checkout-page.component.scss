@@ -1,4 +1,5 @@
 @import "../../../../scss/variables";
+@import "../../../../scss/mixins";
 
 mat-vertical-stepper {
   fieldset {
@@ -12,6 +13,39 @@ mat-vertical-stepper {
   }
 }
 
+.step-actions {
+  display: flex;
+  flex-direction: column;
+
+  @include gt-xs {
+    flex-direction: row;
+  }
+
+  button {
+    margin-bottom: 8px;
+
+    @include gt-xs {
+      margin-right: 16px;
+    }
+  }
+}
+
+#checkout-card-number {
+  margin-bottom: 8px;
+}
+.card-cvc-expiration {
+  display: flex;
+  flex-direction: row;
+
+  .checkout-card-expiry {
+    width: 50%;
+    margin-left: 8px;
+  }
+  .checkout-card-cvc {
+    width: 50%;
+    margin-right: 8px;
+  }
+}
 .StripeElement {
   box-sizing: border-box;
   height: 40px;

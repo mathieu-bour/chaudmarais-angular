@@ -11,7 +11,6 @@ import {environment} from '../../environments/environment';
 import {NgxsReduxDevtoolsPluginModule} from '@ngxs/devtools-plugin';
 import {NgxsStoragePluginModule} from '@ngxs/storage-plugin';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AccountModule} from '../account/account.module';
 import {GrpdDialogComponent} from './components/grpd-dialog/grpd-dialog.component';
 import {AppState} from './state/app.state';
 import {AdminModule} from '../admin/admin.module';
@@ -29,11 +28,10 @@ import {AdminModule} from '../admin/admin.module';
     NgxsModule.forRoot([AppState], {developmentMode: !environment.production}),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsStoragePluginModule.forRoot({
-      key: ['app', 'auth']
+      // key: ['app', 'auth', 'cart']
     }),
     // LandingModule
     ShopModule,
-    AccountModule,
     AdminModule
   ],
   entryComponents: [GrpdDialogComponent],

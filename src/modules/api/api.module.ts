@@ -8,6 +8,7 @@ import {AddressesState} from './states/addresses/addresses.state';
 import {ProductsState} from './states/products/products.state';
 import {StocksState} from './states/stocks/stocks.state';
 import {UsersState} from './states/users/users.state';
+import {OrdersState} from './states/orders/orders.state';
 
 @NgModule({
   declarations: [],
@@ -17,6 +18,7 @@ import {UsersState} from './states/users/users.state';
     NgxsModule.forFeature([
       AuthState,
       AddressesState,
+      OrdersState,
       ProductsState,
       StocksState,
       UsersState

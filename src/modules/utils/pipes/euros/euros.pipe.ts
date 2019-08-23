@@ -4,7 +4,7 @@ import {Pipe, PipeTransform} from '@angular/core';
   name: 'euros'
 })
 export class EurosPipe implements PipeTransform {
-  transform(value: number): number {
-    return Math.floor(value / 100);
+  transform(value: number): string {
+    return Math.floor(value / 100).toString();
   }
 }

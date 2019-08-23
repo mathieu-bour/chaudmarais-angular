@@ -1,4 +1,5 @@
 @import '../../../../scss/variables';
+@import '../../../../scss/mixins';
 
 $preview-width: 400px;
 
@@ -7,48 +8,81 @@ section {
   margin-bottom: 8px;
 }
 
-.preview {
-  width: $preview-width;
-  margin-right: 16px;
+.product-preview {
+  width: 100vw;
+  margin: 0 -16px 32px;
+
+  @include gt-xs {
+    width: $preview-width;
+    margin: 0 16px 0 0;
+  }
 
   ngx-image-zoom {
     display: block;
   }
 
   ngx-image-zoom ::ng-deep .ngxImageZoomContainer > img {
-    width: $preview-width !important;
+    width: 100vw;
+
+    @include gt-xs {
+      width: $preview-width !important;
+    }
   }
 }
 
 .product-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+
+  @include gt-xs {
+    flex-direction: row;
+  }
+}
+
+.product-infos {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
   box-sizing: border-box;
+
+  @include gt-xs {
+    justify-content: flex-end;
+  }
 
   .product {
     margin-bottom: 16px;
 
     h1 {
-      font-size: 40px;
       margin: 0;
       text-transform: uppercase;
       font-weight: 900;
+
+      @include gt-xs {
+        font-size: 40px;
+      }
     }
 
     h2 {
-      margin: 0 0 32px;
+      margin: 0 0 16px;
       font-size: 24px;
       font-weight: 400;
+
+      @include gt-xs {
+        margin: 0 0 32px;
+      }
     }
 
     .product-price {
-      margin-bottom: 32px;
+      margin-bottom: 16px;
       color: $red;
       font-size: 60px;
       font-style: italic;
       font-weight: 900;
       line-height: 1;
+
+      @include gt-xs {
+        margin: 0 0 32px;
+      }
 
       span {
         font-size: 0.6em;

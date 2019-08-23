@@ -1,0 +1,26 @@
+.order {
+  display: block;
+  margin-bottom: 32px;
+}
+
+.order-products {
+  margin-bottom: 16px;
+
+  .order-product-image {
+    margin-right: 16px;
+  }
+
+  .order-product-infos {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.order-actions {
+  > * {
+    margin-right: 16px;
+  }
+}

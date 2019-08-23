@@ -1,0 +1,32 @@
+<app-account-layout>
+  <app-card class="order" *ngFor="let order of orders$ | async">
+    <div card-title class="title-red">Commande n°{{ order.stripe_id | orderId }}</div>
+    <div card-content>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ order.stripe_id }}
+            </mat-panel-title>
+            <mat-panel-description>
+              Passée le {{ order.created_at | date:'d/m/y' }} - {{ order.status }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <div class="order-products" *ngFor="let stock of order.content" fxLayout="row">
+            <img class="order-product-image" src="{{ stock.product.image_first | thumb:100 }}" alt="">
+            <div class="order-product-infos">
+              <h3 class="order-product-title">{{ stock.product.name }} - {{ stock.stock.size }}</h3>
+              <div class="order-product-price">{{ stock.stock.price | price }}</div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <div class="order-actions">
+        <a mat-flat-button color="primary" target="_blank" [href]="order.receipt_url">Facture</a>
+        <a mat-flat-button color="primary" routerLink="/politique-retour">Retour</a>
+      </div>
+    </div>
+  </app-card>
+</app-account-layout>

@@ -5,20 +5,32 @@
   box-sizing: border-box;
 }
 
-swiper ::ng-deep {
-  img {
-    max-width: 100%;
-    cursor: pointer;
-  }
+swiper {
+  display: block;
 
-  .swiper-button-prev, .swiper-button-next {
-    opacity: 0;
-    transition: all .2s ease;
-  }
-
-  &:hover {
-    .swiper-button-prev, .swiper-button-next {
-      opacity: 1;
+  &::ng-deep {
+    img {
+      max-width: 100%;
+      cursor: pointer;
     }
+
+    .swiper-button-prev, .swiper-button-next {
+      opacity: 0;
+      transition: all .2s ease;
+    }
+
+    &:hover {
+      .swiper-button-prev, .swiper-button-next {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.product-infos {
+  padding: 4px 0;
+  .product-name {
+    margin: 0;
+    font-size: 18px;
   }
 }

@@ -8,23 +8,32 @@ import {AccountPageComponent} from './pages/account-page/account-page.component'
 import {AccountLayoutComponent} from './layouts/account-layout/account-layout.component';
 import {RouterModule} from '@angular/router';
 import {FlexModule} from '@angular/flex-layout';
-import {MatButtonModule} from '@angular/material';
+import {MatButtonModule, MatExpansionModule} from '@angular/material';
+import {accountRoutes} from './account.module.routes';
+import {OrdersPageComponent} from './pages/orders-page/orders-page.component';
+import {UtilsModule} from '../utils/utils.module';
 
 
 @NgModule({
   declarations: [
+    AccountLayoutComponent,
     AddressesPageComponent,
     AccountPageComponent,
-    AccountLayoutComponent
+    OrdersPageComponent
   ],
   imports: [
     CommonModule,
     APIModule,
     UIModule,
     ReactiveFormsModule,
-    RouterModule,
+    RouterModule.forChild(accountRoutes),
     FlexModule,
-    MatButtonModule
+    MatButtonModule,
+    UtilsModule,
+    MatExpansionModule
+  ],
+  exports: [
+    RouterModule
   ]
 })
 export class AccountModule {
