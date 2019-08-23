@@ -18,7 +18,7 @@
     <div class="product-infos">
       <div *ngIf="(product$ | async) as product" class="product">
         <h1>{{ product.name }}</h1>
-        <h2>T-shirt</h2>
+        <h2>{{ product.type }}</h2>
         <div class="product-price" *ngIf="(stock$ | async) as stock">
           {{ stock.price | euros }}.<span>{{ stock.price | cents }}</span>€
         </div>

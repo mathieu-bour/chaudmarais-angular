@@ -17,7 +17,7 @@ export class AccountPageComponent implements OnInit {
     first_name: new FormControl('', Validators.required),
     last_name: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required)
+    password: new FormControl('')
   });
 
   constructor(private store: Store, private fb: FormBuilder) {

@@ -6,11 +6,10 @@
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
-              {{ order.stripe_id }}
+              {{ order.total | price }}
+              - Passée le {{ order.created_at | date:'d/m/y' }}
+              - {{ order.status }}
             </mat-panel-title>
-            <mat-panel-description>
-              Passée le {{ order.created_at | date:'d/m/y' }} - {{ order.status }}
-            </mat-panel-description>
           </mat-expansion-panel-header>
 
           <div class="order-products" *ngFor="let stock of order.content" fxLayout="row">

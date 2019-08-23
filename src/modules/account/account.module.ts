@@ -8,7 +8,7 @@ import {AccountPageComponent} from './pages/account-page/account-page.component'
 import {AccountLayoutComponent} from './layouts/account-layout/account-layout.component';
 import {RouterModule} from '@angular/router';
 import {FlexModule} from '@angular/flex-layout';
-import {MatButtonModule, MatExpansionModule} from '@angular/material';
+import {MatButtonModule, MatExpansionModule, MatIconModule} from '@angular/material';
 import {accountRoutes} from './account.module.routes';
 import {OrdersPageComponent} from './pages/orders-page/orders-page.component';
 import {UtilsModule} from '../utils/utils.module';
@@ -30,7 +30,8 @@ import {UtilsModule} from '../utils/utils.module';
     FlexModule,
     MatButtonModule,
     UtilsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatIconModule
   ],
   exports: [
     RouterModule

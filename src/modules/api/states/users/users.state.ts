@@ -27,6 +27,10 @@ export class UsersState extends BaseState {
 
   @Action(PatchUser)
   async patchUser(ctx: UsersStateContext, {userId, data}: PatchUser) {
+    if (data.password !== undefined && !data.password) {
+      delete data.password;
+    }
+
     const response = await this.usersClient.patch(userId, data);
 
     if (userId === this.store.snapshot().auth.user.id) {

@@ -5,14 +5,19 @@
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // **Be sure that you only ever include this mixin once!**
-@include mat-core();
 
 // Define the theme.
 $candy-app-primary: mat-palette($mat-chaud);
 $candy-app-accent:  mat-palette($mat-chaud, A200, A100, A400);
 $candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
 
-// Include the theme styles for only specified components.
+$typography: mat-typography-config(
+  $font-family: $base-font-family,
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+
+@include mat-core($typography);
 @include mat-core-theme($candy-app-theme);
 @include mat-dialog-theme($candy-app-theme);
 @include mat-button-theme($candy-app-theme);

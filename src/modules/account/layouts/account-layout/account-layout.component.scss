@@ -1,16 +1,59 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/mixins";
+@import '~@angular/material/theming';
+
 .wrapper {
-  width: 70%;
+  @include gt-md {
+    width: 70%;
+  }
 }
 
-img {
-  height: 1.6em;
+.title-red {
+  @include xs {
+    padding: 8px;
+  }
 }
 
-nav {
-  line-height: 1.6;
+.nav-icon {
+  display: none;
 
-  a {
-    color: #ffffff;
+  @include gt-xs {
+    display: inline-block;
+    height: 1.6em;
+  }
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  > a {
+    flex-grow: 1;
+    margin-right: 16px;
+    color: mat-color($mat-chaud, 200);
+    line-height: 1.6;
+    font-size: 8px;
+    text-align: center;
     text-decoration: none;
+    cursor: pointer;
+
+    @include gt-xs {
+      font-size: $base-font-size;
+    }
+
+    mat-icon {
+      @include gt-xs {
+        display: none;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.current {
+      color: $light-primary-text;
+    }
   }
 }

@@ -9,7 +9,6 @@ import {ProductViewPageComponent} from '../shop/pages/product-view-page/product-
 import {CartPageComponent} from '../shop/pages/cart-page/cart-page.component';
 import {CheckoutPageComponent} from '../shop/pages/checkout-page/checkout-page.component';
 import {OrderConfirmedPageComponent} from '../shop/pages/order-confirmed-page/order-confirmed-page.component';
-import {AdminHomepageComponent} from '../admin/components/admin-homepage/admin-homepage.component';
 
 export const routes: Routes = [
   {

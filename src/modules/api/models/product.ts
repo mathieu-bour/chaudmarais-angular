@@ -3,6 +3,7 @@ export interface Product {
   enabled: boolean;
   name: string;
   slug: string;
+  type: string;
   description: string;
   image_first: string;
   images: string[];
