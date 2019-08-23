@@ -27,6 +27,7 @@ $typography: mat-typography-config(
 @include mat-sidenav-theme($candy-app-theme);
 @include mat-list-theme($candy-app-theme);
 @include mat-table-theme($candy-app-theme);
+@include mat-slide-toggle-theme($candy-app-theme);
 
 html {
   @import "dialog";

@@ -28,6 +28,13 @@ export class GetProduct {
   }
 }
 
+export class PatchProduct {
+  static readonly type = '[Products API] PatchProduct';
+
+  constructor(public product: Product) {
+  }
+}
+
 export class GetProductStocks {
   static readonly type = '[Products API] GetProductStocks';
 

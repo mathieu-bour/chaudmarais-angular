@@ -1,10 +1,25 @@
 <app-card>
   <h2 card-title class="title-red">Édition d'un produit</h2>
 
-  <form card-content [formGroup]="productFormGroup">
+  <form card-content [formGroup]="productFormGroup" (ngSubmit)="confirmEdition()">
     <fieldset>
-      <label for="product-form-name">Nom</label>
+      <label for="product-form-name">Nom :</label>
       <input type="text" formControlName="name" id="product-form-name">
     </fieldset>
+    <fieldset>
+      <label for="product-form-description">Description :</label>
+      <textarea type="text" formControlName="description" id="product-form-description"></textarea>
+    </fieldset>
+    <fieldset>
+      <label for="product-form-type">Type du produit:</label>
+      <input type="text" formControlName="type" id="product-form-type">
+    </fieldset>
+    <fieldset>
+      <label>En vente:
+        <mat-slide-toggle formControlName="enabled"></mat-slide-toggle>
+      </label>
+    </fieldset>
+    <button (click)="cancelEdition()" mat-flat-button color="primary">Annuler</button>
+    <button type="submit" mat-flat-button color="primary">Valider</button>
   </form>
 </app-card>

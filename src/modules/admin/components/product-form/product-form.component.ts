@@ -1,17 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {Store} from '@ngxs/store';
+import {PatchProduct} from '../../../api/states/products/products.actions';
+import {EditProduct} from '../../states/admin/admin.actions';
 
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.scss']
 })
-export class ProductFormComponent implements OnInit {
+export class ProductFormComponent implements OnInit, OnDestroy {
   productFormGroup = this.fb.group({
+    id: [''],
     enabled: [true],
     name: [''],
     slug: [''],
+    type: [''],
     description: [''],
     image_first: [''],
     images: [[]],
@@ -23,9 +27,21 @@ export class ProductFormComponent implements OnInit {
 
   ngOnInit() {
     this.store.selectOnce(s => s.admin.editingProduct).subscribe((product) => {
-      const {enabled, name, slug, description, image_first, images, order} = product;
-      const data = {enabled, name, slug, description, image_first, images, order};
+      const {id, enabled, name, slug, type, description, image_first, images, order} = product;
+      const data = {id, enabled, name, slug, type, description, image_first, images, order};
       this.productFormGroup.setValue(data);
     });
+  }
+
+  ngOnDestroy() {
+    delete this.productFormGroup;
+  }
+
+  confirmEdition() {
+    this.store.dispatch(new PatchProduct(this.productFormGroup.value));
+  }
+
+  cancelEdition() {
+    this.store.dispatch(new EditProduct(null));
   }
 }

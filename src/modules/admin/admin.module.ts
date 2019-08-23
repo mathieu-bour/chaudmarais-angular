@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {
-  MatButtonModule,
+  MatButtonModule, MatButtonToggleModule,
   MatIconModule,
   MatListModule,
   MatPaginatorModule,
-  MatSidenavModule,
+  MatSidenavModule, MatSlideToggleModule,
   MatTableModule,
   MatToolbarModule
 } from '@angular/material';
@@ -48,7 +48,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     UtilsModule,
     MatPaginatorModule,
     UIModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonToggleModule,
+    MatSlideToggleModule
   ]
 })
 export class AdminModule {
