@@ -1,8 +1,8 @@
 import {Action, State, StateContext, Store} from '@ngxs/store';
 import {AdminStateModel} from './admin.state.model';
-import {EditProduct, LoadProducts} from './admin.actions';
+import {ClearStocks, EditProduct, EditStocks, LoadProducts} from './admin.actions';
 import {ProductsClient} from '../../../api/clients/products/products.client';
-import {CacheProducts} from '../../../api/states/products/products.actions';
+import {CacheProducts, GetProductStocks} from '../../../api/states/products/products.actions';
 
 type AdminStateContext = StateContext<AdminStateModel>;
 
@@ -13,7 +13,8 @@ type AdminStateContext = StateContext<AdminStateModel>;
     perPage: 100,
     total: 0,
     products: [],
-    editingProduct: null
+    editingProduct: null,
+    editingStocks: null
   }
 })
 export class AdminState {
@@ -42,6 +43,21 @@ export class AdminState {
   editProduct(ctx: AdminStateContext, {product}: EditProduct) {
     ctx.patchState({
       editingProduct: product
+    });
+  }
+
+  @Action(EditStocks)
+  async editStocks(ctx: AdminStateContext, {productID}: EditStocks) {
+    const stocks = (await this.productsClient.getStocks(productID)).data;
+    ctx.patchState({
+      editingStocks: stocks
+    });
+  }
+
+  @Action(ClearStocks)
+  clearStocks(ctx: AdminStateContext, {}: ClearStocks) {
+    ctx.patchState({
+      editingStocks: null
     });
   }
 }

@@ -1,6 +1,7 @@
 <app-admin-layout>
   <div class="wrapper">
     <app-products-table></app-products-table>
-    <app-product-form *ngIf="$isEditingProduct | async"></app-product-form>
+    <app-product-form *ngIf="($isEditingProduct | async) && !($isEditingStocks | async)"></app-product-form>
+    <app-stock-form *ngIf="!($isEditingProduct | async) && ($isEditingStocks | async)"></app-stock-form>
   </div>
 </app-admin-layout>

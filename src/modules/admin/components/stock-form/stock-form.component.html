@@ -1,0 +1,10 @@
+<app-card>
+  <h2 card-title class="title-red">Édition d'un produit</h2>
+
+  <form card-content [formGroup]="StocksFormGroup" (ngSubmit)="confirmEdition()">
+    <fieldset>
+    </fieldset>
+    <button (click)="cancelEdition()" mat-flat-button color="primary">Annuler</button>
+    <button type="submit" mat-flat-button color="primary">Valider</button>
+  </form>
+</app-card>

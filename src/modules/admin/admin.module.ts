@@ -21,6 +21,7 @@ import { ProductFormComponent } from './components/product-form/product-form.com
 import {APIModule} from '../api/api.module';
 import {UIModule} from '../ui/ui.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import { StockFormComponent } from './components/stock-form/stock-form.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     ProductsPageComponent,
     ProductsTableComponent,
     ProductFormComponent,
+    StockFormComponent,
   ],
   imports: [
     CommonModule,

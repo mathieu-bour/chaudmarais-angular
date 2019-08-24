@@ -10,6 +10,8 @@ import {Observable} from 'rxjs';
 })
 export class ProductsPageComponent implements OnInit {
   @Select(store => store.admin.editingProduct !== null) $isEditingProduct: Observable<boolean>;
+  @Select(store => store.admin.editingStocks !== null) $isEditingStocks: Observable<boolean>;
+
   ngOnInit(): void {
   }
 }

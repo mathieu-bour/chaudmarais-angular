@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Select, Store} from '@ngxs/store';
 import {Observable} from 'rxjs';
 import {Product} from '../../../api/models/product';
-import {EditProduct, LoadProducts} from '../../states/admin/admin.actions';
+import {EditProduct, EditStocks, LoadProducts} from '../../states/admin/admin.actions';
 import {PageEvent} from '@angular/material';
 
 @Component({
@@ -31,5 +31,9 @@ export class ProductsTableComponent implements OnInit {
 
   onEdit($event: Product) {
     this.store.dispatch(new EditProduct($event));
+  }
+
+  onStockEdit($event: Product) {
+    this.store.dispatch(new EditStocks($event.id));
   }
 }

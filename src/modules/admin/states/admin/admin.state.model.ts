@@ -1,4 +1,5 @@
 import {Product} from '../../../api/models/product';
+import {Stock} from '../../../api/models/stock';
 
 export interface AdminStateModel {
   page: number;
@@ -6,4 +7,5 @@ export interface AdminStateModel {
   total: number;
   products: Product[];
   editingProduct: Product;
+  editingStocks: Stock[];
 }

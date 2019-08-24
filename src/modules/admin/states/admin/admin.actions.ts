@@ -13,3 +13,18 @@ export class EditProduct {
   constructor(public product: Product) {
   }
 }
+
+export class EditStocks {
+  static readonly type = '[Admin] EditStocks';
+
+  constructor(public productID: number) {
+  }
+}
+
+export class ClearStocks {
+  static readonly type = '[Admin] ClearStocks';
+
+  constructor() {
+  }
+}
+
