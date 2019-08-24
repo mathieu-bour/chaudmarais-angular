@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Select, Store} from '@ngxs/store';
 import {Observable} from 'rxjs';
 import {Product} from '../../../api/models/product';
-import {EditProduct, EditStocks, LoadProducts} from '../../states/admin/admin.actions';
+import {EditProduct, LoadProducts} from '../../states/admin/admin.actions';
 import {PageEvent} from '@angular/material';
 
 @Component({
