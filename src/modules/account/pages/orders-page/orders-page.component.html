@@ -8,7 +8,7 @@
             <mat-panel-title>
               {{ order.total | price }}
               - Passée le {{ order.created_at | date:'d/m/y' }}
-              - {{ order.status }}
+              - {{ order.status | orderStatus }}
             </mat-panel-title>
           </mat-expansion-panel-header>
 
