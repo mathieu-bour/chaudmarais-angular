@@ -22,14 +22,14 @@ steps:
     name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'eu.gcr.io/$PROJECT_ID/chaud-marais-angular:$SHORT_SHA']
 
-  - id: 'cloud-run:deploy'
-    waitFor: ['docker:push']
-    name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
-    args:
-      - '-c'
-      - |
-        gcloud beta run deploy chaud-marais-angular-dev \
-          --platform=managed \
-          --image eu.gcr.io/$PROJECT_ID/chaud-marais-angular:$SHORT_SHA \
-          --region europe-west1
+#  - id: 'cloud-run:deploy'
+#    waitFor: ['docker:push']
+#    name: 'gcr.io/cloud-builders/gcloud'
+#    entrypoint: 'bash'
+#    args:
+#      - '-c'
+#      - |
+#        gcloud beta run deploy chaud-marais-angular-dev \
+#          --platform=managed \
+#          --image eu.gcr.io/$PROJECT_ID/chaud-marais-angular:$SHORT_SHA \
+#          --region europe-west1
