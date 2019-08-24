@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
-import {Select, Store} from '@ngxs/store';
+import {Store} from '@ngxs/store';
 import {GrpdDialogComponent} from '../../../app/components/grpd-dialog/grpd-dialog.component';
-import {Observable} from 'rxjs';
 import {HasClicked} from '../../../app/state/app.actions';
-import {first} from 'rxjs/operators';
 
 @Component({
   selector: 'app-default-layout',

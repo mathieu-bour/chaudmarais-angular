@@ -1,0 +1,6 @@
+<app-admin-layout>
+  <div class="wrapper">
+    <app-stock-form *ngFor="let stock of stocks$ | async" [stock]="stock">
+    </app-stock-form>
+  </div>
+</app-admin-layout>

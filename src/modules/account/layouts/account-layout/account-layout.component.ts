@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Store} from '@ngxs/store';
 import {Logout} from '../../../api/states/auth/auth.state.actions';
 import {Router} from '@angular/router';

@@ -14,17 +14,25 @@ export class EditProduct {
   }
 }
 
-export class EditStocks {
-  static readonly type = '[Admin] EditStocks';
+export class SetPage {
+  static readonly type = '[Admin] SetPage';
 
-  constructor(public productID: number) {
+  constructor(public page: number) {
   }
 }
 
-export class ClearStocks {
-  static readonly type = '[Admin] ClearStocks';
 
-  constructor() {
+export class SetPerPage {
+  static readonly type = '[Admin] SetPerPage';
+
+  constructor(public perPage: number) {
+  }
+}
+
+export class SetTotal {
+  static readonly type = '[Admin] SetTotal';
+
+  constructor(public total: number) {
   }
 }
 

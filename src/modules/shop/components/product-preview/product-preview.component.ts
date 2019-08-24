@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Select, Store} from '@ngxs/store';
+import {Store} from '@ngxs/store';
 import {Observable} from 'rxjs';
 import {Product} from '../../../api/models/product';
 

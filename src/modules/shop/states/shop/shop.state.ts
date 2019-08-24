@@ -1,11 +1,6 @@
-import {Action, Selector, State, StateContext, Store} from '@ngxs/store';
+import {Action, State, Store} from '@ngxs/store';
 import {ShopStateContext, ShopStateModel} from './shop.state.model';
-import {
-  SetCurrentProduct,
-  SetCurrentProductId,
-  SetCurrentStock,
-  SetCurrentStockId
-} from './shop.actions';
+import {SetCurrentProduct, SetCurrentProductId, SetCurrentStock, SetCurrentStockId} from './shop.actions';
 import {Product} from '../../../api/models/product';
 import {Stock} from '../../../api/models/stock';
 import {GetProduct, GetProductStocks} from '../../../api/states/products/products.actions';

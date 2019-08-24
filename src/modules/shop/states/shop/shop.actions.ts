@@ -2,7 +2,6 @@ import {Product} from '../../../api/models/product';
 import {Stock} from '../../../api/models/stock';
 
 
-
 export class SetCurrentProductId {
   static readonly type = '[Products] SetCurrentProductId';
 

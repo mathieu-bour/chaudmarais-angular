@@ -1,5 +1,4 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, Renderer2} from '@angular/core';
-import {ControlValueAccessor} from '@angular/forms';
 
 @Component({
   selector: 'app-btn-select',

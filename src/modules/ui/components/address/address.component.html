@@ -1,0 +1,7 @@
+{{ address.name }}<br>
+{{ address.line1 }}<br>
+<ng-container *ngIf="address.line2">
+  {{ address.line2 }}<br>
+</ng-container>
+{{ address.postal_code }} {{ address.city }}<br>
+{{ address.country }}

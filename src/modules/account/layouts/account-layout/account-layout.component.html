@@ -1,19 +1,19 @@
 <app-default-layout>
   <div class="wrapper">
     <div class="title-red" fxLayout="row" fxLayoutGap="16px">
-      <img class="nav-icon" src="https://cdn.chaudmarais.fr/img/icons/user.svg" alt="Title icon">
+      <mat-icon fontSet="cm" class="nav-icon">user</mat-icon>
 
       <nav class="nav-links">
         <a routerLink="/compte/informations" routerLinkActive="current">
-          <mat-icon class="gt-xs-hide">perm_identity</mat-icon>
+          <mat-icon fontSet="cm" class="gt-xs-hide">user</mat-icon>
           <div>Mes informations</div>
         </a>
         <a routerLink="/compte/adresses" routerLinkActive="current">
-          <mat-icon class="gt-xs-hide">home</mat-icon>
+          <mat-icon fontSet="cm" class="gt-xs-hide">home</mat-icon>
           <div>Mes addresses</div>
         </a>
         <a routerLink="/compte/commandes" routerLinkActive="current">
-          <mat-icon class="gt-xs-hide">shopping_basket</mat-icon>
+          <mat-icon fontSet="cm" class="gt-xs-hide">cart</mat-icon>
           <div>Mes commandes</div>
         </a>
         <a (click)="logout()">

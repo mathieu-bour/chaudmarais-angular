@@ -18,15 +18,6 @@ import {ProductThumbnailsSwiperComponent} from './components/product-thumbnails-
 import {ProductPreviewComponent} from './components/product-preview/product-preview.component';
 import {CartPageComponent} from './pages/cart-page/cart-page.component';
 import {CartElementComponent} from './components/cart-element/cart-element.component';
-import {
-  MatButtonModule,
-  MatDialogModule,
-  MatFormFieldModule,
-  MatIconModule,
-  MatInputModule, MatProgressSpinnerModule,
-  MatRadioModule,
-  MatStepperModule
-} from '@angular/material';
 import {UserModule} from '../user/user.module';
 import {CheckoutPageComponent} from './pages/checkout-page/checkout-page.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -35,10 +26,10 @@ import {NgxsModule} from '@ngxs/store';
 import {CartState} from './states/cart/cart.state';
 import {ShopState} from './states/shop/shop.state';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import { AddressDialogComponent } from './dialogs/address-dialog/address-dialog.component';
+import {AddressDialogComponent} from './dialogs/address-dialog/address-dialog.component';
 import {CheckoutState} from './states/checkout/checkout.state';
-import { AddressSelectorComponent } from './components/address-selector/address-selector.component';
-import { OrderConfirmedPageComponent } from './pages/order-confirmed-page/order-confirmed-page.component';
+import {AddressSelectorComponent} from './components/address-selector/address-selector.component';
+import {OrderConfirmedPageComponent} from './pages/order-confirmed-page/order-confirmed-page.component';
 
 
 @NgModule({
@@ -76,20 +67,11 @@ import { OrderConfirmedPageComponent } from './pages/order-confirmed-page/order-
     ]),
     NgxImageZoomModule,
     SwiperModule,
-    // Material
-    MatDialogModule,
-    MatStepperModule,
-    MatIconModule,
     // Local
     APIModule,
     UtilsModule,
     UIModule,
-    UserModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatRadioModule,
-    MatProgressSpinnerModule
+    UserModule
   ]
 })
 export class ShopModule {

@@ -1,6 +1,6 @@
 <app-default-layout>
-  <div class="title-red" *ngIf="image || title" [ngStyle.gt-md]="{width: width}">
-    <img *ngIf="image" src="{{image}}" alt="Title icon">
+  <div class="title-red" *ngIf="icon || title" [ngStyle.gt-md]="{width: width}">
+    <mat-icon fontSet="cm">{{ icon }}</mat-icon>
     <h1 *ngIf="title">{{ title}}</h1>
   </div>
 

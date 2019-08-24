@@ -1,7 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
 import {SuccessResponse} from '../../responses/success.response';
-import {map} from 'rxjs/operators';
 import {PaginationResponse} from '../../responses/pagination.response';
 
 export abstract class BaseClient<T> {

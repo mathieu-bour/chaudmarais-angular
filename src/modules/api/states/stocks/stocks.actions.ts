@@ -13,3 +13,10 @@ export class GetStock {
   constructor(public stockId: number) {
   }
 }
+
+export class PatchStock {
+  static readonly type = '[Stock API] PatchStock';
+
+  constructor(public stockId: number, public data: any) {
+  }
+}

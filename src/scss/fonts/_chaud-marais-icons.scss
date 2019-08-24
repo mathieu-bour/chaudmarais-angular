@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'chaud-marais-icons';
+  src: url('/assets/fonts/chaud-marais-icons/chaud-marais-icons.eot?29351760');
+  src: url('/assets/fonts/chaud-marais-icons/chaud-marais-icons.eot?29351760#iefix') format('embedded-opentype'),
+  url('/assets/fonts/chaud-marais-icons/chaud-marais-icons.woff?29351760') format('woff'),
+  url('/assets/fonts/chaud-marais-icons/chaud-marais-icons.ttf?29351760') format('truetype'),
+  url('/assets/fonts/chaud-marais-icons/chaud-marais-icons.svg?29351760#chaud-marais-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.chaud-marais-icons {
+  display: inline-block;
+  width: 1em !important;
+  height: 1em !important;
+  font-family: 'chaud-marais-icons', serif !important;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}

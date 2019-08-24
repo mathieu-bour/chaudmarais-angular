@@ -32,8 +32,4 @@ export class ProductsTableComponent implements OnInit {
   onEdit($event: Product) {
     this.store.dispatch(new EditProduct($event));
   }
-
-  onStockEdit($event: Product) {
-    this.store.dispatch(new EditStocks($event.id));
-  }
 }

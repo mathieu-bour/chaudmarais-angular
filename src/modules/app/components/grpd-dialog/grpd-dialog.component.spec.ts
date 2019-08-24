@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { GrpdDialogComponent } from './grpd-dialog.component';
+import {GrpdDialogComponent} from './grpd-dialog.component';
 
 describe('GrpdDialogComponent', () => {
   let component: GrpdDialogComponent;

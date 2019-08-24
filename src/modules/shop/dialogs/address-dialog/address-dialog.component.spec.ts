@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AddressDialogComponent } from './address-dialog.component';
+import {AddressDialogComponent} from './address-dialog.component';
 
 describe('AddressDialogComponent', () => {
   let component: AddressDialogComponent;

@@ -8,18 +8,18 @@
     <a routerLink="/campagne" routerLinkActive="current">campagne</a>
     <a routerLink="/histoire" routerLinkActive="current">histoire</a>
     <div class="links-icons">
-      <a routerLink="/panier">
-        <img src="https://cdn.chaudmarais.fr/img/icons/cart.svg" alt="">
+      <a routerLink="/panier" routerLinkActive="current">
+        <mat-icon fontSet="cm">cart</mat-icon>
       </a>
 
       <ng-container *ngIf="isLogged$ | async; else notLogged">
-        <a routerLink="/compte/informations">
-          <img src="https://cdn.chaudmarais.fr/img/icons/user.svg" alt="">
+        <a routerLink="/compte/informations" routerLinkActive="current">
+          <mat-icon fontSet="cm">user</mat-icon>
         </a>
       </ng-container>
       <ng-template #notLogged>
         <a (click)="openLoginDialog()">
-          <img src="https://cdn.chaudmarais.fr/img/icons/user.svg" alt="">
+          <mat-icon fontSet="cm">user</mat-icon>
         </a>
       </ng-template>
     </div>

@@ -1,8 +1,8 @@
 import {Action, State, StateContext, Store} from '@ngxs/store';
 import {AdminStateModel} from './admin.state.model';
-import {ClearStocks, EditProduct, EditStocks, LoadProducts} from './admin.actions';
+import {EditProduct, LoadProducts, SetPage, SetPerPage, SetTotal} from './admin.actions';
 import {ProductsClient} from '../../../api/clients/products/products.client';
-import {CacheProducts, GetProductStocks} from '../../../api/states/products/products.actions';
+import {CacheProducts} from '../../../api/states/products/products.actions';
 
 type AdminStateContext = StateContext<AdminStateModel>;
 
@@ -13,8 +13,7 @@ type AdminStateContext = StateContext<AdminStateModel>;
     perPage: 100,
     total: 0,
     products: [],
-    editingProduct: null,
-    editingStocks: null
+    editingProduct: null
   }
 })
 export class AdminState {
@@ -22,8 +21,24 @@ export class AdminState {
     private store: Store,
     private productsClient: ProductsClient
   ) {
-
   }
+
+  @Action(SetPage)
+  setPage(ctx: AdminStateContext, {page}: SetPage) {
+    ctx.patchState({page});
+  }
+
+  @Action(SetPerPage)
+  setPerPage(ctx: AdminStateContext, {perPage}: SetPerPage) {
+    ctx.patchState({perPage});
+  }
+
+
+  @Action(SetTotal)
+  setTotal(ctx: AdminStateContext, {total}: SetTotal) {
+    ctx.patchState({total});
+  }
+
 
   @Action(LoadProducts)
   async loadProducts(ctx: AdminStateContext, {page, perPage}: LoadProducts) {
@@ -43,21 +58,6 @@ export class AdminState {
   editProduct(ctx: AdminStateContext, {product}: EditProduct) {
     ctx.patchState({
       editingProduct: product
-    });
-  }
-
-  @Action(EditStocks)
-  async editStocks(ctx: AdminStateContext, {productID}: EditStocks) {
-    const stocks = (await this.productsClient.getStocks(productID)).data;
-    ctx.patchState({
-      editingStocks: stocks
-    });
-  }
-
-  @Action(ClearStocks)
-  clearStocks(ctx: AdminStateContext, {}: ClearStocks) {
-    ctx.patchState({
-      editingStocks: null
     });
   }
 }

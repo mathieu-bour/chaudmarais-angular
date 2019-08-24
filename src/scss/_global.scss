@@ -2,6 +2,8 @@
 @import "mixins";
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900,900i&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import "fonts/chaud-marais-icons";
+
 
 body, * {
   box-sizing: border-box;
@@ -31,7 +33,7 @@ label {
   }
 }
 
-input[type=text], input[type=email], input[type=password] {
+input[type=text], input[type=email], input[type=password], input[type=number] {
   display: block;
   width: 100%;
   box-sizing: border-box;
@@ -64,6 +66,7 @@ table:not[mat-table] {
       text-align: left;
     }
   }
+
   tbody {
     td {
       vertical-align: bottom;

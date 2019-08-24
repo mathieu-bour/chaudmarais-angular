@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Select, Store} from '@ngxs/store';
 import {Observable} from 'rxjs';
-import {first, last} from 'rxjs/operators';
+import {first} from 'rxjs/operators';
 import {User} from '../../../api/models/user';
 import {PatchUser} from '../../../api/states/users/users.actions';
 

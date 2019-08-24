@@ -7,11 +7,49 @@ import {DefaultLayoutComponent} from './layouts/default-layout/default-layout.co
 import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {RouterModule} from '@angular/router';
-import { CardComponent } from './components/card/card.component';
-import {MatCardModule, MatMenuModule} from '@angular/material';
+import {CardComponent} from './components/card/card.component';
+import {
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatDialogModule,
+  MatExpansionModule,
+  MatFormFieldModule,
+  MatIconModule, MatIconRegistry,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatPaginatorModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatSidenavModule,
+  MatSlideToggleModule,
+  MatStepperModule,
+  MatTableModule,
+  MatToolbarModule
+} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import { NavComponent } from './components/nav/nav.component';
+import {NavComponent} from './components/nav/nav.component';
+import { AddressComponent } from './components/address/address.component';
 
+const MaterialModules = [
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatDialogModule,
+  MatExpansionModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatPaginatorModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatSidenavModule,
+  MatSlideToggleModule,
+  MatStepperModule,
+  MatTableModule,
+  MatToolbarModule,
+];
 
 @NgModule({
   declarations: [
@@ -22,22 +60,29 @@ import { NavComponent } from './components/nav/nav.component';
     TwoLayoutComponent,
     BtnSelectComponent,
     CardComponent,
-    NavComponent
+    NavComponent,
+    AddressComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     // Material
-    MatMenuModule,
+    ...MaterialModules,
+    // FlexLayouts: TO DELETE
     FlexLayoutModule
   ],
   exports: [
+    ...MaterialModules,
     DefaultLayoutComponent,
     SingleLayoutComponent,
     TwoLayoutComponent,
     BtnSelectComponent,
-    CardComponent
+    CardComponent,
+    AddressComponent
   ]
 })
 export class UIModule {
+  constructor(private registry: MatIconRegistry) {
+    this.registry.registerFontClassAlias('cm', 'chaud-marais-icons');
+  }
 }

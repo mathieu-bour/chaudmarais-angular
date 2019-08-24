@@ -1,7 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Store} from '@ngxs/store';
 import {FormBuilder} from '@angular/forms';
-import {ClearStocks} from '../../states/admin/admin.actions';
+import {Stock} from '../../../api/models/stock';
+import {PatchStock} from '../../../api/states/stocks/stocks.actions';
 
 @Component({
   selector: 'app-stock-form',
@@ -9,23 +10,30 @@ import {ClearStocks} from '../../states/admin/admin.actions';
   styleUrls: ['./stock-form.component.scss']
 })
 export class StockFormComponent implements OnInit, OnDestroy {
-  StocksFormGroup = this.fb.group({
-    s: [''],
-    m: [''],
-    l: ['']
+  @Input() stock: Stock;
+
+  stocksFormGroup = this.fb.group({
+    id: [null],
+    price: [null],
+    size: [''],
+    inventory: [null],
+    available_inventory: [null]
   });
 
-  constructor(private store: Store, private fb: FormBuilder) { }
+  constructor(private store: Store, private fb: FormBuilder) {
+  }
 
-  async ngOnInit() {
-    const stocks = await this.store.selectOnce(s => s.admin.editingStocks);
+  ngOnInit() {
+    const {id, price, size, inventory, available_inventory} = this.stock;
+    const data = {id, price, size, inventory, available_inventory};
+    this.stocksFormGroup.setValue({id, price, size, inventory, available_inventory});
   }
 
   ngOnDestroy() {
-    delete this.StocksFormGroup;
+    delete this.stocksFormGroup;
   }
 
-  cancelEdition() {
-    this.store.dispatch(new ClearStocks());
+  confirmEdition() {
+    this.store.dispatch(new PatchStock(this.stock.id, this.stocksFormGroup.value));
   }
 }

@@ -13,7 +13,6 @@ import {NgxsStoragePluginModule} from '@ngxs/storage-plugin';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {GrpdDialogComponent} from './components/grpd-dialog/grpd-dialog.component';
 import {AppState} from './state/app.state';
-import {AdminModule} from '../admin/admin.module';
 
 @NgModule({
   declarations: [

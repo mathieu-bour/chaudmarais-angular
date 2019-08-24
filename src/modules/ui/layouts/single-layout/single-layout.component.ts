@@ -7,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class SingleLayoutComponent implements OnInit {
   @Input() title: string;
-  @Input() image: string;
+  @Input() icon: string;
   @Input() width: string | number = 70;
 
   ngOnInit() {

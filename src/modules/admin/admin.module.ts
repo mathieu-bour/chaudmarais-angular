@@ -1,14 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {
-  MatButtonModule, MatButtonToggleModule,
-  MatIconModule,
-  MatListModule,
-  MatPaginatorModule,
-  MatSidenavModule, MatSlideToggleModule,
-  MatTableModule,
-  MatToolbarModule
-} from '@angular/material';
 import {UtilsModule} from '../utils/utils.module';
 import {AdminLayoutComponent} from './layouts/admin-layout/admin-layout.component';
 import {RouterModule} from '@angular/router';
@@ -16,12 +7,15 @@ import {adminRoutes} from './admin.routes';
 import {ProductsPageComponent} from './pages/products-page/products-page.component';
 import {NgxsModule} from '@ngxs/store';
 import {AdminState} from './states/admin/admin.state';
-import { ProductsTableComponent } from './components/products-table/products-table.component';
-import { ProductFormComponent } from './components/product-form/product-form.component';
+import {ProductsTableComponent} from './components/products-table/products-table.component';
+import {ProductFormComponent} from './components/product-form/product-form.component';
 import {APIModule} from '../api/api.module';
 import {UIModule} from '../ui/ui.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import { StockFormComponent } from './components/stock-form/stock-form.component';
+import { StocksPageComponent } from './pages/stocks-page/stocks-page.component';
+import { OrdersPaidPageComponent } from './pages/orders-paid-page/orders-paid-page.component';
+import { OrdersTableComponent } from './components/orders-table/orders-table.component';
 
 
 @NgModule({
@@ -31,28 +25,21 @@ import { StockFormComponent } from './components/stock-form/stock-form.component
     ProductsTableComponent,
     ProductFormComponent,
     StockFormComponent,
+    StocksPageComponent,
+    OrdersPaidPageComponent,
+    OrdersTableComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(adminRoutes),
+    ReactiveFormsModule,
     NgxsModule.forFeature([
       AdminState
     ]),
-    // Material
-    MatIconModule,
-    MatButtonModule,
-    MatListModule,
-    MatSidenavModule,
-    MatTableModule,
-    MatToolbarModule,
     // Chaud
     APIModule,
     UtilsModule,
-    MatPaginatorModule,
     UIModule,
-    ReactiveFormsModule,
-    MatButtonToggleModule,
-    MatSlideToggleModule
   ]
 })
 export class AdminModule {

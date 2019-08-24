@@ -3,7 +3,6 @@ import {Select, Store} from '@ngxs/store';
 import {MatDialog} from '@angular/material';
 import {LoginDialogComponent} from '../../../user/components/login-dialog/login-dialog.component';
 import {Router} from '@angular/router';
-import {Logout} from '../../../api/states/auth/auth.state.actions';
 import {AuthState} from '../../../api/states/auth/auth.state';
 
 @Component({
@@ -12,7 +11,6 @@ import {AuthState} from '../../../api/states/auth/auth.state';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  expanded = false;
   @Select(AuthState.isLogged) isLogged$;
 
   constructor(

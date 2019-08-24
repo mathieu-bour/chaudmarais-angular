@@ -1,10 +1,24 @@
 <app-card>
-  <h2 card-title class="title-red">Édition d'un produit</h2>
+  <h2 card-title class="title-red">Édition du stock "{{ stock.size }}"</h2>
 
-  <form card-content [formGroup]="StocksFormGroup" (ngSubmit)="confirmEdition()">
+  <form card-content [formGroup]="stocksFormGroup" (ngSubmit)="confirmEdition()">
     <fieldset>
+      <label [for]="'stock-' + stock.id + '-size'">Dénomination</label>
+      <input type="text" [id]="'stock-' + stock.id + '-size'" formControlName="size">
     </fieldset>
-    <button (click)="cancelEdition()" mat-flat-button color="primary">Annuler</button>
+    <fieldset>
+      <label [for]="'stock-' + stock.id + '-price'">Prix (en centimes d'euros)</label>
+      <input type="number" [id]="'stock-' + stock.id + '-price'" formControlName="price">
+    </fieldset>
+    <fieldset>
+      <label [for]="'stock-' + stock.id + '-inventory'">Inventaire total</label>
+      <input type="number" [id]="'stock-' + stock.id + '-inventory'" formControlName="inventory">
+    </fieldset>
+    <fieldset>
+      <label [for]="'stock-' + stock.id + '-available-inventory'">Inventaire disponible à la vente</label>
+      <input type="number" [id]="'stock-' + stock.id + '-available-inventory'" formControlName="available_inventory">
+    </fieldset>
+
     <button type="submit" mat-flat-button color="primary">Valider</button>
   </form>
 </app-card>

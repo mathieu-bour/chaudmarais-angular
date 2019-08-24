@@ -13,9 +13,9 @@
   </ng-container>
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef>Actions</th>
-    <td mat-cell *matCellDef="let product">
+    <td mat-cell *matCellDef="let product" class="product-actions">
       <button mat-flat-button color="primary" (click)="onEdit(product)">Éditer</button>
-      <button mat-flat-button color="primary" (click)="onStockEdit(product)">Voir les stocks</button>
+      <button mat-flat-button color="primary" [routerLink]="'/admin/products/' + product.id + '/stocks'">Stocks</button>
     </td>
   </ng-container>
 
