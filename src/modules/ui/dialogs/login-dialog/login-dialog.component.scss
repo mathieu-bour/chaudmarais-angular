@@ -1,13 +1,19 @@
+@import "../../../../scss/mixins";
+
 .title-red {
   font-size: 40px;
 }
+
 form {
   display: flex;
   flex-direction: column;
-  min-width: 400px;
   margin-bottom: 16px;
   padding: 0 32px;
   align-items: center;
+
+  @include gt-xs {
+    min-width: 400px;
+  }
 
   fieldset, input {
     display: block;
@@ -19,7 +25,7 @@ form {
     text-decoration: underline;
   }
 
-  .btn-red {
+  button[mat-flat-button] {
     margin-bottom: 16px;
     font-size: 24px;
   }

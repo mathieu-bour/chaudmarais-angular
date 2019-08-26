@@ -1,7 +1,7 @@
 <app-single-layout [width]="100">
   <section class="product-wrapper">
     <div class="product-preview">
-      <ng-container *ngIf="(product$ | async) as product">
+      <ng-container *ngIf="(currentProduct$ | async) as product">
         <ngx-image-zoom
           [thumbImage]="product.images[imageIndex] | thumb:500"
           [fullImage]="product.images[imageIndex] | thumb: 1500"
@@ -16,27 +16,23 @@
     </div>
 
     <div class="product-infos">
-      <div *ngIf="(product$ | async) as product" class="product">
+      <div *ngIf="(currentProduct$ | async) as product" class="product">
         <h1>{{ product.name }}</h1>
         <h2>{{ product.type }}</h2>
-        <div class="product-price" *ngIf="(stock$ | async) as stock">
+        <div class="product-price" *ngIf="(currentStock$ | async) as stock">
           {{ stock.price | euros }}.<span>{{ stock.price | cents }}</span>€
         </div>
         <p [innerHTML]="product.description | replace | safe:'html' ">
         </p>
       </div>
 
-      <div
-        *ngIf="stockValues.length > 0"
-        class="cart-wrapper"
-      >
-        <app-btn-select
-          [placeholder]="'Taille'"
-          [prefix]="'Taille'"
-          [values]="stockValues"
-          [value]="stock$ | async"
-          (valueChange)="onSizeChange($event)"
-        >
+      <div *ngIf="(stockValues$ | async).length > 0"
+           class="cart-wrapper">
+        <app-btn-select [placeholder]="'Taille'"
+                        [prefix]="'Taille'"
+                        [values]="stockValues$ | async"
+                        [value]="currentStock$ | async"
+                        (valueChange)="onSizeChange($event)">
         </app-btn-select>
 
         <button class="btn-red" (click)="onAddToCart()">
@@ -49,7 +45,7 @@
   <section fxHide.xs>
     <app-product-thumbnails-swiper
       class="product-preview"
-      *ngIf="product$ | async as product"
+      *ngIf="currentProduct$ | async as product"
       [images]="product.images"
       (imageIndex)="imageIndex = $event"
     >

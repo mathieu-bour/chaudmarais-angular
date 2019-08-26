@@ -5,6 +5,7 @@ import {Product} from '../../../api/models/product';
 import {Stock} from '../../../api/models/stock';
 import {GetProduct, GetProductStocks} from '../../../api/states/products/products.actions';
 import {GetStock} from '../../../api/states/stocks/stocks.actions';
+import {first} from 'rxjs/operators';
 
 @State<ShopStateModel>({
   name: 'shop',
@@ -45,7 +46,7 @@ export class ShopState {
     let productStocks = this.store.snapshot().stocks.filter(s => s.product_id === product.id);
 
     if (productStocks.length === 0) {
-      await this.store.dispatch(new GetProductStocks(product.id));
+      await this.store.dispatch(new GetProductStocks(product.id)).pipe(first()).toPromise();
       productStocks = this.store.snapshot().stocks.filter(s => s.product_id === product.id);
     }
 
@@ -61,7 +62,7 @@ export class ShopState {
     let stock = this.findInCache<Stock>(ctx, 'stocks', stockId);
 
     if (!stock) {
-      await this.store.dispatch(new GetStock(stockId)).toPromise();
+      await this.store.dispatch(new GetStock(stockId)).pipe(first()).toPromise();
       stock = this.findInCache<Stock>(ctx, 'stocks', stockId);
     }
 
