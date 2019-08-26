@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngxs/store';
-import {EmptyCart} from '../../states/cart/cart.actions';
+import {EmptyCart} from '../../../shop/states/cart/cart.actions';
 import {ResetCheckout} from '../../states/checkout/checkout.state.actions';
 
 @Component({

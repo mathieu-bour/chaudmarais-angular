@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Select} from '@ngxs/store';
 import {Observable} from 'rxjs';
-import {CartState} from '../../states/cart/cart.state';
-import {Cart, Shipping} from '../../states/cart/cart.state.model';
+import {CartState} from '../../../shop/states/cart/cart.state';
+import {Cart, Shipping} from '../../../shop/states/cart/cart.state.model';
 
 @Component({
   selector: 'app-cart-table',

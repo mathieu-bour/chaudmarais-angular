@@ -23,6 +23,10 @@ p {
   margin-bottom: 8px;
 }
 
+img {
+  max-width: 100%;
+}
+
 label {
   display: block;
   margin: 0 0 8px 0;
@@ -52,7 +56,7 @@ fieldset {
   border: 0;
 }
 
-table:not[mat-table] {
+table:not([mat-table]) {
   width: 100%;
   max-width: 100%;
   margin-bottom: 1rem;

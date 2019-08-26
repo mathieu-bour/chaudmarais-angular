@@ -4,7 +4,6 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {RouterModule} from '@angular/router';
 import {routes} from './app.routes';
-import {ShopModule} from '../shop/shop.module';
 import {NgxImageZoomModule} from 'ngx-image-zoom';
 import {NgxsModule} from '@ngxs/store';
 import {environment} from '../../environments/environment';
@@ -13,10 +12,23 @@ import {NgxsStoragePluginModule} from '@ngxs/storage-plugin';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {GrpdDialogComponent} from './components/grpd-dialog/grpd-dialog.component';
 import {AppState} from './state/app.state';
+import {APIModule} from '../api/api.module';
+import {CampaignPageComponent} from './pages/campaign-page/campaign-page.component';
+import {HistoryPageComponent} from './pages/history-page/history-page.component';
+import {LegalPageComponent} from './pages/legal-page/legal-page.component';
+import {ThanksPageComponent} from './pages/thanks-page/thanks-page.component';
+import {BannerComponent} from '../ui/components/banner/banner.component';
+import {UIModule} from '../ui/ui.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    // Pages
+    CampaignPageComponent,
+    HistoryPageComponent,
+    LegalPageComponent,
+    ThanksPageComponent,
+    // Dialogs
     GrpdDialogComponent
   ],
   imports: [
@@ -29,8 +41,8 @@ import {AppState} from './state/app.state';
     NgxsStoragePluginModule.forRoot({
       key: ['app', 'auth']
     }),
-    // LandingModule
-    ShopModule
+    APIModule,
+    UIModule
   ],
   entryComponents: [GrpdDialogComponent],
   providers: [],

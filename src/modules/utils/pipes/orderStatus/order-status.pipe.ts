@@ -9,9 +9,9 @@ export class OrderStatusPipe implements PipeTransform {
   transform(status: OrderStatus): string {
     switch (status) {
       case 'paid':
-        return 'payé';
+        return 'payée';
       case 'fulfilled':
-        return 'envoyé';
+        return 'envoyée';
     }
   }
 

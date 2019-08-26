@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Select, Store} from '@ngxs/store';
 import {MatDialog} from '@angular/material';
-import {LoginDialogComponent} from '../../../user/components/login-dialog/login-dialog.component';
+import {LoginDialogComponent} from '../../dialogs/login-dialog/login-dialog.component';
 import {Router} from '@angular/router';
 import {AuthState} from '../../../api/states/auth/auth.state';
 

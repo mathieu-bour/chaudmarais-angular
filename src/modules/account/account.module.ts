@@ -18,7 +18,7 @@ import {UtilsModule} from '../utils/utils.module';
     AccountLayoutComponent,
     AddressesPageComponent,
     AccountPageComponent,
-    OrdersPageComponent
+    OrdersPageComponent,
   ],
   imports: [
     CommonModule,

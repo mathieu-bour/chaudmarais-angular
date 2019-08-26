@@ -14,7 +14,8 @@ import {
   MatDialogModule,
   MatExpansionModule,
   MatFormFieldModule,
-  MatIconModule, MatIconRegistry,
+  MatIconModule,
+  MatIconRegistry,
   MatInputModule,
   MatListModule,
   MatMenuModule,
@@ -29,7 +30,11 @@ import {
 } from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {NavComponent} from './components/nav/nav.component';
-import { AddressComponent } from './components/address/address.component';
+import {AddressComponent} from './components/address/address.component';
+import {BannerComponent} from './components/banner/banner.component';
+import {LoginDialogComponent} from './dialogs/login-dialog/login-dialog.component';
+import {RegisterDialogComponent} from './dialogs/register-dialog/register-dialog.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const MaterialModules = [
   MatButtonModule,
@@ -51,21 +56,37 @@ const MaterialModules = [
   MatToolbarModule,
 ];
 
+const Layouts = [
+  DefaultLayoutComponent,
+  SingleLayoutComponent,
+  TwoLayoutComponent,
+];
+
 @NgModule({
   declarations: [
-    SidebarComponent,
-    FooterComponent,
-    DefaultLayoutComponent,
-    SingleLayoutComponent,
-    TwoLayoutComponent,
+    // Layouts
+    ...Layouts,
+    // Dialogs
+    LoginDialogComponent,
+    RegisterDialogComponent,
+    // Elements
+    AddressComponent,
+    BannerComponent,
     BtnSelectComponent,
     CardComponent,
+    FooterComponent,
     NavComponent,
-    AddressComponent
+    SidebarComponent
+  ],
+  entryComponents: [
+    LoginDialogComponent,
+    RegisterDialogComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
     // Material
     ...MaterialModules,
     // FlexLayouts: TO DELETE
@@ -73,12 +94,16 @@ const MaterialModules = [
   ],
   exports: [
     ...MaterialModules,
-    DefaultLayoutComponent,
-    SingleLayoutComponent,
-    TwoLayoutComponent,
+    // Layouts
+    ...Layouts,
+    // Dialog
+    LoginDialogComponent,
+    RegisterDialogComponent,
+    // Elements
+    AddressComponent,
+    BannerComponent,
     BtnSelectComponent,
-    CardComponent,
-    AddressComponent
+    CardComponent
   ]
 })
 export class UIModule {

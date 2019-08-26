@@ -1,19 +1,18 @@
 import {Routes} from '@angular/router';
-import {HomePageComponent} from '../shop/pages/home-page/home-page.component';
-import {LegalPageComponent} from '../shop/pages/legal-page/legal-page.component';
-import {ThanksPageComponent} from '../shop/pages/thanks-page/thanks-page.component';
-import {ReturnPolicyPageComponent} from '../shop/pages/return-policy-page/return-policy-page.component';
-import {HistoryPageComponent} from '../shop/pages/history-page/history-page.component';
-import {CampaignPageComponent} from '../shop/pages/campaign-page/campaign-page.component';
-import {ProductViewPageComponent} from '../shop/pages/product-view-page/product-view-page.component';
-import {CartPageComponent} from '../shop/pages/cart-page/cart-page.component';
-import {CheckoutPageComponent} from '../shop/pages/checkout-page/checkout-page.component';
-import {OrderConfirmedPageComponent} from '../shop/pages/order-confirmed-page/order-confirmed-page.component';
+import {LoggedGuard} from '../account/guards/logged.guard';
+import {LegalPageComponent} from './pages/legal-page/legal-page.component';
+import {ThanksPageComponent} from './pages/thanks-page/thanks-page.component';
+import {HistoryPageComponent} from './pages/history-page/history-page.component';
+import {CampaignPageComponent} from './pages/campaign-page/campaign-page.component';
 
 export const routes: Routes = [
   {
-    path: 'e-shop',
-    component: HomePageComponent
+    path: 'campagne',
+    component: CampaignPageComponent
+  },
+  {
+    path: 'histoire',
+    component: HistoryPageComponent
   },
   {
     path: 'mentions-legales',
@@ -24,36 +23,18 @@ export const routes: Routes = [
     component: ThanksPageComponent
   },
   {
-    path: 'politique-retour',
-    component: ReturnPolicyPageComponent
-  },
-  {
-    path: 'histoire',
-    component: HistoryPageComponent
-  },
-  {
-    path: 'campagne',
-    component: CampaignPageComponent
-  },
-  {
-    path: 'produits/:slugId',
-    component: ProductViewPageComponent
-  },
-  {
-    path: 'panier',
-    component: CartPageComponent
+    path: 'eshop',
+    loadChildren: () => import('../shop/shop.module').then(mod => mod.ShopModule)
   },
   {
     path: 'paiement',
-    component: CheckoutPageComponent
-  },
-  {
-    path: 'commande-confirmee',
-    component: OrderConfirmedPageComponent
+    loadChildren: () => import('../checkout/checkout.module').then(mod => mod.CheckoutModule),
+    canActivate: [LoggedGuard]
   },
   {
     path: 'compte',
-    loadChildren: () => import('../account/account.module').then(mod => mod.AccountModule)
+    loadChildren: () => import('../account/account.module').then(mod => mod.AccountModule),
+    canActivate: [LoggedGuard]
   },
   {
     path: 'admin',
@@ -61,6 +42,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'e-shop'
+    redirectTo: 'eshop'
   }
 ];

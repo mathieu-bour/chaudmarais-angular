@@ -12,10 +12,14 @@ export class ProductPreviewComponent implements OnInit {
   @Input() productId: number;
   product$: Observable<Product>;
 
-  constructor(private store: Store) { }
+  constructor(private store: Store) {
+  }
 
   ngOnInit() {
     this.product$ = this.store.selectOnce((state => state.products.find(p => p.id === this.productId)));
   }
 
+  getProductLink({id, slug}: Product) {
+    return `/eshop/produits/${slug}-${id}`;
+  }
 }

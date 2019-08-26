@@ -6,10 +6,10 @@ import {IndexEnabledProducts} from '../../../api/states/products/products.action
 
 @Component({
   selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  templateUrl: './products-list-page.component.html',
+  styleUrls: ['./products-list-page.component.scss']
 })
-export class HomePageComponent implements OnInit {
+export class ProductsListPageComponent implements OnInit {
   @Select(state => state.products) products$: Observable<Product[]>;
 
   constructor(private store: Store) {

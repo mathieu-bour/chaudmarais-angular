@@ -1,8 +1,8 @@
 <app-default-layout>
-  <h1 class="title-red" *ngIf="title" [ngStyle]="{width: width}">{{ title}}</h1>
+  <h1 class="title-red" *ngIf="title" [ngStyle.gt-xs]="{width: width}">{{ title}}</h1>
 
-  <div class="wrapper" [ngStyle]="{width: width}">
-    <div class="left" [ngStyle]="{width: leftWidth}">
+  <div class="wrapper" [ngStyle.gt-xs]="{width: width}">
+    <div class="left" [ngStyle.gt-xs]="{width: leftWidth}">
       <ng-content select="[left]"></ng-content>
     </div>
     <div class="right">

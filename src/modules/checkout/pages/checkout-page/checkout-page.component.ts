@@ -91,7 +91,7 @@ export class CheckoutPageComponent implements OnInit {
   async onPay() {
     try {
       this.store.dispatch(new Pay(this.stripe, this.cardNumber)).subscribe(() => {
-        return this.router.navigate(['commande-confirmee']);
+        return this.router.navigate(['paiement/commande-confirmee']);
       });
     } catch (e) {
       console.error(e);

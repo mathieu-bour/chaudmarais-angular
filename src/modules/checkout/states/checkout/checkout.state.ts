@@ -9,7 +9,7 @@ import {
   SetShippingAddress
 } from './checkout.state.actions';
 import {CartClient} from '../../../api/clients/cart/cart.client';
-import {CartItem} from '../cart/cart.state.model';
+import {CartItem} from '../../../shop/states/cart/cart.state.model';
 
 type CheckoutStateContext = StateContext<CheckoutStateModel>;
 

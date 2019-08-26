@@ -27,7 +27,9 @@
           <span>{{total$ | async | price}}</span>
         </div>
 
-        <button routerLink="/paiement" class="btn-red">Payer</button>
+        <button mat-flat-button color="primary"
+                [disabled]="(cart$ | async).length === 0"
+                (click)="onPayRequest($event)">Payer</button>
       </ng-container>
     </app-card>
   </div>

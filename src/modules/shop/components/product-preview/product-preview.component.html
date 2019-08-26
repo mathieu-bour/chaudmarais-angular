@@ -1,6 +1,6 @@
 <ng-container *ngIf="(product$ | async) as product">
   <swiper [config]="{navigation: true}">
-    <div *ngFor="let image of product.images_first" [routerLink]="['/produits/' + product.slug + '-' +  product.id]">
+    <div *ngFor="let image of product.images_first" [routerLink]="[getProductLink(product)]">
       <img [src]="image | thumb:1000" alt="">
     </div>
   </swiper>

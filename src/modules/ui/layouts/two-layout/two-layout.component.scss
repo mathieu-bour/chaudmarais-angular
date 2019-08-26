@@ -1,18 +1,37 @@
-::ng-deep h1 {
-  width: 70%;
+@import "../../../../scss/mixins";
+
+::ng-deep .title-red {
+  @include xs {
+    margin-bottom: 0;
+  }
+
+  @include gt-xs {
+    width: 70%;
+  }
 }
 
 .wrapper {
-  width: 70%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 16px;
+
+  @include gt-xs {
+    flex-direction: row;
+    width: 70%;
+    padding: 0;
+  }
 }
 
 .left {
-  margin-right: 16px;
-  flex-shrink: 0;
+  @include gt-xs {
+    margin-right: 16px;
+    flex-shrink: 0;
+  }
 }
 
 .right {
-  flex-grow: 1;
+  @include gt-xs {
+    flex-grow: 1;
+  }
 }

@@ -31,23 +31,21 @@ export class ProductViewPageComponent implements OnInit {
     const results = slugId.match(/([a-z\-]+)-([1-9]\d*)/);
     const id = +results[2];
 
-    await this.store.dispatch([
+    this.store.dispatch([
       new GetProductStocks(id),
-    ]).toPromise();
-    await this.store.dispatch([
       new SetCurrentProductId(id)
-    ]).toPromise();
-
-    this.stocks$.pipe(first()).toPromise().then((firstStocks) => {
-      if (firstStocks.length > 0) {
-        this.store.dispatch(new SetCurrentStockId(firstStocks[0].id));
-        this.stockValues = firstStocks.map(s => {
-          return {
-            label: s.size,
-            value: s
-          };
-        });
-      }
+    ]).subscribe(() => {
+      this.stocks$.pipe(first()).subscribe((firstStocks) => {
+        if (firstStocks.length > 0) {
+          this.store.dispatch(new SetCurrentStockId(firstStocks[0].id));
+          this.stockValues = firstStocks.map(s => {
+            return {
+              label: s.size,
+              value: s
+            };
+          });
+        }
+      });
     });
   }
 
