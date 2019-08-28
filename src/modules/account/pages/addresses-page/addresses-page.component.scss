@@ -1,9 +1,26 @@
 @import "../../../../scss/variables";
+@import "../../../../scss/mixins";
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+
+  @include gt-xs {
+    flex-direction: row;
+  }
+}
 
 .addresses {
-  min-width: 300px;
+  width: 100%;
   margin-right: 16px;
+  margin-bottom: 32px;
+
+  @include gt-xs {
+    width: auto;
+    min-width: 300px;
+    margin-bottom: 0;
+  }
 }
 
 .address {

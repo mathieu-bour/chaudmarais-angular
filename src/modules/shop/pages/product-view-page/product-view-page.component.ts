@@ -5,9 +5,9 @@ import {Select, Store} from '@ngxs/store';
 import {Observable} from 'rxjs';
 import {filter, first, map} from 'rxjs/operators';
 import {ActivatedRoute} from '@angular/router';
-import {GetProduct, GetProductStocks} from '../../../api/states/products/products.actions';
 import {SetCurrentProductId, SetCurrentStockId} from '../../states/shop/shop.actions';
 import {AddToCart} from '../../states/cart/cart.actions';
+import {SEOService} from '../../../utils/services/seo.service';
 
 @Component({
   selector: 'app-product-view-page',
@@ -23,7 +23,7 @@ export class ProductViewPageComponent implements OnInit {
   imageIndex = 0;
   frozen = false;
 
-  constructor(private route: ActivatedRoute, private store: Store) {
+  constructor(private route: ActivatedRoute, private store: Store, private seo: SEOService) {
     this.stockValues$ = this.currentStocks$.pipe(map(stocks => {
       return stocks.map(s => {
         return {
@@ -39,9 +39,14 @@ export class ProductViewPageComponent implements OnInit {
     const results = slugId.match(/([a-z\-]+)-([1-9]\d*)/);
     const id = +results[2];
 
-    this.store.dispatch([
-      new SetCurrentProductId(id)
-    ]);
+    this.currentProduct$
+      .pipe(
+        filter(product => product !== null),
+        first()
+      )
+      .subscribe(product => {
+        this.seo.configureForProduct(product);
+      });
 
     this.currentStocks$
       .pipe(
@@ -51,6 +56,10 @@ export class ProductViewPageComponent implements OnInit {
       .subscribe((firstStocks) => {
         this.store.dispatch(new SetCurrentStockId(firstStocks[0].id));
       });
+
+    this.store.dispatch([
+      new SetCurrentProductId(id)
+    ]);
   }
 
   onSizeChange(stock: Stock) {

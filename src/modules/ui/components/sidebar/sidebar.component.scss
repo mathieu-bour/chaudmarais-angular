@@ -38,8 +38,9 @@ a {
   font-size: 18px;
   text-transform: uppercase;
   text-decoration: none;
+  transition: color 0.4s ease;
 
-  &.current {
+  &:hover, &.current {
     color: #ffffff;
   }
 }

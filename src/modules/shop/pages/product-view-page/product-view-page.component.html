@@ -1,18 +1,25 @@
 <app-single-layout [width]="100">
   <section class="product-wrapper">
     <div class="product-preview">
-      <ng-container *ngIf="(currentProduct$ | async) as product">
-        <ngx-image-zoom
-          [thumbImage]="product.images[imageIndex] | thumb:500"
-          [fullImage]="product.images[imageIndex] | thumb: 1500"
-          [zoomMode]="'hover'"
-          [enableLens]="true"
-          [circularLens]="true"
-          [lensWidth]="300"
-          [lensHeight]="300"
-          [isInsideStaticContainer]="true"
-        ></ngx-image-zoom>
-      </ng-container>
+      <ngx-image-zoom
+        fxHide.xs
+        *ngIf="(currentProduct$ | async) as product"
+        [thumbImage]="product.images[imageIndex] | thumb:500"
+        [fullImage]="product.images[imageIndex] | thumb: 1500"
+        [zoomMode]="'hover'"
+        [enableLens]="true"
+        [circularLens]="true"
+        [lensWidth]="300"
+        [lensHeight]="300"
+        [isInsideStaticContainer]="true"
+      ></ngx-image-zoom>
+
+      <swiper fxHide.gt-xs
+              *ngIf="(currentProduct$ | async) as product">
+        <div *ngFor="let image of product.images">
+          <img [src]="image | thumb:1500" alt="">
+        </div>
+      </swiper>
     </div>
 
     <div class="product-infos">

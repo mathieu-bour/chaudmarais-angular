@@ -7,6 +7,7 @@ import {AuthState} from '../../../api/states/auth/auth.state';
 import {MatDialog} from '@angular/material';
 import {LoginDialogComponent} from '../../../ui/dialogs/login-dialog/login-dialog.component';
 import {Router} from '@angular/router';
+import {SEOService} from '../../../utils/services/seo.service';
 
 @Component({
   selector: 'app-cart-page',
@@ -20,10 +21,16 @@ export class CartPageComponent implements OnInit {
   @Select(store => store.cart.shipping) shipping$: Observable<Shipping>;
   @Select(CartState.total) total$: Observable<number>;
 
-  constructor(private store: Store, private router: Router, private dialog: MatDialog) {
+  constructor(
+    private store: Store,
+    private router: Router,
+    private seo: SEOService,
+    private dialog: MatDialog
+  ) {
   }
 
   ngOnInit() {
+    this.seo.setTitle('Panier');
   }
 
   async onPayRequest($event: MouseEvent) {
