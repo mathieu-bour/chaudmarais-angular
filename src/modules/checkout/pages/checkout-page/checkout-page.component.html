@@ -12,27 +12,24 @@
     <mat-step>
       <ng-template matStepLabel>Choix de l'adresse de livraison</ng-template>
 
-      <app-address-selector
-        [addresses]="addresses$ | async"
-        [value]="shippingAddress$ | async"
-        (valueChange)="onShippingAddressChange($event)"
+      <app-address-selector [addresses]="addresses$ | async"
+                            [value]="shippingAddress$ | async"
+                            (valueChange)="onShippingAddressChange($event)"
       >
       </app-address-selector>
 
       <div class="step-actions">
-        <button
-          mat-flat-button
-          color="primary"
-          matStepperNext
-          [disabled]="!(shippingAddress$ | async) || (loading$ | async)">
+        <button mat-flat-button
+                color="primary"
+                matStepperNext
+                [disabled]="!(shippingAddress$ | async) || (loading$ | async)">
           Suivant
         </button>
 
-        <button
-          mat-flat-button
-          color="primary"
-          routerLink="/compte/adresses">
-          Ajouter une addresse
+        <button mat-flat-button
+                color="primary"
+                (click)="onShippingAddressAdd()">
+          Nouvelle addresse
         </button>
 
         <mat-spinner *ngIf="loading$ | async" [diameter]="40"></mat-spinner>
@@ -57,12 +54,11 @@
       </fieldset>
 
       <div class="step-actions">
-        <button
-          mat-flat-button
-          color="primary"
-          matStepperNext
-          (click)="onPay()"
-          [disabled]="!(complete$ | async) || (loading$ | async)">
+        <button mat-flat-button
+                color="primary"
+                matStepperNext
+                (click)="onPay()"
+                [disabled]="!(complete$ | async) || (loading$ | async)">
           Valider le paiement
         </button>
 

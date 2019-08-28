@@ -25,9 +25,12 @@ export class AddressesState extends BaseState {
   }
 
   @Action(PostAddress)
-  async postAddress(ctx: AddressesStateContext, {userId, name, line1, line2, postalCode, city, country}: PostAddress) {
-    await this.addressesClient.post({user_id: userId, name, line1, line2, postal_code: postalCode, city, country});
-    return ctx.dispatch(new GetUserAddresses(userId));
+  postAddress(ctx: AddressesStateContext, {data}: PostAddress) {
+    if (!data.hasOwnProperty('user_id')) {
+      data.user_id = this.store.snapshot().auth.user.id;
+    }
+
+    return this.addressesClient.post(data);
   }
 
   @Action(GetLoggedUserAddresses)

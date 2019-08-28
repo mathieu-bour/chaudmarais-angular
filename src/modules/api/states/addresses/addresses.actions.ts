@@ -17,14 +17,13 @@ export class GetUserAddresses {
 export class PostAddress {
   static readonly type = '[Addresses API] PostAddress';
 
-  constructor(
-    public userId: number,
-    public name: string,
-    public line1: string,
-    public line2: string,
-    public postalCode: string,
-    public city: string,
-    public country: string
-  ) {
+  constructor(public data: Partial<Address>) {
+  }
+}
+
+export class PatchAddress {
+  static readonly type = '[Addresses API] PatchAddress';
+
+  constructor(public id: number, public data: Partial<Address>) {
   }
 }

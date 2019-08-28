@@ -32,19 +32,4 @@ export class AddressesPageComponent implements OnInit {
     const userId = await this.userId$.pipe(first()).toPromise();
     this.store.dispatch(new GetUserAddresses(userId));
   }
-
-  async addAddress() {
-    const userId = await this.userId$.pipe(first()).toPromise();
-    this.store.dispatch(
-      new PostAddress(
-        userId,
-        this.newAddress.value.name,
-        this.newAddress.value.line1,
-        this.newAddress.value.line2,
-        this.newAddress.value.postCode,
-        this.newAddress.value.city,
-        this.newAddress.value.country)
-    );
-    this.newAddress.reset();
-  }
 }

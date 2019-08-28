@@ -19,44 +19,7 @@
 
     <app-card class="address-form">
       <h3 card-title class="title-red">Ajouter une adresse</h3>
-      <form card-content [formGroup]="newAddress" (ngSubmit)="addAddress()">
-        <fieldset>
-          <label for="address-form-name">Nom</label>
-          <input type="text" formControlName="name" placeholder="Jean Dupont" id="address-form-name">
-        </fieldset>
-
-        <fieldset>
-          <label for="address-form-line1">Adresse</label>
-          <input type="text" formControlName="line1" placeholder="15 rue Chaud Marais" id="address-form-line1">
-        </fieldset>
-
-        <fieldset>
-          <label for="address-form-line2">Complément d'adresse</label>
-          <input type="text" formControlName="line2" placeholder="(si nécessaire)" id="address-form-line2">
-        </fieldset>
-
-        <fieldset>
-          <label for="address-form-city">Ville</label>
-          <input type="text" formControlName="city" placeholder="Paris" id="address-form-city">
-        </fieldset>
-
-        <fieldset>
-          <label for="address-form-postal-code">Code postal</label>
-          <input type="text" formControlName="postCode" placeholder="75004" id="address-form-postal-code">
-        </fieldset>
-
-        <fieldset>
-          <label for="address-form-country">Pays</label>
-          <input type="text" formControlName="country" placeholder="Pays" id="address-form-country">
-        </fieldset>
-
-        <button type="submit"
-                mat-flat-button
-                color="primary"
-                [disabled]="!newAddress.valid">
-          Valider
-        </button>
-      </form>
+      <app-address-form card-content></app-address-form>
     </app-card>
   </div>
 </app-account-layout>

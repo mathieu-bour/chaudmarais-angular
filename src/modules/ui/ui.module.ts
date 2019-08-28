@@ -21,7 +21,8 @@ import {
   MatMenuModule,
   MatPaginatorModule,
   MatProgressSpinnerModule,
-  MatRadioModule, MatSelectModule,
+  MatRadioModule,
+  MatSelectModule,
   MatSidenavModule,
   MatSlideToggleModule,
   MatStepperModule,
@@ -35,6 +36,8 @@ import {BannerComponent} from './components/banner/banner.component';
 import {LoginDialogComponent} from './dialogs/login-dialog/login-dialog.component';
 import {RegisterDialogComponent} from './dialogs/register-dialog/register-dialog.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AddressDialogComponent} from './dialogs/address-dialog/address-dialog.component';
+import { AddressFormComponent } from './components/address-form/address-form.component';
 
 const MaterialModules = [
   MatButtonModule,
@@ -63,13 +66,18 @@ const Layouts = [
   TwoLayoutComponent,
 ];
 
+const Dialogs = [
+  LoginDialogComponent,
+  RegisterDialogComponent,
+  AddressDialogComponent
+];
+
 @NgModule({
   declarations: [
     // Layouts
     ...Layouts,
     // Dialogs
-    LoginDialogComponent,
-    RegisterDialogComponent,
+    ...Dialogs,
     // Elements
     AddressComponent,
     BannerComponent,
@@ -77,11 +85,12 @@ const Layouts = [
     CardComponent,
     FooterComponent,
     NavComponent,
-    SidebarComponent
+    SidebarComponent,
+    AddressDialogComponent,
+    AddressFormComponent
   ],
   entryComponents: [
-    LoginDialogComponent,
-    RegisterDialogComponent
+    ...Dialogs
   ],
   imports: [
     CommonModule,
@@ -97,14 +106,14 @@ const Layouts = [
     ...MaterialModules,
     // Layouts
     ...Layouts,
-    // Dialog
-    LoginDialogComponent,
-    RegisterDialogComponent,
+    // Dialogs
+    ...Dialogs,
     // Elements
     AddressComponent,
     BannerComponent,
     BtnSelectComponent,
-    CardComponent
+    CardComponent,
+    AddressFormComponent
   ]
 })
 export class UIModule {

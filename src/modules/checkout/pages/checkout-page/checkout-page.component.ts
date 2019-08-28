@@ -10,6 +10,8 @@ import {CreatePaymentIntent, OnStripeElementChange, Pay, SetShippingAddress} fro
 import {environment} from '../../../../environments/environment';
 import {Router} from '@angular/router';
 import {CheckoutState} from '../../states/checkout/checkout.state';
+import {MatDialog} from '@angular/material';
+import {AddressDialogComponent} from '../../../ui/dialogs/address-dialog/address-dialog.component';
 
 @Component({
   selector: 'app-checkout-page',
@@ -37,6 +39,7 @@ export class CheckoutPageComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private dialog: MatDialog,
     private store: Store
   ) {
   }
@@ -80,6 +83,12 @@ export class CheckoutPageComponent implements OnInit {
         this.store.dispatch(new CreatePaymentIntent());
         break;
     }
+  }
+
+  onShippingAddressAdd() {
+    this.dialog.open(AddressDialogComponent).afterClosed().subscribe(() => {
+      this.store.dispatch(new GetLoggedUserAddresses());
+    });
   }
 
   onShippingAddressChange(newShippingAddress: Address) {
