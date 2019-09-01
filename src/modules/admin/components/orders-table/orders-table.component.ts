@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Store} from '@ngxs/store';
 import {Order} from '../../../api/models/order';
 import {environment} from '../../../../environments/environment';
@@ -12,6 +12,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   styleUrls: ['./orders-table.component.scss']
 })
 export class OrdersTableComponent implements OnInit {
+  @Input() method = 'index';
   orders: Order[] = [];
   page = 0;
   perPage = 100;
@@ -30,7 +31,7 @@ export class OrdersTableComponent implements OnInit {
   }
 
   async fetch() {
-    const response = await this.ordersClient.indexPaid(this.page, this.perPage);
+    const response = await this.ordersClient[this.method](this.page, this.perPage);
     this.orders = response.data;
     this.page = response.page;
     this.perPage = response.per_page;
