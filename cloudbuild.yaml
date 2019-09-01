@@ -7,8 +7,12 @@ steps:
   - id: 'ng:build'
     name: 'node:11-alpine'
     waitFor: ['yarn:install']
-    entrypoint: 'yarn'
-    args: ['run', 'build']
+    entrypoint: 'ash'
+    args:
+      - '-c'
+      - |
+        ng build --configuration=$BRANCH_NAME
+        webpack --config src/webpack.config.js
 
   - id: 'docker:build'
     waitFor: ['ng:build']

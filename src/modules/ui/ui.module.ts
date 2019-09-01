@@ -39,8 +39,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AddressDialogComponent} from './dialogs/address-dialog/address-dialog.component';
 import { AddressFormComponent } from './components/address-form/address-form.component';
 import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatBadgeModule} from '@angular/material/badge';
 
 const MaterialModules = [
+  MatBadgeModule,
   MatButtonModule,
   MatButtonToggleModule,
   MatDialogModule,

@@ -24,6 +24,11 @@ export class CartState {
     return CartState.subtotal(state) + state.shipping.price;
   }
 
+  @Selector()
+  static count(state: CartStateModel): number {
+    return state.items.reduce((acc, item) => acc + item.quantity, 0);
+  }
+
   @Action(SetCartQuantity)
   setCartQuantity(ctx: CartStateContext, {stock, product, quantity}: SetCartQuantity) {
     const search = line => line.stock.id === stock.id;

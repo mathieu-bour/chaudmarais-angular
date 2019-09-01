@@ -4,9 +4,6 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "yarn run build:browser && yarn run build:server",
-    "build:browser": "ng build --prod",
-    "build:server": "webpack --config src/webpack.config.js",
     "serve:ssr": "node dist/server.js"
   },
   "private": true,

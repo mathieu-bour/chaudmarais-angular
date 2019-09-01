@@ -2,10 +2,10 @@
   fxLayout="column"
   aria-labelledby="example-radio-group-label"
   class="example-radio-group"
+  [disabled]="loading$ | async"
   [ngModel]="value"
   (ngModelChange)="value = $event"
 >
-
   <mat-radio-button *ngFor="let address of addresses" [value]="address">
     <div class="address">
       {{ address.line1 }}<br>

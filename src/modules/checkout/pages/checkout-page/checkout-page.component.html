@@ -14,8 +14,7 @@
 
       <app-address-selector [addresses]="addresses$ | async"
                             [value]="shippingAddress$ | async"
-                            (valueChange)="onShippingAddressChange($event)"
-      >
+                            (valueChange)="onShippingAddressChange($event)">
       </app-address-selector>
 
       <div class="step-actions">

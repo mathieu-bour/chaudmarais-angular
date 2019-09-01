@@ -42,7 +42,7 @@
                         (valueChange)="onSizeChange($event)">
         </app-btn-select>
 
-        <button class="btn-red" (click)="onAddToCart()">
+        <button mat-flat-button color="primary" (click)="onAddToCart()">
           {{ !frozen ? 'Ajouter au panier' : 'Ajouté !' }}
         </button>
       </div>

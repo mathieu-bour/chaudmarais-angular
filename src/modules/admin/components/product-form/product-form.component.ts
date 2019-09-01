@@ -2,7 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {Store} from '@ngxs/store';
 import {PatchProduct} from '../../../api/states/products/products.actions';
-import {EditProduct} from '../../states/admin/admin.actions';
+import {EditProduct, LoadProducts} from '../../states/admin/admin.actions';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product-form',
@@ -22,7 +23,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     order: [0]
   });
 
-  constructor(private store: Store, private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private store: Store) {
   }
 
   ngOnInit() {
@@ -37,8 +38,11 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     delete this.productFormGroup;
   }
 
-  confirmEdition() {
-    this.store.dispatch(new PatchProduct(this.productFormGroup.value));
+  async confirmEdition() {
+    await this.store.dispatch(new PatchProduct(this.productFormGroup.value)).toPromise();
+    this.snackBar.open('Produit enregistré');
+    await this.store.dispatch(new EditProduct(null)).toPromise();
+    this.store.dispatch(new LoadProducts(0, 100));
   }
 
   cancelEdition() {
