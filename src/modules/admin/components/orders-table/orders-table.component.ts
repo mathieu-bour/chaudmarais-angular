@@ -4,6 +4,7 @@ import {Order} from '../../../api/models/order';
 import {environment} from '../../../../environments/environment';
 import {OrdersClient} from '../../../api/clients/orders/orders.client';
 import {PageEvent} from '@angular/material';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-orders-table',
@@ -17,11 +18,15 @@ export class OrdersTableComponent implements OnInit {
   total = 0;
   columns = ['id', 'total', 'content', 'address', 'actions'];
 
-  constructor(private store: Store, private ordersClient: OrdersClient) {
+  constructor(
+    private store: Store,
+    private snackBar: MatSnackBar,
+    private ordersClient: OrdersClient
+  ) {
   }
 
   ngOnInit() {
-    this.fetch();
+    this.fetch().then();
   }
 
   async fetch() {
@@ -51,7 +56,7 @@ export class OrdersTableComponent implements OnInit {
     const response = await this.ordersClient.patch(id, {status});
 
     if (response.success) {
-      alert('ok');
+      this.snackBar.open('Succès');
     }
   }
 

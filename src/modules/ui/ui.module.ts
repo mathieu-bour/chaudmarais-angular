@@ -38,6 +38,7 @@ import {RegisterDialogComponent} from './dialogs/register-dialog/register-dialog
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AddressDialogComponent} from './dialogs/address-dialog/address-dialog.component';
 import { AddressFormComponent } from './components/address-form/address-form.component';
+import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from '@angular/material/snack-bar';
 
 const MaterialModules = [
   MatButtonModule,
@@ -55,6 +56,7 @@ const MaterialModules = [
   MatSelectModule,
   MatSidenavModule,
   MatSlideToggleModule,
+  MatSnackBarModule,
   MatStepperModule,
   MatTableModule,
   MatToolbarModule,
@@ -91,6 +93,9 @@ const Dialogs = [
   ],
   entryComponents: [
     ...Dialogs
+  ],
+  providers: [
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}
   ],
   imports: [
     CommonModule,

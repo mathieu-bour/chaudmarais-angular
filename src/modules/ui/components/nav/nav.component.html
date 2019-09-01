@@ -4,7 +4,7 @@
      routerLink="/">
 
 <div class="actions">
-  <mat-icon fontSet="cm" [matMenuTriggerFor]="menu">menu</mat-icon>
+  <mat-icon class="menu-trigger" [matMenuTriggerFor]="menu">menu</mat-icon>
 
   <ng-container *ngIf="isLogged$ | async; else notLogged">
     <mat-icon fontSet="cm" routerLink="/compte/informations" routerLinkActive="current">user</mat-icon>

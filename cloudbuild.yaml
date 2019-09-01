@@ -29,7 +29,7 @@ steps:
     args:
       - '-c'
       - |
-        gcloud beta run deploy chaud-marais-angular-dev \
+        gcloud beta run deploy chaud-marais-angular-$BRANCH_NAME \
           --platform=managed \
           --image eu.gcr.io/$PROJECT_ID/chaud-marais-angular:$SHORT_SHA \
           --region europe-west1

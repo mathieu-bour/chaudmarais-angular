@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder} from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
 import {Store} from '@ngxs/store';
 import {Login} from '../../../api/states/auth/auth.state.actions';
 import {MatDialog, MatDialogRef} from '@angular/material';
 import {RegisterDialogComponent} from '../register-dialog/register-dialog.component';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login-dialog',
@@ -13,15 +14,16 @@ import {RegisterDialogComponent} from '../register-dialog/register-dialog.compon
 export class LoginDialogComponent implements OnInit {
   error = false;
   loginForm = this.formBuilder.group({
-    email: 'admin@chaudmarais.fr',
-    password: '123456'
+    email: ['', Validators.required],
+    password: ['', Validators.required]
   });
 
   constructor(
     private store: Store,
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<LoginDialogComponent>,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) {
   }
 
@@ -33,6 +35,7 @@ export class LoginDialogComponent implements OnInit {
     try {
       await this.store.dispatch(new Login(email, password)).toPromise();
       this.dialogRef.close();
+      this.snackBar.open('Bienvenue !');
     } catch (e) {
       this.error = true;
     }

@@ -12,10 +12,24 @@
     height: 49px; // Workaround for Safari iOS
   }
 
+
   .actions {
     font-size: 40px;
     color: $light-primary-text;
     margin-left: auto;
+    display: flex;
+    align-items: center;
+    align-content: center;
+
+    .menu-trigger {
+      width: 1em !important;
+      height: 1em !important;
+    }
+
+    mat-icon {
+      font-size: 40px;
+      vertical-align: top;
+    }
   }
 }
 

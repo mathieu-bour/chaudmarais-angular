@@ -4,6 +4,7 @@ import {LegalPageComponent} from './pages/legal-page/legal-page.component';
 import {ThanksPageComponent} from './pages/thanks-page/thanks-page.component';
 import {HistoryPageComponent} from './pages/history-page/history-page.component';
 import {CampaignPageComponent} from './pages/campaign-page/campaign-page.component';
+import {ContactPageComponent} from './pages/contact-page/contact-page.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,10 @@ export const routes: Routes = [
   {
     path: 'remerciements',
     component: ThanksPageComponent
+  },
+  {
+    path: 'contact',
+    component: ContactPageComponent
   },
   {
     path: 'eshop',

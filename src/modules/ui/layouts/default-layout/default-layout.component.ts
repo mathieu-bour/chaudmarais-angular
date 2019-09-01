@@ -15,11 +15,11 @@ export class DefaultLayoutComponent implements OnInit {
   }
 
   async ngOnInit() {
-    const value = this.store.snapshot().app.grpd;
-    if (!value) {
-      this.dialog.open(GrpdDialogComponent);
-      this.store.dispatch(new HasClicked());
-    }
+    // const value = this.store.snapshot().app.grpd;
+    // if (!value) {
+    //   this.dialog.open(GrpdDialogComponent);
+    //   this.store.dispatch(new HasClicked());
+    // }
   }
 
 }

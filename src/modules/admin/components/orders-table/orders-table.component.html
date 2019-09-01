@@ -29,8 +29,10 @@
       <button mat-flat-button color="primary" [matMenuTriggerFor]="menu">Marquer comme</button>
 
       <mat-menu #menu="matMenu">
-        <button mat-flat-button color="primary" (click)="patchStatus(order.id, 'fulfilled')">Envoyé</button>
-        <button mat-flat-button color="primary" (click)="patchStatus(order.id, 'paid')">Non envoyé</button>
+        <div class="statuses">
+          <button mat-flat-button color="primary" (click)="patchStatus(order.id, 'fulfilled')">Envoyé</button>
+          <button mat-flat-button color="primary" (click)="patchStatus(order.id, 'paid')">Non envoyé</button>
+        </div>
       </mat-menu>
     </td>
   </ng-container>

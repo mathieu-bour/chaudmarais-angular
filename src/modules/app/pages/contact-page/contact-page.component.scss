@@ -1,0 +1,38 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/mixins";
+
+.contact-ways {
+  margin-top: 0;
+  margin-bottom: 32px;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin-bottom: 8px;
+
+    a {
+      color: $dark-primary-text;
+      text-decoration: none;
+
+      mat-icon {
+        vertical-align: middle;
+        color: $light-primary-text;
+        font-size: 20px;
+        text-align: center;
+        background-color: $red;
+      }
+    }
+  }
+}
+
+.contact-form-card {
+  @include gt-xs {
+    width: 50%;
+  }
+}
+
+.fieldset-minor {
+  @include gt-xs {
+    width: 70%;
+  }
+}

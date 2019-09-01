@@ -32,7 +32,7 @@ export class RegisterDialogComponent implements OnInit {
 
   async onRegister() {
     try {
-      await this.store.dispatch(new PostUser(this.registerForm.value));
+      await this.store.dispatch(new PostUser(this.registerForm.value)).toPromise();
       await this.store.dispatch(new Login(this.registerForm.value.email, this.registerForm.value.password)).toPromise();
       this.dialog.closeAll();
     } catch (e) {
