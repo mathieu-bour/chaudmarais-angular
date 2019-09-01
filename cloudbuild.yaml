@@ -18,13 +18,13 @@ steps:
     waitFor: ['ng:build']
     name: 'gcr.io/cloud-builders/docker'
     args: ['build',
-           '-t', 'eu.gcr.io/$PROJECT_ID/chaud-marais-angular:$SHORT_SHA',
+           '-t', 'eu.gcr.io/$PROJECT_ID/chaud-marais-angular:$BRANCH_NAME-$SHORT_SHA',
            '.']
 
   - id: 'docker:push'
     waitFor: ['docker:build']
     name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'eu.gcr.io/$PROJECT_ID/chaud-marais-angular:$SHORT_SHA']
+    args: ['push', 'eu.gcr.io/$PROJECT_ID/chaud-marais-angular:$BRANCH_NAME-$SHORT_SHA']
 
   - id: 'cloud-run:deploy'
     waitFor: ['docker:push']
@@ -35,5 +35,5 @@ steps:
       - |
         gcloud beta run deploy chaud-marais-angular-$BRANCH_NAME \
           --platform=managed \
-          --image eu.gcr.io/$PROJECT_ID/chaud-marais-angular:$SHORT_SHA \
+          --image eu.gcr.io/$PROJECT_ID/chaud-marais-angular:$BRANCH_NAME-$SHORT_SHA \
           --region europe-west1
