@@ -11,8 +11,8 @@ steps:
     args:
       - '-c'
       - |
-        ng build --configuration=$BRANCH_NAME
-        webpack --config src/webpack.config.js
+        yarn run ng build --configuration=$BRANCH_NAME
+        yarn run webpack --config src/webpack.config.js
 
   - id: 'docker:build'
     waitFor: ['ng:build']
