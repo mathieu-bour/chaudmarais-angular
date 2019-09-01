@@ -104,4 +104,10 @@ section {
   > * {
     margin-right: 8px;
   }
+
+  @include xs {
+    [mat-flat-button], ::ng-deep [mat-flat-button] {
+      font-size: $base-font-size-xs;
+    }
+  }
 }
