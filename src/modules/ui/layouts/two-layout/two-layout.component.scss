@@ -1,6 +1,6 @@
 @import "../../../../scss/mixins";
 
-::ng-deep .title-red {
+::ng-deep app-default-layout > section > .wrapper > .title-red {
   @include xs {
     margin-bottom: 0;
   }

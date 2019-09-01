@@ -1,0 +1,36 @@
+<app-single-layout [title]="'Contact'">
+  <ul class="contact-ways">
+    <li>
+      <a href="mailto:contact.chaudmarais@gmail.com">
+        <mat-icon fontSet="cm">mail</mat-icon>
+        contact.chaudmarais@gmail.com
+      </a>
+    </li>
+    <li>
+      <a href="tel:0687870134">
+        <mat-icon fontSet="cm">phone</mat-icon>
+        0687870134
+      </a>
+    </li>
+  </ul>
+
+  <app-card class="contact-form-card">
+    <h2 card-title class="title-red">Formulaire de contact</h2>
+    <form card-content [formGroup]="contactFormGroup" (ngSubmit)="sendToZapier()">
+      <fieldset class="fieldset-minor">
+        <label for="contact-form-name">Nom, Prénom :</label>
+        <input formControlName="name" type="text" id="contact-form-name">
+      </fieldset>
+      <fieldset class="fieldset-minor">
+        <label for="contact-form-email">Adresse e-mail :</label>
+        <input formControlName="email" type="email" id="contact-form-email">
+      </fieldset>
+      <fieldset>
+        <label for="contact-form-message">Votre message :</label>
+        <textarea formControlName="message" id="contact-form-message" rows="10"></textarea>
+      </fieldset>
+
+      <button mat-flat-button color="primary" [disabled]="!contactFormGroup.valid">Envoyer</button>
+    </form>
+  </app-card>
+</app-single-layout>

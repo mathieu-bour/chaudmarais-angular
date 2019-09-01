@@ -12,10 +12,42 @@
     height: 49px; // Workaround for Safari iOS
   }
 
+
   .actions {
     font-size: 40px;
     color: $light-primary-text;
     margin-left: auto;
+    display: flex;
+    align-items: center;
+    align-content: center;
+
+    .menu-trigger {
+      width: 1em !important;
+      height: 1em !important;
+    }
+
+    mat-icon {
+      font-size: 40px;
+      vertical-align: top;
+
+      &[data-count] {
+        position: relative;
+
+        &:before {
+          content: attr(data-count);
+          position: absolute;
+          top: -4px;
+          right: -4px;
+          display: block;
+          padding: 4px;
+          color: $red;
+          font-size: 18px;
+          font-family: $base-font-family;
+          background-color: $light-primary-text;
+          border-radius: 99999px;
+        }
+      }
+    }
   }
 }
 

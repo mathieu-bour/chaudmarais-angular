@@ -19,15 +19,17 @@ $typography: mat-typography-config(
 
 @include mat-core($typography);
 @include mat-core-theme($candy-app-theme);
-@include mat-dialog-theme($candy-app-theme);
+
 @include mat-button-theme($candy-app-theme);
-@include mat-stepper-theme($candy-app-theme);
+@include mat-dialog-theme($candy-app-theme);
+@include mat-list-theme($candy-app-theme);
 @include mat-progress-spinner-theme($candy-app-theme);
 @include mat-radio-theme($candy-app-theme);
 @include mat-sidenav-theme($candy-app-theme);
-@include mat-list-theme($candy-app-theme);
-@include mat-table-theme($candy-app-theme);
 @include mat-slide-toggle-theme($candy-app-theme);
+@include mat-snack-bar-theme($candy-app-theme);
+@include mat-stepper-theme($candy-app-theme);
+@include mat-table-theme($candy-app-theme);
 
 html {
   @import "dialog";

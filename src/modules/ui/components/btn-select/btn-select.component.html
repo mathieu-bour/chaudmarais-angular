@@ -1,7 +1,7 @@
-<button class="btn-red trigger" [matMenuTriggerFor]="menu">
+<button mat-flat-button color="primary" [matMenuTriggerFor]="menu">
   {{ prefix }}
   {{ label }}
-  v
+  <mat-icon>expand_more</mat-icon>
 </button>
 
 <mat-menu #menu="matMenu">

@@ -3,6 +3,7 @@ import {Store} from '@ngxs/store';
 import {FormBuilder} from '@angular/forms';
 import {Stock} from '../../../api/models/stock';
 import {PatchStock} from '../../../api/states/stocks/stocks.actions';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-stock-form',
@@ -20,7 +21,7 @@ export class StockFormComponent implements OnInit, OnDestroy {
     available_inventory: [null]
   });
 
-  constructor(private store: Store, private fb: FormBuilder) {
+  constructor(private snackBar: MatSnackBar, private store: Store, private fb: FormBuilder) {
   }
 
   ngOnInit() {
@@ -33,7 +34,8 @@ export class StockFormComponent implements OnInit, OnDestroy {
     delete this.stocksFormGroup;
   }
 
-  confirmEdition() {
-    this.store.dispatch(new PatchStock(this.stock.id, this.stocksFormGroup.value));
+  async confirmEdition() {
+    await this.store.dispatch(new PatchStock(this.stock.id, this.stocksFormGroup.value)).toPromise();
+    this.snackBar.open('Stock mis à jour !');
   }
 }

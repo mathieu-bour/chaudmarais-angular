@@ -19,6 +19,8 @@ import {LegalPageComponent} from './pages/legal-page/legal-page.component';
 import {ThanksPageComponent} from './pages/thanks-page/thanks-page.component';
 import {BannerComponent} from '../ui/components/banner/banner.component';
 import {UIModule} from '../ui/ui.module';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,11 +31,14 @@ import {UIModule} from '../ui/ui.module';
     LegalPageComponent,
     ThanksPageComponent,
     // Dialogs
-    GrpdDialogComponent
+    GrpdDialogComponent,
+    ContactPageComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     NgxImageZoomModule.forRoot(),
     NgxsModule.forRoot([AppState], {developmentMode: !environment.production}),

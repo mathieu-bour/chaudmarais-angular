@@ -1,13 +1,15 @@
 <mat-toolbar class="toolbar">
   <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
-  <span>My Application</span>
+  <span>Chaud Marais</span>
 </mat-toolbar>
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
     <mat-nav-list>
       <a mat-list-item [routerLink]="'/admin/products'">Produits</a>
+      <a mat-list-item [routerLink]="'/admin/commandes'">Commandes</a>
       <a mat-list-item [routerLink]="'/admin/commandes/a-livrer'">Commandes à livrer</a>
+      <a mat-list-item [routerLink]="'/'">Retour au site</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

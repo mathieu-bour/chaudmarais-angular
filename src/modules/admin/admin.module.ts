@@ -16,6 +16,7 @@ import { StockFormComponent } from './components/stock-form/stock-form.component
 import { StocksPageComponent } from './pages/stocks-page/stocks-page.component';
 import { OrdersPaidPageComponent } from './pages/orders-paid-page/orders-paid-page.component';
 import { OrdersTableComponent } from './components/orders-table/orders-table.component';
+import { OrdersPageComponent } from './pages/orders-page/orders-page.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { OrdersTableComponent } from './components/orders-table/orders-table.com
     StockFormComponent,
     StocksPageComponent,
     OrdersPaidPageComponent,
-    OrdersTableComponent
+    OrdersTableComponent,
+    OrdersPageComponent
   ],
   imports: [
     CommonModule,

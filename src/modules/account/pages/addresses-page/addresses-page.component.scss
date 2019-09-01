@@ -21,9 +21,14 @@
     min-width: 300px;
     margin-bottom: 0;
   }
-}
 
-.address {
-  padding: 16px;
-  border: solid 2px $red;
+  .address {
+    padding: 16px;
+    border: solid 2px $red;
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
