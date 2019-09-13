@@ -1,32 +1,40 @@
-<app-default-layout>
+<app-single-layout [width]="70">
   <app-banner></app-banner>
 
-  <section>
-    <img src="https://placehold.it/800x1000" alt="Temp">
+  <div fxLayout="column" fxLayoutGap="16px">
+    <section fxLayout="row" fxLayoutGap="16px">
+      <article class="half" fxLayout="column" fxLayoutGap="16px">
+        <img src="https://cdn.chaudmarais.fr/img/campaign/1-cropped-x1080.jpg" alt="">
+        <img src="https://cdn.chaudmarais.fr/img/campaign/3-x1080.jpg" alt="">
+      </article>
 
-    <article class="text-side">
-      <div class="stat">
-        <div class="stat-number">30</div>
-        <div class="stat-text">
-          <span class="red">Milliards.</span> C’est le nombre de pizzas consommées chaque année dans le monde.
-        </div>
+      <article class="half" fxLayout="column" fxLayoutGap="16px">
+        <img src="https://cdn.chaudmarais.fr/img/campaign/text.png" alt="">
+        <img src="https://cdn.chaudmarais.fr/img/campaign/2-x1080.jpg" alt="">
+      </article>
+    </section>
+
+    <section fxLayout="row" fxLayoutGap="16px">
+      <div class="half">
+        <img src="https://cdn.chaudmarais.fr/img/campaign/4-x1080.jpg" alt="">
       </div>
-
-      <div class="stat">
-        <div class="stat-number">91</div>
-        <div class="stat-text">
-          <span class="red">Milliards ?</span> Le nombre de vidéos pornographiques vues chaque année sur Pornhub.
-        </div>
+      <div class="half">
+        <img src="https://cdn.chaudmarais.fr/img/campaign/5-x1080.jpg" alt="">
       </div>
+    </section>
 
-      <p>Aujourd’hui plus libre d’accès que jamais auparavant, le sexe reste pourtant tabou.</p>
+    <img src="https://cdn.chaudmarais.fr/img/campaign/6-x1920.jpg" alt="">
+    <img src="https://cdn.chaudmarais.fr/img/campaign/7-x1920.jpg" alt="">
 
-      <p>
-        Sous les traits d’une pizzeria, Chaud marais présente le désir sexuel comme une envie de pizza, le désir assumé,
-        le sexe déculpabilisé.
-      </p>
+    <section fxLayout="row" fxLayoutGap="16px">
+      <img style="width: 46.5%" src="https://cdn.chaudmarais.fr/img/campaign/8-x1080.jpg" alt="">
 
-      <p class="red">Want sex ? Take a slice !</p>
-    </article>
-  </section>
-</app-default-layout>
+      <article class="half" fxLayout="column" fxLayoutGap="16px" fxFlex="grow">
+        <img src="https://cdn.chaudmarais.fr/img/campaign/9-x1080.jpg" alt="">
+        <img src="https://cdn.chaudmarais.fr/img/campaign/10-x1080.jpg" alt="">
+      </article>
+    </section>
+
+    <img class="last" src="https://cdn.chaudmarais.fr/img/campaign/11-x1920.jpg" alt="">
+  </div>
+</app-single-layout>

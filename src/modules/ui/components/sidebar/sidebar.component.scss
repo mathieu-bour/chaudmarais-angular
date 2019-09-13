@@ -56,5 +56,30 @@ a {
     padding: 16px 8px;
     font-size: 40px;
     text-align: center;
+
+    mat-icon {
+      &[data-count] {
+        position: relative;
+
+        &:before {
+          content: attr(data-count);
+          position: absolute;
+          top: -4px;
+          right: -4px;
+          display: block;
+          padding: 4px;
+          color: $red;
+          font-size: 18px;
+          font-family: $base-font-family;
+          background-color: #ed8290;
+          border-radius: 99999px;
+          transition: .3s ease;
+        }
+      }
+    }
+
+    &:hover mat-icon[data-count]:before {
+      background-color: $light-primary-text;
+    }
   }
 }

@@ -1,6 +1,10 @@
 @import '../../../../scss/variables';
 @import '../../../../scss/mixins';
 
+:host {
+  padding-bottom: 16px;
+}
+
 app-banner {
   display: block;
   margin: 0 -16px 16px;
@@ -15,31 +19,14 @@ section {
   flex-direction: row;
 }
 
-img {
-  display: block;
+.half {
   width: 50%;
-  margin-right: 16px;
+
+  img {
+    max-width: 100%;
+  }
 }
 
-.stat {
-  display: flex;
-  flex-direction: row;
+.last {
   margin-bottom: 16px;
-
-  .stat-number {
-    min-width: 50px;
-    margin-right: 16px;
-    color: $red;
-    font-size: 40px;
-    font-style: italic;
-    font-weight: 900;
-    line-height: 40px;
-    text-align: left;
-  }
-
-  .stat-text {
-    flex-grow: 1;
-    line-height: 20px;
-    text-align: justify;
-  }
 }

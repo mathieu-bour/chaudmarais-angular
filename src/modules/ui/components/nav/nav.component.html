@@ -13,17 +13,21 @@
     <mat-icon fontSet="cm" (click)="openLoginDialog()">user</mat-icon>
   </ng-template>
 
-  <mat-icon fontSet="cm"
+  <mat-icon *ngIf="(count$ | async) > 0; else emptyCart"
+            fontSet="cm"
             routerLink="/eshop/panier"
             [attr.data-count]="count$ | async">
     cart
   </mat-icon>
+  <ng-template #emptyCart>
+    <mat-icon fontSet="cm" routerLink="/eshop/panier">cart</mat-icon>
+  </ng-template>
 </div>
 
 <mat-menu #menu="matMenu">
   <div class="links">
     <a mat-flat-button color="primary" routerLink="/e-shop" routerLinkActive="current">e-shop</a>
-    <!--<a mat-flat-button color="primary" routerLink="/campagne" routerLinkActive="current">campagne</a>-->
+    <a mat-flat-button color="primary" routerLink="/campagne" routerLinkActive="current">campagne</a>
     <a mat-flat-button color="primary" routerLink="/histoire" routerLinkActive="current">histoire</a>
   </div>
 </mat-menu>
