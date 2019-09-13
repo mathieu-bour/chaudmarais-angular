@@ -21,6 +21,8 @@ import {BannerComponent} from '../ui/components/banner/banner.component';
 import {UIModule} from '../ui/ui.module';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ExtendedModule, FlexModule} from '@angular/flex-layout';
+import { FirstPageComponent } from './pages/first-page/first-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ThanksPageComponent,
     // Dialogs
     GrpdDialogComponent,
-    ContactPageComponent
+    ContactPageComponent,
+    FirstPageComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
       key: ['app', 'auth']
     }),
     APIModule,
-    UIModule
+    UIModule,
+    FlexModule,
+    ExtendedModule
   ],
   entryComponents: [GrpdDialogComponent],
   providers: [],

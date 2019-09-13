@@ -1,0 +1,75 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/mixins";
+
+:host {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(https://cdn.chaudmarais.fr/img/campaign/1-x1080.jpg) top center;
+  background-size: cover;
+
+  @include gt-xs {
+    background: url(https://cdn.chaudmarais.fr/img/home-desktop-x1080.jpg) top center;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  width: 100%;
+  height: 100%;
+
+  @include gt-xs {
+    flex-direction: row;
+  }
+
+  .logo {
+    @include gt-xs {
+      max-height: 100%;
+    }
+  }
+
+  nav {
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+
+    ul {
+      display: flex;
+      padding: 0;
+      flex-direction: row;
+      list-style: none;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      li {
+        &:not(:last-child) {
+          margin-right: 32px;
+        }
+
+        a {
+          color: $light-primary-text;
+          text-transform: uppercase;
+          font-style: italic;
+          font-weight: 700;
+          text-decoration: none;
+
+          @include gt-xs {
+            font-size: 40px;
+          }
+
+          &.social mat-icon {
+            font-size: 40px;
+            background-color: $red;
+          }
+        }
+      }
+    }
+  }
+}

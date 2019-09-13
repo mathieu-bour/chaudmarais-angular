@@ -4,6 +4,8 @@ import {MatDialog} from '@angular/material';
 import {LoginDialogComponent} from '../../dialogs/login-dialog/login-dialog.component';
 import {Router} from '@angular/router';
 import {AuthState} from '../../../api/states/auth/auth.state';
+import {CartState} from '../../../shop/states/cart/cart.state';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,6 +14,7 @@ import {AuthState} from '../../../api/states/auth/auth.state';
 })
 export class SidebarComponent implements OnInit {
   @Select(AuthState.isLogged) isLogged$;
+  @Select(CartState.count) count$: Observable<number>;
 
   constructor(
     private router: Router,
