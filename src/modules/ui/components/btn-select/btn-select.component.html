@@ -1,6 +1,8 @@
 <button mat-flat-button color="primary" [matMenuTriggerFor]="menu">
   {{ prefix }}
-  {{ label }}
+  <ng-container *ngIf="showLabel">
+    {{ label }}
+  </ng-container>
   <mat-icon>expand_more</mat-icon>
 </button>
 

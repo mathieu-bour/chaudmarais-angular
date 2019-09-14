@@ -8,6 +8,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class BtnSelectComponent implements OnInit {
   @Input() placeholder: string;
   @Input() prefix: string;
+  @Input() showLabel = true;
   @Input() values: [{ label: string, value: any }];
   @Output() valueChange = new EventEmitter<any>();
 

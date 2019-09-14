@@ -37,6 +37,7 @@
            class="cart-wrapper">
         <app-btn-select [placeholder]="'Taille'"
                         [prefix]="'Taille'"
+                        [showLabel]="false"
                         [values]="stockValues$ | async"
                         [value]="currentStock$ | async"
                         (valueChange)="onSizeChange($event)">
