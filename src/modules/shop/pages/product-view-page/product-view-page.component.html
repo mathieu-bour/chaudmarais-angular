@@ -37,13 +37,13 @@
            class="cart-wrapper">
         <app-btn-select [placeholder]="'Taille'"
                         [prefix]="'Taille'"
-                        [showLabel]="false"
+                        [showLabel]="hasInteracted"
                         [values]="stockValues$ | async"
                         [value]="currentStock$ | async"
                         (valueChange)="onSizeChange($event)">
         </app-btn-select>
 
-        <button mat-flat-button color="primary" (click)="onAddToCart()">
+        <button mat-flat-button color="primary" [disabled]="!hasInteracted" (click)="onAddToCart()">
           {{ !frozen ? 'Ajouter au panier' : 'Ajouté !' }}
         </button>
       </div>

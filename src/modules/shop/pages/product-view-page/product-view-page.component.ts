@@ -21,6 +21,7 @@ export class ProductViewPageComponent implements OnInit {
   stockValues$: Observable<{ label: string, value: Stock }[]>;
 
   imageIndex = 0;
+  hasInteracted = false;
   frozen = false;
 
   constructor(private route: ActivatedRoute, private store: Store, private seo: SEOService) {
@@ -48,22 +49,24 @@ export class ProductViewPageComponent implements OnInit {
         this.seo.configureForProduct(product);
       });
 
-    this.currentStocks$
-      .pipe(
-        filter((stocks) => stocks.length > 0),
-        first()
-      )
-      .subscribe((firstStocks) => {
-        this.store.dispatch(new SetCurrentStockId(firstStocks[0].id));
-      });
-
     this.store.dispatch([
       new SetCurrentProductId(id)
     ]);
+
+    // this.currentStocks$
+    //   .pipe(
+    //     filter((stocks) => stocks.length > 0),
+    //     first()
+    //   )
+    // .subscribe((firstStocks) => {
+    //   this.store.dispatch(new SetCurrentStockId(firstStocks[0].id));
+    // });
+
   }
 
   onSizeChange(stock: Stock) {
     if (stock) {
+      this.hasInteracted = true;
       this.store.dispatch(new SetCurrentStockId(stock.id))
         .pipe(first())
         .subscribe(() => this.frozen = false);
