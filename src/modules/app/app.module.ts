@@ -47,7 +47,7 @@ import { FirstPageComponent } from './pages/first-page/first-page.component';
     NgxsModule.forRoot([AppState], {developmentMode: !environment.production}),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsStoragePluginModule.forRoot({
-      key: ['app', 'auth']
+      key: ['app', 'auth', 'cart']
     }),
     APIModule,
     UIModule,

@@ -4,19 +4,18 @@
 
 <mat-menu #menu="matMenu">
   <div class="links">
-    <a routerLink="/e-shop" routerLinkActive="current">e-shop</a>
+    <a routerLink="/eshop" routerLinkActive="current">e-shop</a>
     <a routerLink="/campagne" routerLinkActive="current">campagne</a>
     <a routerLink="/histoire" routerLinkActive="current">histoire</a>
     <div class="links-icons">
       <a routerLink="/eshop/panier" routerLinkActive="current">
         <mat-icon *ngIf="(count$ | async) > 0; else emptyCart"
                   fontSet="cm"
-                  routerLink="/eshop/panier"
                   [attr.data-count]="count$ | async">
           cart
         </mat-icon>
         <ng-template #emptyCart>
-          <mat-icon fontSet="cm" routerLink="/eshop/panier">cart</mat-icon>
+          <mat-icon fontSet="cm">cart</mat-icon>
         </ng-template>
       </a>
 
