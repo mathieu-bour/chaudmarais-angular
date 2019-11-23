@@ -26,8 +26,8 @@
       <div *ngIf="(currentProduct$ | async) as product" class="product">
         <h1>{{ product.name }}</h1>
         <h2>{{ product.type }}</h2>
-        <div class="product-price" *ngIf="(currentStock$ | async) as stock">
-          {{ stock.price | euros }}.<span>{{ stock.price | cents }}</span>€
+        <div class="product-price" *ngIf="(stockValues$ | async) as stockValues">
+          {{ stockValues[0].value.price | euros }}.<span>{{ stockValues[0].value.price | cents }}</span>€
         </div>
         <p [innerHTML]="product.description | replace | safe:'html' ">
         </p>
