@@ -1,5 +1,6 @@
 import {Routes} from '@angular/router';
 import {LoggedGuard} from '../account/guards/logged.guard';
+import { CommitmentsPageComponent } from './pages/commitments-page/commitments-page.component';
 import {LegalPageComponent} from './pages/legal-page/legal-page.component';
 import {ThanksPageComponent} from './pages/thanks-page/thanks-page.component';
 import {HistoryPageComponent} from './pages/history-page/history-page.component';
@@ -15,6 +16,10 @@ export const routes: Routes = [
   {
     path: 'campagne',
     component: CampaignPageComponent
+  },
+  {
+    path: 'engagements',
+    component: CommitmentsPageComponent
   },
   {
     path: 'histoire',
