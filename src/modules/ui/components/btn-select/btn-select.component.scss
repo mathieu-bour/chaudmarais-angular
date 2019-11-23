@@ -1,5 +1,7 @@
 ::ng-deep html {
   .mat-menu-panel {
+    min-height: auto;
+
     .mat-menu-content {
       padding: 0;
       display: flex;
