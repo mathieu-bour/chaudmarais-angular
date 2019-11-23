@@ -67,9 +67,14 @@
           &.social mat-icon {
             font-size: 40px;
             background-color: $red;
+            box-shadow: 0 0 10px #000000;
           }
         }
       }
     }
   }
+}
+
+.text-shadow {
+  text-shadow: 0 0 10px #000000;
 }

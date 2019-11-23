@@ -23,6 +23,7 @@ import { ContactPageComponent } from './pages/contact-page/contact-page.componen
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ExtendedModule, FlexModule} from '@angular/flex-layout';
 import { FirstPageComponent } from './pages/first-page/first-page.component';
+import { CommitmentsPageComponent } from './pages/commitments-page/commitments-page.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FirstPageComponent } from './pages/first-page/first-page.component';
     // Dialogs
     GrpdDialogComponent,
     ContactPageComponent,
-    FirstPageComponent
+    FirstPageComponent,
+    CommitmentsPageComponent
   ],
   imports: [
     BrowserModule,
