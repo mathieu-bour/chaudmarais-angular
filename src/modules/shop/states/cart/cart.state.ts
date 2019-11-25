@@ -9,7 +9,7 @@ import {AddToCart, EmptyCart, RemoveFromCart, SetCartQuantity} from './cart.acti
     items: [],
     shipping: {
       name: 'Livraison standard',
-      price: 630
+      price: 250
     }
   }
 })
@@ -46,6 +46,19 @@ export class CartState {
         items: append([{quantity, stock, product}])
       }));
     }
+
+    const hasTshirt = ctx.getState().items.reduce((prev, item) => {
+      return prev || item.product.type.includes('shirt');
+    }, false);
+
+    const newShippingPrice = hasTshirt ? 630 : 250;
+
+    ctx.patchState({
+      shipping: {
+        name: 'Livraison standard',
+        price: newShippingPrice
+      }
+    });
   }
 
   @Action(AddToCart)
