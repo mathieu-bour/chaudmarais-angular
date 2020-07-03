@@ -1,4 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  Input,
+  OnInit,
+} from '@angular/core';
 import {Store} from '@ngxs/store';
 import {Observable} from 'rxjs';
 import {Product} from '../../../api/models/product';

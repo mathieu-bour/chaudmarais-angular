@@ -1,8 +1,94 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/mixins";
+
 :host {
   display: block;
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
+}
+
+@mixin x-aides($width, $delta) {
+  .aides {
+    @keyframes xaides-top {
+      0% {
+        transform: translate3d(0,0,0);
+      }
+      100% {
+        transform: translate3d(-$delta,0,0);
+      }
+    }
+    @keyframes xaides-left {
+      0% {
+        transform: translate3d(0,0,0);
+      }
+      100% {
+        transform: translate3d(0,$delta,0);
+      }
+    }
+    @keyframes xaides-bottom {
+      0% {
+        transform: translate3d(-$delta,0,0);
+      }
+      100% {
+        transform: translate3d(0,0,0);
+      }
+    }
+    @keyframes xaides-right {
+      0% {
+        transform: translate3d(0,$delta,0);
+      }
+      100% {
+        transform: translate3d(0,0,0);
+      }
+    }
+
+    position: absolute;
+    background-color: $red;
+    background-image: url(https://cdn.chaudmarais.fr/img/x-aides-slider.png);
+    background-repeat: repeat-x;
+    background-size: contain;
+    z-index: 999;
+
+    &.top {
+      top: 0;
+      left: 0;
+      width: 400%;
+      height: $width;
+      animation: xaides-top 5s linear infinite;
+    }
+    &.right {
+      background-image: url(https://cdn.chaudmarais.fr/img/x-aides-slider-270.png);
+      background-repeat: repeat-y;
+      width: $width;
+      right: 0;
+      bottom: 0;
+      height: 400%;
+      animation: xaides-right 5s linear infinite;
+    }
+    &.bottom {
+      bottom: 0;
+      left: 0;
+      width: 400%;
+      height: $width;
+      animation: xaides-bottom 5s linear infinite;
+    }
+    &.left {
+      background-image: url(https://cdn.chaudmarais.fr/img/x-aides-slider-270.png);
+      background-repeat: repeat-y;
+      width: $width;
+      left: 0;
+      bottom: 0;
+      height: 400%;
+      animation: xaides-left 5s linear infinite;
+    }
+  }
+}
+
+@include x-aides(40px, 350px);
+
+@include xs {
+  @include x-aides(16px, 350px)
 }
 
 swiper {
@@ -28,9 +114,26 @@ swiper {
 }
 
 .product-infos {
-  padding: 4px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 30px 0 60px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 998;
+  transform: translate(0, 100%);
+  transition: transform .3s ease;
+
+  @include xs {
+    padding: 16px 0 32px;
+  }
+
   .product-name {
     margin: 0;
     font-size: 18px;
   }
+}
+
+:host:hover .product-infos {
+  transform: translate(0, 0);
 }

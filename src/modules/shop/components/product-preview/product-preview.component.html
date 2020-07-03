@@ -1,4 +1,11 @@
 <ng-container *ngIf="(product$ | async) as product">
+  <ng-container *ngIf="product.collection === 'aides'">
+    <div class="aides top"></div>
+    <div class="aides right"></div>
+    <div class="aides bottom"></div>
+    <div class="aides left"></div>
+  </ng-container>
+
   <swiper [config]="{navigation: true}">
     <div *ngFor="let image of product.images_first" [routerLink]="[getProductLink(product)]">
       <img [src]="image | thumb:1000" alt="">

@@ -52,6 +52,18 @@ section {
   .product {
     margin-bottom: 16px;
 
+    .x-aides {
+      color: #ffffff;
+      font-weight: 900;
+      text-transform: uppercase;
+      -webkit-text-stroke: 1px #000000;
+      margin-bottom: 0;
+
+      @include gt-xs {
+        font-size: 40px;
+      }
+    }
+
     h1 {
       margin: 0;
       text-transform: uppercase;
@@ -93,6 +105,10 @@ section {
 
     p {
       line-height: 1.6;
+    }
+
+    .product-macaron {
+      width: 200px;
     }
   }
 }
