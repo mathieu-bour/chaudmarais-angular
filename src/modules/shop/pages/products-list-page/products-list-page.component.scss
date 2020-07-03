@@ -1,6 +1,7 @@
 @import "../../../../scss/mixins";
 
-app-banner {
+app-banner,
+app-banner-aides {
   margin: 0 -16px 16px;
 
   @include gt-xs {
