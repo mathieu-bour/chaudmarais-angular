@@ -15,7 +15,7 @@
       ></ngx-image-zoom>
 
       <swiper fxHide.gt-xs
-              *ngIf="(currentProduct$ | async) as product">
+        *ngIf="(currentProduct$ | async) as product">
         <div *ngFor="let image of product.images">
           <img [src]="image | thumb:1500" alt="">
         </div>
@@ -23,24 +23,28 @@
     </div>
 
     <div class="product-infos">
-      <div *ngIf="(currentProduct$ | async) as product" class="product">
+      <div *ngIf="(currentProduct$ | async) as product" class="product" fxLayout="column">
+        <h3 *ngIf="product.collection === 'aides'" class="x-aides">Chaud Marais x Aides</h3>
         <h1>{{ product.name }}</h1>
         <h2>{{ product.type }}</h2>
         <div class="product-price" *ngIf="(stockValues$ | async) as stockValues">
           {{ stockValues[0].value.price | euros }}.<span>{{ stockValues[0].value.price | cents }}</span>€
         </div>
-        <p [innerHTML]="product.description | replace | safe:'html' ">
-        </p>
+
+        <div fxLayout.gt-sm="row" fxLayoutGap.gt-sm="32px" fxLayout="column" fxLayoutGap="16px">
+          <p [innerHTML]="product.description | replace | safe:'html'"></p>
+          <img class="product-macaron" src="https://cdn.chaudmarais.fr/img/ui/macaron-aides.png" alt="Macaron Aides">
+        </div>
       </div>
 
       <div *ngIf="(stockValues$ | async).length > 0"
-           class="cart-wrapper">
+        class="cart-wrapper">
         <app-btn-select [placeholder]="'Taille'"
-                        [prefix]="'Taille'"
-                        [showLabel]="hasInteracted"
-                        [values]="stockValues$ | async"
-                        [value]="currentStock$ | async"
-                        (valueChange)="onSizeChange($event)">
+          [prefix]="'Taille'"
+          [showLabel]="hasInteracted"
+          [values]="stockValues$ | async"
+          [value]="currentStock$ | async"
+          (valueChange)="onSizeChange($event)">
         </app-btn-select>
 
         <button mat-flat-button color="primary" [disabled]="!hasInteracted" (click)="onAddToCart()">

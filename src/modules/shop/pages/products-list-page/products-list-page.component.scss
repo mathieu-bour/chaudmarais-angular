@@ -1,6 +1,7 @@
 @import "../../../../scss/mixins";
 
-app-banner {
+app-banner,
+app-banner-aides {
   margin: 0 -16px 16px;
 
   @include gt-xs {
@@ -14,25 +15,19 @@ app-banner {
   width: 100%;
 
   app-product-preview {
-    width: 50%;
+    width: calc(50% - 16px);
     margin-bottom: 16px;
 
     &:nth-child(2n) {
-      padding-left: 16px;
+      margin-left: 16px;
     }
 
     &:nth-child(2n + 1) {
-      padding-right: 16px;
+      margin-right: 16px;
     }
 
     @include xs {
-      &:nth-child(2n) {
-        padding-left: 8px;
-      }
-
-      &:nth-child(2n + 1) {
-        padding-right: 8px;
-      }
+      padding: 0 8px;
     }
   }
 }

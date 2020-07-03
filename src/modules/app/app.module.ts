@@ -24,6 +24,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ExtendedModule, FlexModule} from '@angular/flex-layout';
 import { FirstPageComponent } from './pages/first-page/first-page.component';
 import { CommitmentsPageComponent } from './pages/commitments-page/commitments-page.component';
+import { CampaignAidesPageComponent } from './pages/campaign-aides-page/campaign-aides-page.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CommitmentsPageComponent } from './pages/commitments-page/commitments-p
     GrpdDialogComponent,
     ContactPageComponent,
     FirstPageComponent,
-    CommitmentsPageComponent
+    CommitmentsPageComponent,
+    CampaignAidesPageComponent
   ],
   imports: [
     BrowserModule,
