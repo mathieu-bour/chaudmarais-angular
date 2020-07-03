@@ -3,7 +3,14 @@
 
   <section class="product-grid">
     <app-product-preview
-      *ngFor="let product of products$ | async"
+      *ngFor="let product of productsAides$ | async"
+      [productId]="product.id">
+    </app-product-preview>
+  </section>
+
+  <section class="product-grid">
+    <app-product-preview
+      *ngFor="let product of productsDefault$ | async"
       [productId]="product.id">
     </app-product-preview>
   </section>
