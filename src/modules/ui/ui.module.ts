@@ -40,6 +40,7 @@ import {AddressDialogComponent} from './dialogs/address-dialog/address-dialog.co
 import { AddressFormComponent } from './components/address-form/address-form.component';
 import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatBadgeModule} from '@angular/material/badge';
+import { BannerAidesComponent } from './components/banner-aides/banner-aides.component';
 
 const MaterialModules = [
   MatBadgeModule,
@@ -91,7 +92,8 @@ const Dialogs = [
     NavComponent,
     SidebarComponent,
     AddressDialogComponent,
-    AddressFormComponent
+    AddressFormComponent,
+    BannerAidesComponent
   ],
   entryComponents: [
     ...Dialogs
@@ -118,6 +120,7 @@ const Dialogs = [
     // Elements
     AddressComponent,
     BannerComponent,
+    BannerAidesComponent,
     BtnSelectComponent,
     CardComponent,
     AddressFormComponent
