@@ -85,7 +85,7 @@
   }
 }
 
-@include x-aides(40px, 350px);
+@include x-aides(30px, 350px);
 
 @include xs {
   @include x-aides(16px, 350px)
@@ -108,6 +108,14 @@ swiper {
     &:hover {
       .swiper-button-prev, .swiper-button-next {
         opacity: 1;
+      }
+
+      .swiper-button-prev {
+        left: 64px;
+      }
+
+      .swiper-button-next {
+        right: 64px;
       }
     }
   }
