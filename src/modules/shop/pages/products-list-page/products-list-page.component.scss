@@ -18,16 +18,24 @@ app-banner-aides {
     width: calc(50% - 16px);
     margin-bottom: 16px;
 
+    @include xs {
+      width: calc(50% - 4px);
+    }
+
     &:nth-child(2n) {
       margin-left: 16px;
+
+      @include xs {
+        margin-left: 4px;
+      }
     }
 
     &:nth-child(2n + 1) {
       margin-right: 16px;
-    }
 
-    @include xs {
-      padding: 0 8px;
+      @include xs {
+        margin-right: 4px;
+      }
     }
   }
 }
