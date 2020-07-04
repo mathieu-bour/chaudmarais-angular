@@ -1,0 +1,54 @@
+@import '../../../../scss/variables';
+@import '../../../../scss/mixins';
+
+:host {
+  padding-bottom: 16px;
+}
+
+app-banner, app-banner-aides {
+  display: block;
+  margin: 0 -16px 16px;
+
+  @include gt-xs {
+    margin: 0 0 32px 0;
+  }
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+}
+
+.img-60p {
+  @include gt-md {
+    max-width: 70%;
+  }
+}
+
+.text {
+  text-align: justify;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.half {
+  width: 50%;
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+.third {
+   width: 33.333333%;
+
+   img {
+     display: block;
+     max-width: 100%;
+   }
+ }
+
+.last {
+  margin-bottom: 16px;
+}
