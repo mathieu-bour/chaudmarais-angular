@@ -33,7 +33,7 @@
 
         <div fxLayout.gt-md="row" fxLayoutGap.gt-sm="32px" fxLayout="column" fxLayoutGap="16px">
           <p [innerHTML]="product.description | replace | safe:'html'"></p>
-          <img class="product-macaron" src="https://cdn.chaudmarais.fr/img/ui/macaron-aides.png" alt="Macaron Aides">
+          <img *ngIf="product.collection === 'aides'" class="product-macaron" src="https://cdn.chaudmarais.fr/img/ui/macaron-aides.png" alt="Macaron Aides">
         </div>
       </div>
 
