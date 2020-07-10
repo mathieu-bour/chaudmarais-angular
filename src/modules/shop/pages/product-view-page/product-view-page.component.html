@@ -31,7 +31,7 @@
           {{ stockValues[0].value.price | euros }}.<span>{{ stockValues[0].value.price | cents }}</span>€
         </div>
 
-        <div fxLayout.gt-sm="row" fxLayoutGap.gt-sm="32px" fxLayout="column" fxLayoutGap="16px">
+        <div fxLayout.gt-md="row" fxLayoutGap.gt-sm="32px" fxLayout="column" fxLayoutGap="16px">
           <p [innerHTML]="product.description | replace | safe:'html'"></p>
           <img class="product-macaron" src="https://cdn.chaudmarais.fr/img/ui/macaron-aides.png" alt="Macaron Aides">
         </div>
