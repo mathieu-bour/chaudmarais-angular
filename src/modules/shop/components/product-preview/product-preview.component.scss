@@ -103,6 +103,10 @@ swiper {
     .swiper-button-prev, .swiper-button-next {
       opacity: 0;
       transition: all .2s ease;
+
+      @include xs {
+        transform: scale(.5);
+      }
     }
 
     &:hover {
@@ -112,10 +116,18 @@ swiper {
 
       .swiper-button-prev {
         left: 64px;
+
+        @include xs {
+          left: 24px;
+        }
       }
 
       .swiper-button-next {
         right: 64px;
+
+        @include xs {
+          right: 24px;
+        }
       }
     }
   }
@@ -139,6 +151,16 @@ swiper {
   .product-name {
     margin: 0;
     font-size: 18px;
+
+    @include xs {
+      font-size: 12px;
+    }
+  }
+
+  .product-price {
+    @include xs {
+      font-size: 12px;
+    }
   }
 }
 

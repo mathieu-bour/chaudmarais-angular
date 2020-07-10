@@ -19,9 +19,18 @@ section {
   flex-direction: row;
 }
 
-.img-60p {
+.aside-img {
+  align-self: center;
+
   @include gt-md {
+    display: inline-block;
     max-width: 70%;
+  }
+}
+
+.aside-text {
+  @include gt-md {
+    display: inline-block;
   }
 }
 
