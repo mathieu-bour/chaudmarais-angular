@@ -45,7 +45,7 @@
 
     position: absolute;
     background-color: $red;
-    background-image: url(https://cdn.chaudmarais.fr/img/x-aides-slider.png);
+    background-image: url(https://storage.googleapis.com/cdn.chaudmarais.fr/img/x-aides-slider.png);
     background-repeat: repeat-x;
     background-size: contain;
     z-index: 999;
@@ -58,7 +58,7 @@
       animation: xaides-top 5s linear infinite;
     }
     &.right {
-      background-image: url(https://cdn.chaudmarais.fr/img/x-aides-slider-270.png);
+      background-image: url(https://storage.googleapis.com/cdn.chaudmarais.fr/img/x-aides-slider-270.png);
       background-repeat: repeat-y;
       width: $width;
       right: 0;
@@ -74,7 +74,7 @@
       animation: xaides-bottom 5s linear infinite;
     }
     &.left {
-      background-image: url(https://cdn.chaudmarais.fr/img/x-aides-slider-270.png);
+      background-image: url(https://storage.googleapis.com/cdn.chaudmarais.fr/img/x-aides-slider-270.png);
       background-repeat: repeat-y;
       width: $width;
       left: 0;
